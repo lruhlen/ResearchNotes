@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120416;15371800">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120423;20133200">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><BR><BR>
+</P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=4><U><B>Useful
+computer stuff figured out recently:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif">If you want to join several images together into a larger image (for example, Figure1a, Figure1b, Figure1c, Figure1d --&gt; Figure1) the following ImageMagick commands will help you do that:</FONT></PRE>
+</UL>
+<UL>
+	<UL>
+		<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif">#If you want to append images horizontally, use this command</FONT></PRE>
+		<UL>
+			<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif">convert image1.jpg image2.jpg image3.jpg +append result.jpg</FONT></PRE>
+		</UL>
+		<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif">#If you want to append them vertically, change the + to a -</FONT></PRE>
+		<UL>
+			<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif">convert image1.jpg image2.jpg image3.jpg -append result.jpg</FONT></PRE>
+		</UL>
+	</UL>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Set
+	a (as yet non-permanent) command line alias to take me to the
+	/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results
+	folder:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">plots=&quot;cd
+		/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results&quot;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">How
+	to automatically fill in that '* goes here to indicate convection is
+	happening at this mass cell' column in all the model files in the
+	/results/ directory.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">file=&quot;0_model_info.txt&quot;;
+		cat $file| awk '{if ( match($0,&quot;MODEL&quot;) ||
+		(match($0,&quot;dM&quot;) ) ) { } else if ($2 != &quot;*&quot;) {$1
+		= $1 &quot; .&quot;; } else {$1=$1&quot;&quot;;}; if (NF &gt;11)
+		{print $0;}};' &gt; temp.txt; mv temp.txt $file</SPAN></SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+		</SPAN></FONT></FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	shell script called 'n' (in /usr/local/bin/. You'll need to use
+	'sudo' to do anything to the file.) that takes care of the setting
+	up a growlnotification for any command you run. Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>&gt;
+		n command_name_here &amp;</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</FONT></FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Should
+	look into this more next time, in thecode.f itself.</FONT></FONT></FONT></P>
+</UL>
+<HR>
+</BODY>
+</HTML>

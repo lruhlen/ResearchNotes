@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120416;15330500">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120423;20124200">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P ALIGN=CENTER><BR><BR>
+</P>
+<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=4><U><B>Scripts
+and programs I've written recently</B></U></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Name:
+	RunSim.py</B></FONT></FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>What it
+		does:</B> You give it the name of the input parameters file you
+		want to use, and it runs the simulation with growlnotify (n) and
+		follow and captures the output according to my personal file/dir
+		naming convention for these runs.</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Where it
+		lives</B> /Desktop/Research/BodenheimerCode/RunSim.py</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Language</B>
+		it's written in: Python</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Still in
+		progress</B>. I'm working up updating my python-fu to allow this
+		script to call other, pre-existing scripts I've written, and to
+		pass arguments to them to streamline the data-parsing and plotting
+		process.</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="text-decoration: none"><B>atmosPlottingScript.py</B></SPAN>:
+	plots the atmospheric parts of the model data. Lives in
+	/Desktop/Research/BodenheimerCode/</FONT></FONT></P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>addcol</B>:
+	added to /usr/local/bin/, so it's in my path and you don't have to
+	copy/add/link it to every directory where you want to use it. It
+	adds a '.' to the 'put a * here if convection is occuring in this
+	mass cell' column of the model files. So, you run this on all the
+	model files in a new results directory immediately after you've
+	parsed the raw simulation output into individual models. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Use
+		as follows: &gt; ./addcol &lt;name of model to be examined&gt;</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>./follow</B>
+	&lt;filename&gt;</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>What
+		it does</I>: launches 2 xterms to follow the progress of a
+		simulation by grepping the simulation's text output file for
+		'dtime' and 'record', respectively</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Where
+		it lives</I>: /usr/local/bin/ (you need root access to write to
+		that directory)</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Language</I>
+		it's written in: shell script/basic unix commands</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>plot_x_vs_y.py</B></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">What
+		it does: plots any of the HR_model_info variables against any other
+		HR_model_info variable, for an arbitrary number of results/cases.
+		Prompts the user to specify which variables to assign to the x and
+		y axes, then prompts user to select HR_model_info files to read in.
+		Then, asks the user if they want to save the resulting plot, and
+		where. The output filename is automatically assigned to be
+		Yvar_vs_Xvar.jpg/pdf, for ease of organization.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Where
+		it lives: /Desktop/Research/BodenheimerCode/</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Language
+		it's written in: python</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Name
+	and use example of the thing</B></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>What
+		it does: </I></FONT></FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Where
+		it lives:</I></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Language
+		it's written in: </I></FONT></FONT>
+		</P>
+	</UL>
+</UL>
+</BODY>
+</HTML>
