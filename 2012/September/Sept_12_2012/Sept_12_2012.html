@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120912;18270100">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Sept. 12, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<U><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><B>From
+last time:</B></SPAN></FONT></FONT></FONT></U></P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<SPAN STYLE="text-decoration: none">The CDE profiles don't differ
+		until you hit the outermost mass cell. (Note: I had to tweak some
+		signs in the NewCalcCDEG.cpp subroutine to get the CDE signs to
+		more-or-less agree b/w the two codes. The outermost mass cell
+		values remain hard to get right, as usual.) </SPAN>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<SPAN STYLE="text-decoration: none">However, the A matrix values
+		start differing between the codes before that point. So, need to
+		figure out why that's happening.</SPAN></P>
+	</UL>
+</UL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		What if I also set the outermost C (and DE?) matrix values to
+		Peter's values, and repeat? Will that fix the A profiles'
+		discrepancies at the outermost mass cell?</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			Swapping in the outermost C values alone doesn't fix it.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<SPAN STYLE="text-decoration: none">Swapping the outermost values
+			of CDEG all at once doesn't fix it, either. (How is that
+			possible????!!!!!!) </SPAN>
+			</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">Let's try
+		replacing the 5 outermost CDEG values with the results from Peter's
+		code, and see if that gets the A profiles to agree with each other,
+		at least at the outer edge of the system.</SPAN></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">The
+			outermost A3 values still differ in magnitude and sign when I do
+			this.  The outermost A2 values differ slightly.  All the other A
+			profiles agree.</SPAN></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><U><B>To Do Today:</B></U></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Update wordpress blog</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Back up fortran and cpp codes to BitBucket</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT SIZE=3><U><B>To keep in mind for later:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>For the 1 Mjup model: do the
+	Peter and Helena models' dX values (raw) now agree, too? </FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

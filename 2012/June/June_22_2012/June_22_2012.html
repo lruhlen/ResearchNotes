@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120623;1334700">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: June 22, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+From home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context:  /Desktop/Research/CppHenyeyCode/CodingSandbox/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE>Push my Bodenheimer code updates to BitBucket/archive in
+	Git.</STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE>Find which Bodenheimer results/test cases to use for the
+	Jupiter mass-ish C++ code test calcs.</STRIKE> (No fusion...)</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		All of the Jupiter-mass-ish models produced by the Bodenheimer code
+		are stored in
+		/Desktop/Research/BodenheimerCode/UnalteredCode/results/JupMods</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		We have the following systems (in units of Jupiter masses): 1, 1.5,
+		1.8, 2.3, 2.8, 3, 4, 5.7, 6, 7, 8, 10, 11.5, 14, 18, 22, 28, 35, 42</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			There are also some more massive models, but I'll focus on the
+			ones listed above for now.</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		For now, I'll pick the 10 Mjup system to work with, just 'cause
+		it's right in the middle of the mass range that these models
+		covered.  (1 Mjup would be nice in other ways, but I want to make
+		sure that if anything wonky happens with it, that it's due to
+		issues with the Henyey algorithm and not a &quot;we're in a strange
+		region of parameter space&quot; issue.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			For now, I think we should be able to start from the first
+			recorded model in that series (0_model...), because I think the
+			starting model used there (from the mass chain-down series) was
+			already evolved away from the polytropic starting profile.</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE>Update/check/make sure my variable read-in routines can
+	handle the format of the data in those test cases.</STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Update the Mwhole and Mhalf mass grid formalism in the vars class to
+	be easier/more readable/more intuitive to follow. <I>&lt;-- Got to
+	here before stopping for the day.  I think I have this figured out,
+	but double check when I start up again tomorrow</I>.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Can I write a python wrapper for my code to plot the results as the
+	C++ code runs?</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Re-acquaint myself with the c++ functions I wrote so long ago!</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Test the input variable read-ins</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		update the code to include my new TableGroup/eos and atmos()
+		functions/formalisms.</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Update my CalcCDEG subroutine to include the atmos() outer oundary
+	conds. process/data in its calcs.  (And also the TableGroup EOS
+	lookup formalism, which will be faster than the eos stuff I used to
+	have in there.)</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Switch all calcs back from using the scaled/xprime variables back to
+	the plain old &quot;x&quot; (unscaled) variables.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Look up papers about the FU Orionis outbursts (spiral density waves,
+	accretion disks, boosting accretion rate and therefore accretion
+	luminosity onto/from those young stars).</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		People haven't considered the effects of accretion boosting (i.e.
+		disk draining timescale shrinking ) by spiral density waves in
+		planetary systems, as far as Greg knows off the top of his head, so</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Check if that's true, and</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Think about how I might want to investigate that, myself.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

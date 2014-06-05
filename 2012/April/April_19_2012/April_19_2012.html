@@ -1,0 +1,895 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120420;1170000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: April 19, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+Home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: Macho Mac:
+/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Scripts/Software
+created today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Name:
+	RunSim.py</FONT></FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>What it
+		does: You give it the name of the input parameters file you want to
+		use, and it runs the simulation  with growlnotify (n) and follow
+		and captures the output according to my personal file/dir naming
+		convention for these runs.</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Where it
+		lives /Desktop/Research/BodenheimerCode/RunSim.py</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Language
+		it's written in: Python</FONT></FONT></P>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Still in
+		progress.  I'm working up updating my python-fu to allow this
+		script to call other, pre-existing scripts I've written, and to
+		pass arguments to them to streamline the data-parsing and plotting
+		process.</FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>If you want to join several images together into a larger image (for example, Figure1a, Figure1b, Figure1c, Figure1d --&gt; Figure1) the following ImageMagick commands will help you do that:</FONT></FONT></PRE>
+</UL>
+<UL>
+	<UL>
+		<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>#If you want to append images horizontally, use this command</FONT></FONT></PRE>
+		<UL>
+			<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>convert image1.jpg image2.jpg image3.jpg +append result.jpg</FONT></FONT></PRE>
+		</UL>
+		<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>#If you want to append them vertically, change the + to a -</FONT></FONT></PRE>
+		<UL>
+			<LI><PRE STYLE="margin-bottom: 0.2in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>convert image1.jpg image2.jpg image3.jpg -append result.jpg</FONT></FONT></PRE>
+		</UL>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Upload my group
+	meeting presentation and advisor meeting notes to the wordpress blog</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Email the people I
+	want to be on my quals committee</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Go talk to the
+	people in the business office about computer purchase order stuff/
+	reimbursments/ etc.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>The low-mass stellar
+	mass-radius relationship from last time:</FONT></FONT></P>
+</UL>
+<P><SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 6.34in; height: 7.8in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../April_15_2012/April_15_2012_html_m473b33ee.jpg" NAME="graphics1" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	0.1:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Low mass stellar
+	mass-radius relation taken from &quot;Mass-radius relation of low
+	and very low-mass stars revisited with the VLTI&quot; Authors:
+	Demory, B.-O.; Ségransan, D.; Forveille, T.; Queloz, D.; Beuzit,
+	J.-L.; Delfosse, X.; di Folco, E.; Kervella, P.; Le Bouquin, J.-B.;
+	Perrier, C.; Benisty, M.; Duvert, G.; Hofmann, K.-H.; Lopez, B.;
+	Petrov, R. Astronomy and Astrophysics, Volume 505, Issue 1, 2009,
+	pp.205-215 </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Link to the arXiv
+	article: http://arxiv.org/abs/0906.0602 </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Link to the ADS
+	entry: http://adsabs.harvard.edu/abs/2009A%26A...505..205D </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Debugging
+Runs: Case Names, Results:</B></U></FONT></FONT></FONT></P>
+<TABLE WIDTH=593 BORDER=1 CELLPADDING=3 CELLSPACING=0 STYLE="page-break-inside: avoid">
+	<COL WIDTH=90>
+	<COL WIDTH=94>
+	<COL WIDTH=43>
+	<COL WIDTH=86>
+	<COL WIDTH=70>
+	<COL WIDTH=172>
+	<TR VALIGN=BOTTOM>
+		<TD WIDTH=90 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Name
+			of this run</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=94 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Input/Starting
+			Model</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=43 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Mass
+			of the system (in Msun)</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=86 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Parameter
+			being tweaked = new value</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=70 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Version
+			of TheCode.f used to run the simulation</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=172 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Results</B></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=90>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3long</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=94>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NoFusionCont,
+			from model #59</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=43 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=86>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>NMOD
+			= 1000, NRIT = 25, <FONT COLOR="#ff420e"><B>and changed Smax (lum)
+			= +1e28 (rather than -1e28)</B></FONT></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=70>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=172>
+			<P ALIGN=LEFT><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Crashed
+			on model #616 (25th model it computed in this run) with a 'stop no
+			convergence' (timestep problem).</FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none">
+			</SPAN><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>&lt;--
+			This was fixed by changing the SMAX (luminosity) value to a
+			positive number (rather than keeping it negative).</FONT></FONT></SPAN></P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+kept poking around with 02NFSmax3long, adjusting parameters to try to
+coax the simulation past model #844, but haven't found the key to it
+just yet. I'll leave my tomorrow-self Figure 4 below to help jog my
+memory about where I was and what was going wrong when I come back to
+this tomorrow:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 5.2in; height: 4.09in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/02NFSmax3long/Luminosity_vs_Time.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	4</B></U></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 5.19in; height: 4.93in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/02NFSmax3long/ModelIterationSummary.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	5:</B></U></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><FONT COLOR="#ff420e"><FONT SIZE=4><B>It's
+	the luminosity profile that's still the culprit.</B></FONT></FONT> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT COLOR="#ff420e"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=4><B>Start
+	here next time by looking at what happens between the next-to-last
+	and last recorded model for this run.</B></FONT></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#ff420e"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>(I
+wonder why the luminosity 'flipping' problem has only surfaced with
+these lower-mass systems. What kept it from happening with the 0.25
+or 0.3 Msun systems?)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>To
+Do/Today:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Start
+from the next-to-last recorded model in the 02NFSmax3long run and run
+the model forward with identical input parameters, but have it record
+models at every timestep to try to get a better handle on why that
+run crashed when it did.  In particular, I want to see if the
+discontinuity in the luminosity's second derivative springs up
+suddenly, or develops gradually.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>It's
+important to remind myself that the reason for figuring out what's
+going on with this particular case is that I need to be confident
+that once I feed TheCode.f a jupiter-mass and -luminosity input
+model, it won't crash or go off the rails and produce a physically
+un-possible result.  To that end, I should also make sure to run a
+0.1Msun model through TheCode.f in more detail and see what's been
+causing that case to crash.  Is it a luminosity lower-limit thing? 
+Is it something to do with TheCode.f not being able to successfully
+invert a Henyey matrix containing a wide dynamic range of values? 
+This is the heart of what I need to figure out, here.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<BR><BR>
+</P>
+<TABLE WIDTH=826 BORDER=1 CELLPADDING=3 CELLSPACING=0 STYLE="page-break-inside: avoid">
+	<COL WIDTH=111>
+	<COL WIDTH=69>
+	<COL WIDTH=66>
+	<COL WIDTH=99>
+	<COL WIDTH=96>
+	<COL WIDTH=106>
+	<COL WIDTH=155>
+	<COL WIDTH=74>
+	<TR VALIGN=BOTTOM>
+		<TD WIDTH=111 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Name
+			of this run</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Input/Starting
+			Model</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Mass
+			of the system (in Msun)</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Parameter
+			being tweaked = new value</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Version
+			of TheCode.f used to run the simulation</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Code's
+			final exit status</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Notes</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74 BGCOLOR="#cccccc">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Figures</B></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>02NFSmax3long</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>02NoFusionCont,
+			from model #59</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>0.2</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>NMOD
+			= 1000, NRIT = 25, <FONT COLOR="#ff420e"><B>and changed Smax (lum)
+			= +1e28 (rather than -1e28)</B></FONT></I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>thecodeNoFusion</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><I><STRIKE><FONT SIZE=2>Crashed
+			on model #616 (25th model it computed in this run) with a 'stop no
+			convergence' (timestep problem).</FONT></STRIKE><SPAN STYLE="text-decoration: none">
+			</SPAN><SPAN STYLE="text-decoration: none"><FONT SIZE=2>&lt;--
+			This was fixed by changing the SMAX (luminosity) value to a
+			positive number (rather than keeping it negative).</FONT></SPAN></I></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3L1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3L1,
+			from record 10</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>NRIT
+			= 1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 625,3) = -1.04742E+33</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 381,3) = -1.63617E+29</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 380,3) = -8.86900E+29</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>The
+			luminosity profile goes loopy on model 77, seems to start to
+			recover (though still plagued by a 'kink'), and then shoots way up
+			on model 88, which ends up being the final model the run produce.</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+			wonder if the negative luminosity values that end up crashing the
+			simulation are an artifact of TheCode.f's attempts to bring that
+			luminosity spike in model #88 back down.</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Next
+			step: maybe  try decreasing the SMAX luminosity parameter even
+			more, and running a simulation forward from model 60 of this run?</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Oh
+			wait, I changed Smax for the temperature to 0.04 (from 0.08) last
+			night and didn't record that change.  So, instead, let's first see
+			what happens when I repeat this simulation but with that parameter
+			decreased even more to, say, 0.01</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Figure
+			1</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax4</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3L1,
+			from record 10</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMAX
+			(Temperature) = 0.01</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Courier New, monospace"><FONT SIZE=2>MODEL:
+			  871  TIME:  1.6632D+17 STORED AS RECORD   30 ON UNIT  3</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 621,3) = -1.16919E+33</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 363,3) = -1.67376E+29</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 362,3) = -2.29587E+29</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>As
+			I suspected, changing the SMAX (temperature) value has very little
+			effect on the simulation run's sudden but inevitable demise.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax5</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3L1,
+			from record 60</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMAX
+			(lum) = 1e+25</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMAX
+			(temperature) = 0.08</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>dTMN=
+			1.0e0</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Courier New, monospace"><FONT SIZE=2>MODEL:
+			  872  TIME:  1.6842D+17 STORED AS RECORD   21 ON UNIT  3</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">      <FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 594,3) = -2.70956E+33</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">      <FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 327,3) = -7.27117E+29</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">      <FONT FACE="Courier New, monospace"><FONT SIZE=2>VARIABLE
+			BELOW LIMIT:      X( 327,3) = -6.83865E+29</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Not
+			much improvement, here.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax6</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFSmax3L1,
+			from record 60</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMAX
+			= -1e25</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>---
+			CONVERGENCE NOT POSSIBLE:  1274   517  7.63E-06  517 -2.06E-06  
+			11  5.76E-04  516 -4.97E-04   81</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Runs
+			for 421 timesteps before failing to converge.  However, the
+			timestep sizes are very small (most likely limited by the small
+			SMAX value).  In comparison with, say, 025NoFusionHappyAccident,
+			the model barely evolves at all.  </FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+			wonder if it might be a good idea to run these starting conditions
+			forward from model #1 of the with-fusion model (02NoFusionStart)? 
+			I suspect that the 60th record/model from 02NFSmax3 might already
+			be too subtly but strangely shaped to allow the code to converge
+			it with any set of input params in a non-pathological way.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFS6FromStart</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02FusionStart,
+			from record #1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>starting
+			model</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>---
+			CONVERGENCE NOT POSSIBLE:   118   406  3.31E-04  462 -1.40E-04   
+			1 -3.22E-05  463  1.19E-02   81</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>The
+			luminosity profile (and surface luminosity, too) don't change
+			throughout the run, so the SMAX constraint on this one may have
+			been too strict.</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>The
+			next thing I want to try is starting from the same model, with a
+			looser SMAX (lum) restriction (though still negative), but a
+			tighter epsL condition.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02FusionStart,
+			from record #1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>epsL
+			= 1e-5, SMAX = <STRIKE>-1e30</STRIKE><SPAN STYLE="text-decoration: none">
+			-1e37</SPAN>,</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ITMX
+			= 1000</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+			ended the simulation by hand-- it was taking a very long time to
+			converge each model.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+			think the sluggishness in convergence in this run was due to the
+			fact that it was trying to change the 'with fusion' lum profile
+			shape to the 'without fusion' lum profile shape while observing
+			the strict limitations I'd imposed on how much the lum profile was
+			allowed to change overall.</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+			think the next step should be to start from the first converged
+			model in the 02NoFusionCont case, using the same input parameters
+			from this run.  In other words, start from a 'no-fusion' shaped
+			luminosity profile.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NoFusionCont,
+			from record #1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>the
+			starting model</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">   <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8
+			Pr,temp,Prad,Pgas:  1.3190E+15  2.8463E+07  1.6552E+15 -3.3620E+14</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">   <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>9
+			Pr,temp,Prad,Pgas:  1.3197E+15  2.8463E+07  1.6552E+15 -3.3554E+14</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">  <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>10
+			Pr,temp,Prad,Pgas:  1.3190E+15  2.8463E+07  1.6552E+15 -3.3620E+14</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Got
+			to model 824! (Which took ~45 minutes...)</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>(Final
+			recorded) MODEL:   811  TIME:  3.2626D+16 STORED AS RECORD   32 ON
+			UNIT  3</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>{restricting
+			solns to smaller region of chi-sq space by reducing epsL really
+			works!}</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT COLOR="#ff3333"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>{Try
+			re-starting this simulation from last record, evolving forward
+			further, with increased ITMX allowance (2000 instead of 1000, for
+			ex.}</B></FONT></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>{If
+			the ITMX adjustment doesn't work, then re-try same thing but with
+			either Cwrk or Crad reduced.}</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif">Figure
+			2</FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2ITMX1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2,
+			from record #32 (final one on record)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ITMX
+			= 2000,</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>the
+			starting model</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ITERATION
+			1266  NEW VALUES:  483  5.67E+18  556  7.09E+07  510 -7.57E+34  
+			15  3.89E+07</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">   <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8
+			Pr,temp,Prad,Pgas:  3.2323E+19  3.6773E+08  4.6115E+19 -1.3792E+19</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">   <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>9
+			Pr,temp,Prad,Pgas:  3.2339E+19  3.6773E+08  4.6115E+19 -1.3776E+19</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative 10 Pr,temp,Prad,Pgas:  3.2323E+19 
+			3.6773E+08  4.6115E+19 -1.3792E+19</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Increasing
+			the number of allowed iterations per attempt didn't lead the code
+			to find a converged solution, so I'm going to move on to tweaking
+			the Crad/Cwrk parameters.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFCwrk1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2,
+			from record #32 (final one on record)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Cwrk
+			= 1e-10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>(I'm
+			not sure how physically motivated this is, though...)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ATMOS:
+			First values of P,RHO,T,AKM:  1.3258E+04  1.0440E-07  2.7891E+03 
+			3.1362E-02 after  12 iterations</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ERROR
+			EXIT IN SUBROUTINE GIRL</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Let's
+			try this again, but with dTIM set to 1e11 initially.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFCwrk1dTIM1</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2,
+			from record #32 (final one on record)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>dTIM
+			= 1e11</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>INVSTATE
+			31: Gas pressure is negative</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal">  <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>10
+			Pr,temp,Prad,Pgas:  3.8780E+12  6.7365E+06  5.1938E+12 -1.3158E+12</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Looks
+			like maybe we should turn Crad 'off', instead of decreasing Cwrk</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFCrad2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2,
+			from record #32 (final one on record)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Crad
+			= 1e-40</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>(Cwrk
+			set back to 1, and dTIM set back to -1e11)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ITERATION
+			1813  NEW VALUES:  557  1.02E+13   76  2.08E+10  257 -5.07E+37  
+			67  2.79E+07</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ERROR
+			EXIT IN SUBROUTINE GIRL</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Gets
+			to model 825 before crashing.  Maybe try this set of input
+			parameters on the penultimate model from 02NFepsL2, rather than
+			from the final one.  If that doesn't work, I'm giving up on trying
+			to get this 0.2Msun no-fusion system to work.  </FONT></FONT>
+			</P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Figure
+			3</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=111>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFCrad3</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=69>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>02NFepsL2,
+			from record #31 (penultimate one on record)</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=66 SDVAL="0.2" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.2</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=99>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>new
+			starting model number</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=96>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>thecodeNoFusion</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=106>
+			<P ALIGN=LEFT STYLE="font-style: normal"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>ERROR
+			EXIT IN SUBROUTINE GIRL</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=155>
+			<P ALIGN=LEFT STYLE="font-style: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Only
+			gets to model #812 before crashing.  I may need to rethink my
+			approach, here.</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=74>
+			<P ALIGN=LEFT STYLE="font-style: normal"><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 10.26in; height: 11.54in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/02NFSmax3L1/Figure1.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><U><B>Figure
+	1:</B></U></SPAN></FONT><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">
+	</SPAN></SPAN></FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Summary
+	of results from the 02NFSmax3L1 run.</SPAN></SPAN></FONT><I>  </I></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 10.26in; height: 3.85in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/02NFepsL2/Figure1.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=872 HEIGHT=654 BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	2:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Summary of results
+	from the 02NFepsL2 run.  Notice the lack of luminosity flips! In
+	both graphs on the top row, results from the extraordinarily
+	successful 025NoFusionHappyAccident runs are included, for
+	comparison/benchmarking. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 5.52in; height: 4.14in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/02NFCrad2/Luminosity_vs_Time.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Figure
+	3:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Results from
+	02NFCrad2 run.  Still have the more-stringent epsL conditions in
+	effect, but now the luminosity (and surface temperature) is jumping
+	around.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#ff3333"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>My
+(Tentative) Guide to Getting These No Fusion Models To Converge In
+Peter's Code:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="font-style: normal"><FONT COLOR="#ff3333"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>1.
+Converge one timestep with fusion to go from the polytropic input --&gt;
+more realistic profile.</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="font-style: normal"><FONT COLOR="#ff3333"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>2.
+Run the result through 1 timestep of the code withOUT fusion --&gt;
+no-fusion profile. Make sure to turn Cwrk on, increase the limits on
+SMAX lum, and set SMIN lum to 1(?).</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#ff3333"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>3.
+Run the result through as many timesteps of the NO fusion code as
+possible.  Make sure to decrease epsL (to prevent the model from
+wandering into problematic regions of solution space). Also make sure
+to raise the ITMX limit to compensate for the fact that the code is
+going to have to search the soln space a lot more rigorously to find
+a solution that satisfies these stricter requirements.</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,641 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120328;11355300">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Date
+&amp; Time: </B><SPAN STYLE="font-weight: normal">03/27/2012</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Location:
+</B><SPAN STYLE="font-weight: normal">From home</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Computing
+context: </B><SPAN STYLE="font-weight: normal">Macho Mac</SPAN></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Scripts/Software
+created today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">A
+	shell script called 'n' (in /usr/local/bin/.  You'll need to use
+	'sudo' to do anything to the file.) that takes care of the setting
+	up a growlnotification for any command you run.  Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">&gt;
+		n command_name_here &amp;</FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Should
+	look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<P CLASS="list-3" STYLE="margin-left: 0in; text-indent: 0in"><SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 7.31in; height: 5.48in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/1MsunWithVsWithoutFusion.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=621 HEIGHT=466 BORDER=0><BR CLEAR=LEFT><FONT SIZE=2><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><B>Figure
+	1:</B></SPAN></FONT> <FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal">A
+	comparison of Peter's 1Msun, out-of-the-box, with-fusion model
+	results vs. my own allegedly with- and with-out fusion 1Msun
+	results. My with-fusion model is temp1MsunWithFusion. It hangs out
+	exclusively in the upper right of the plot. My no-fusion models are
+	temp1MsunNoFusion and temp1MsunNoFusionCont. Peter's out-of-the-box,
+	with-fusion model is the pmsstar1Test (orange). Notice that *my*
+	no-fusion models follow very similar tracks to Peter's with-fusion
+	model, while *my* with-fusion model behaves very differently from
+	Peter's.</SPAN></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P CLASS="list-3" STYLE="margin-left: 0in; text-indent: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Last
+time (see Figure 1 above) I figured out that my modified version of
+TheCode.f (run with no fusion) produces results almost identical to
+the what Peter's unmodified out-of-the-box-with-fusion code does. My
+modified version of TheCode.f (run *with* fusion) does NOT reproduce
+the results of Peter's code, given the same(-ish) starting
+conditions.</FONT></FONT></FONT></P>
+<P CLASS="list-3" STYLE="margin-left: 0in; text-indent: 0in"><BR><BR>
+</P>
+<P CLASS="list-3" STYLE="margin-left: 0in; text-indent: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">This
+is concerning, because it means I've </FONT></FONT></FONT>
+</P>
+<OL>
+	<LI><P CLASS="list-3"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Misunderstood
+	Peter's version of TheCode.f (probably, but not necessarily, the
+	parts connected to the energy generation through fusion), and</FONT></FONT></P>
+	<LI><P CLASS="list-3"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Broken
+	it in some way that I don't understand. </FONT></FONT>
+	</P>
+	<P CLASS="list-3" STYLE="text-indent: 0in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">My
+	work today is to figure both of these things out. Specifically, to
+	figure out which of my modifications have caused these changes.</FONT></FONT></P>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Take
+	my clean copy of Peter's code and make the Efusion parameter = 0 in
+	the nucrat.f subroutine.</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+		that version on the same starting conditions I fed his code in
+		Figure 1 (above.)</FONT></FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">pmsstar1.start
+			(input)</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1MsunE0.txt
+			(text output file)</FONT></FONT></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">See
+		what difference it makes, if any.</FONT></FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Doesn't
+			even converge. This might change if I changed the Crad setting to
+			~0 and the Cwrk setting to 1.00</I></FONT></FONT></FONT></P>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Remove
+	the modifications from step 1.</FONT></FONT></STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Add
+	in just the modification where I comment out the CNO cycle energy
+	contribution in the nucrat subroutine.</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+		that version of the code on the starting conditions from step 1a.</FONT></FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">pmsstar1.start
+			(input)</FONT></FONT></STRIKE></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1MsunNoECNO.txt
+			(text output file)</FONT></FONT></STRIKE></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">See
+		what difference it makes, if any.</FONT></FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Okay,
+			the code converged. I'm going to continue its evolution using:</FONT></FONT></STRIKE></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">pmsstar1.inp
+				(input)</FONT></FONT></STRIKE></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1MsunNoECNO.txt
+				(text output file, new results appended to the end)</FONT></FONT></STRIKE></P>
+			</OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">That
+			also converged. Let's take a look at the result... </FONT></FONT></STRIKE>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8.12in; height: 6.09in; border: none; padding: 0in; background: #ffffff">
+				<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<IMG SRC="Original_vs_NoECNO.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+				2</B></FONT></FONT></P>
+			</SPAN><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I'd
+			get more info out of this if I modify the .start and .inp files to
+			print out model info more frequently.</FONT></FONT>
+			</P>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 7.57in; height: 5.67in; border: none; padding: 0in; background: #ffffff">
+		<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/1MsunSmallCradLargeCwrk/HR_evolution.jpg" NAME="graphics1" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+		3: </B>Peter's out-of-the-box 1Msun code (blue), vs. an otherwise
+		identical run with Cwrk = 1 and Crad ~ 0 (aqua). The behavior of
+		the aqua model/points looks like the behavior of my with-fusion
+		models.  Need to figure out why setting Enuc = 0 with Crad ~0 and
+		Cwrk = 1 sets my models' behavior back to that of Enuc !=0, Crad =
+		1, Cwrk = 0.</FONT></FONT></P>
+	</SPAN><BR CLEAR=LEFT><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Run
+	the unmodified code on a modified version of pmsstar1.start and
+	pmsstar1.inp</FONT></FONT></STRIKE>
+	</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Set
+		Cwrk = 1.00, Crad ~ 0.00</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Set
+		both .start and .inp files to write out model info more frequently.</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#33a3a3"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>inputs/1MsunSmallCradLargeCwrk.start
+		(outputs/1MsunSmallCradLargeCwrk.mod,
+		outputs/1MsunSmallCradLargeCwrk.txt)</I></FONT></FONT></STRIKE></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#33a3a3"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Results:
+		See Figure 3 above.</I></FONT></FONT></STRIKE></FONT></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+	<FONT COLOR="#000000"><STRIKE>  <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Since
+	it looks like the Cwrk vs. Crad settings are what's changing the
+	behavior of TheCode from its native state, try running thecode.f on
+	a setup where Cwrk and Crad both =1.</FONT></FONT></STRIKE></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Inputs:
+		inputs/1MsunCradOnCwrkOn.start/.inp --&gt;
+		outputs/1MsunCradOnCwrkOn.txt/.mod --&gt;
+		results/1MsunCradOnCwrkOn/</FONT></FONT></STRIKE></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Results
+		of this type of run (Figure 4, below): </FONT></FONT></STRIKE></FONT>
+		</P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 7.38in; height: 5.53in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/1MsunCradOnCwrkOn/HR_evolution.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	4:</B> Peter's 1Msun out-of-the-box (blue) vs. a 1Msun with Crad =
+	Cwrk = 1 (aqua).</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<OL START=6>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">What
+	happens if you start a run with Crad and Cwrk both set to almost
+	zero?</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">inputs:
+		1MsunCradOffCwrkOff.start/inp</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">outputs:
+		1MsunCradOffCwrkOff.txt/.mod</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">results:
+		1MsunCradOffCwrkOff/, Figure 5 (below)</FONT></FONT></STRIKE></P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 7.35in; height: 5.51in; border: none; padding: 0in; background: #ffffff">
+			<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/1MsunCradOffCwrkOff/HR_evolution.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			5: </B>The out-of-the-box run (blue) vs. a run where Crad AND Cwrk
+			~= 0 (aqua).  It looks like the setting Crad ~ 0 is what keeps the
+			model stuck up there at the upper right point of the evolutionary
+			track.</FONT></FONT></P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">What
+	happens if you set Crad  = 0.5, vs. 1.0?  Try comparing/contrasting
+	the results from those runs.</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Inputs:
+		inputs/1MsunCradHalfCwrkOff.start/inp</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Outputs:
+		outputs/1MsunCradHalfCwrkOff.txt/.mod</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Results:
+		results/1MsunCradHalfCwrkOff/, Figure 6 (below)</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 6.93in; height: 5.19in; border: none; padding: 0in; background: #ffffff">
+			<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/1MsunCradHalfCwrkOff/HR_evolution.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			6: </B>Again, the reference run is blue, while my data are aqua. 
+			This is a run with Crad  = 0.5, Cwrk = 0.00.  It looks like Crad
+			needs to be closer to 1.00 for the model to contract.</FONT></FONT></P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Is
+	it *just* turning Crad off that causes the models to get stuck and
+	not contract?  Or does setting Enuc = 0 effectively do the same
+	thing?</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">I
+	should check the original pmsstar1.start and pmsstar1.inp files: how
+	were their Crad and Cwrk values configured?  Were they the same in
+	both files, or did it change from one to the next?</FONT></FONT></P>
+	<OL TYPE=a>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<SPAN ID="Frame7" DIR="LTR" STYLE="float: left; width: 4.05in; height: 0.6in; border: 4.00pt solid #c5000b; padding: 0in; background: #ffffff">
+			<OL>
+				<OL TYPE=a>
+					<OL TYPE=i>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">i.
+						In pmsstar1.start, Crad = 1, Cwrk = 0.</FONT></FONT></P>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">In
+						pmsstar1.inp, Crad = 1, and Cwrk = 1.</FONT></FONT></P>
+					</OL>
+				</OL>
+			</OL>
+		</SPAN><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>I
+		should figure out what Crad and Cwrk are doing in TheCode.f...</FONT></FONT>
+		</P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Looks
+			like more of a gas pressure scaling than anything else..</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Maybe
+			you need to run TheCode with the .start Crad/wrk parameters for a
+			certain amount of time, and then switch to the .inp set of
+			parameters?  Let the model 'relax' to a certain point before
+			adding in Cwrk contribution, maybe?</FONT></FONT></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">But,
+				why?  Physically, what does this mean, and why does it make
+				sense?</FONT></FONT></P>
+			</OL>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">What
+	happens if I set Enuc = 0.5, but do the same settings for Crad and
+	Cwrk as in the pmsstar1.start and pmsstar1.inp files?</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">In
+		thecode.f, set E = 0.5 * E in the penultimate line of subroutine
+		nucrat, and then re-compiled the code.</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Inputs:
+		 /inputs/1MsunEnucHalf.start/.inp</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Outputs:
+		/outputs/1MsunEnucHalf.mod/.txt</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Results:
+		running the code with E = 0.5 * E, just from the .start file, stops
+		with a 'STOP INVSTATE' error.</FONT></FONT></STRIKE></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Maybe
+	try the same thing as in step (10), but with E = 0.9 * E, instead?</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Still
+		ends with a 'STOP INVSTATE' error on the .start file run.</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Still
+		ends with the same error, even when I remove all the scalings from
+		the E = whatever in nucrat.</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Try
+		running the pmsstar1.start file on this, just to see what
+		happens... </FONT></FONT></STRIKE>
+		</P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Needed
+			to recompile TheCode.f after I removed the energy scaling!</FONT></FONT></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">TheCode.f
+		will run successfully (at least on the .start portion of the run)
+		with E = 0.98 * E, but not with E = 0.9 * E</FONT></FONT></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	 <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Going
+	back and running *my* version of TheCode.f
+	(Research/BodenheimerCode/workingdir/thecode.f) on
+	pmsstar1WithFusion.start and pmsstar1WithFusion.inp (so, same Cwrk
+	and Crad settings as for Peter's original code, and with fusion set
+	to be all the way on.).  This should produce the same results that
+	his code does.  Does it? </FONT></FONT>
+	</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Short
+		answer: Nope, it doesn't produce the same results as Peter's code.
+		(Grrr...)</FONT></FONT></P>
+	</OL>
+</OL>
+<DIV ID="Frame8" DIR="LTR" STYLE="float: left; width: 5.96in; height: 4.47in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../../Research/BodenheimerCode/debugging_results/pmsstar1WithFusion/HR_evolution.jpg" NAME="graphics7" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2 STYLE="font-size: 10pt"><I>Figure
+	7: My version of thecode.f (aqua) vs. Peter's (blue) with similar
+	inputs.</I></FONT></P>
+</DIV><BR CLEAR=LEFT>
+<P ALIGN=LEFT STYLE="margin-left: -0.01in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: -0.01in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Let's
+try feeding the exact same inputs (pmsstar1WithFusion.start and
+pmsstar1WithFusion.inp) to Peter's code, and see what happens:</FONT></FONT></P>
+<DIV ID="Frame9" DIR="LTR" STYLE="float: left; width: 6.29in; height: 4.72in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/pmsstar1WithFusion/HR_evolution.jpg" NAME="graphics8" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><FONT SIZE=2 STYLE="font-size: 10pt"><I>Figure
+	8: Peter's code run on the out-of-the-box inputs (blue) vs. my
+	pmsstar1WithFusion inputs (aqua)</I></FONT></P>
+</DIV><BR CLEAR=LEFT>
+<P ALIGN=LEFT STYLE="margin-left: -0.01in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: -0.01in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Okay!
+ So!  Peter's code also produces the same result that my code does on
+these inputs.  So all I need to do is figure out how these inputs are
+different from the out-of-the-box ones, and maybe that'll tell me why
+this is happening.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: -0.01in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Differences
+between the two files (running the diff comparison command on the
+files):</FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">dTMN in mine is 1e8.  dTMN in
+	pmsstar1.start is 2e8</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Mine has those extra parameters
+	in there towards the end.</FONT></P>
+	<OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">What happens if I delete all of
+		that extra info stuff, and set my dT parameters to be identical to
+		the ones in those files?</FONT></P>
+		<OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">See Figure 9 below.  Why are
+			these supposedly identical inputs not producing the same results?</FONT></P>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">It looks like the pmsstar1.start
+	results stay within that 'stuck' point themselves, and that the real
+	evolution towards the main sequence only happens once you start
+	running the pmsstar1.inp file through the code.  Checking this now,
+	though. (unalteredcode/results/pmsstar1Check)</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Actually, it looks like the
+	problem has to do with my parsing scripts.  They don't seem to be
+	capturing the atmospheric (aka HR diagram info) data from the second
+	phase of the runs (i.e., the parts that run off of the .inp input
+	files).  So, the only stuff that gets passed into model_HR_info.txt
+	is from the .start portion of the run.  (So it's true that the
+	second phase of the run is where most of the magic happens in terms
+	of the movement on the HR diagram.  That information just isn't
+	getting picked out, or perhaps it's just not getting sent to the HR
+	info file.)</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT FACE="Helvetica, sans-serif">I've got the parsing stuff sorted
+	out now (at least in pythonParsingForOriginalCode.py), but the
+	points from my input files are still staying stuck up there near
+	their starting points.</FONT></P>
+	<OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">Are my input files producing
+		results that just don't move as far forward in time?  Let's check
+		this.</FONT></P>
+		<OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Helvetica, sans-serif">From results/pmsstar1Test (i.e.
+			the out-of-the-box case results), the largest time reached was
+			1.2566D+15 seconds.</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Helvetica, sans-serif">From
+			results/pmsstar1WithFusionCont (i.e., my input files), the largest
+			time reached was 8.9437D+13 seconds.</FONT></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">So, <SPAN STYLE="background: #ff950e">why
+		are my input files (which appear to be identical to Peter's, as far
+		as I can tell, aside from the names of the .mod files that get read
+		in during the second phase) using such small timesteps?  What's
+		preventing them from taking larger timesteps?</SPAN></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame10" DIR="LTR" STYLE="float: left; width: 6.61in; height: 4.96in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/pmsstar1WithFusion/HR_evolution.jpg" NAME="graphics9" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2 STYLE="font-size: 10pt"><I>Figure
+	9: Original inputs (blue) vs. my inputs (aqua) supposedly modified
+	to be exactly like the original inputs.</I></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<OL START=13>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">What
+	happens if you start a run with Crad on, Cwrk off, and Enuc set to
+	less than one?</FONT></FONT></STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Why
+	does Cwrk need to be turned off initially in order for the model to
+	contract?  What does that mean, physically?  Is the equation of
+	state of the gas isothermal? Really low opacity?  Does that even
+	make any sense in this situation?</FONT></FONT></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

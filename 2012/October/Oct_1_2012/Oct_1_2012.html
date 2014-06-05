@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121001;14551000">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 1, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Need to scan in
+	my handwritten notes-- I've figured out that the E differences are
+	because Peter's code includes a calculation of the conductive
+	opacities, and mine doesn't. Apparently that 1 part in 10^8
+	difference is actually important when you reach the outer boundary
+	of your ball of gas. </FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2>
+	 Done.  See the scan below.</FONT></FONT></SPAN></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 5.39in; height: 21.8in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="notes_all.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2 STYLE="font-size: 10pt"><I>Handwritten
+	notes from 9/28/2012</I></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Resume here tomorrow,
+		trying to back-out/triangulate what equations he's using to get
+		Kcond in his code.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Also, check (via
+		python scripts and judicious substitutions), that the E42 thing is
+		really what's responsible for driving the difference b/w the codes'
+		results, and that it doesn't turn out to just be totally
+		inconsequential.</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To do Today:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Try to
+	back-out/triangulate what equations Peter uses to get Kcond in his
+	code.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Also, check (via python
+	scripts and judicious substitutions), that the E42 thing is really
+	what's responsible for driving the difference b/w the codes'
+	results, and that it doesn't turn out to just be totally
+	inconsequential.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Done.  It looks like
+		that E42 difference actually isn't what's driving the dL profile
+		differences between the codes.  It's mostly caused by something in
+		the outermost D matrix, and the final bit of agreement is driven by
+		something in the outermost G matrix.  </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Note: setting the
+			outermost Helena D and G matrix values to their Peter counterparts
+			does NOT cause any of the other dX profiles to start to disagree.</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Go through and figure
+	out which element(s) of the outermost G and D matrices are
+	responsible for getting the dL profiles to match up.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+keep in mind for later:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>For
+	the 1 Mjup model: do the Peter and Helena models' dX values (raw)
+	now agree, too? </FONT></FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

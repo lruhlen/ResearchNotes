@@ -1,0 +1,560 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120415;18300800">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Date
+&amp; Time: April 14, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Location:
+Home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Computing
+context: Macho Mac:
+/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Scripts/Software
+created today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<UL>
+		<LI><P></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Scripts/Software
+created recently:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="text-decoration: none">atmosPlottingScript.py</SPAN>:
+	plots the atmospheric parts of the model data. Lives in
+	/Desktop/Research/BodenheimerCode/</FONT></FONT></P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">addcol:
+	added to /usr/local/bin/, so it's in my path and you don't have to
+	copy/add/link it to every directory where you want to use it. It
+	adds a '.' to the 'put a * here if convection is occuring in this
+	mass cell' column of the model files. So, you run this on all the
+	model files in a new results directory immediately after you've
+	parsed the raw simulation output into individual models. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Use
+		as follows: &gt; ./addcol &lt;name of model to be examined&gt;</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./follow
+	&lt;filename&gt;</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">What
+		it does: launches 2 xterms to follow the progress of a simulation
+		by grepping the simulation's text output file for 'dtime' and
+		'record', respectively</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Where
+		it lives: /usr/local/bin/ (you need root access to write to that
+		directory)</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Language
+		it's written in: shell script/basic unix commands</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">plot_x_vs_y.py</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">What
+		it does: plots any of the HR_model_info variables against any other
+		HR_model_info variable, for an arbitrary number of results/cases.
+		Prompts the user to specify which variables to assign to the x and
+		y axes, then prompts user to select HR_model_info files to read in.
+		Then, asks the user if they want to save the resulting plot, and
+		where. The output filename is automatically assigned to be
+		Yvar_vs_Xvar.jpg/pdf, for ease of organization.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Where
+		it lives: /Desktop/Research/BodenheimerCode/</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Language
+		it's written in: python</FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Useful
+computer stuff figured out recently:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Set
+	a (as yet non-permanent) command line alias to take me to the
+	/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results
+	folder:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">plots=&quot;cd
+		/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results&quot;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">How
+	to automatically fill in that '* goes here to indicate convection is
+	happening at this mass cell' column in all the model files in the
+	/results/ directory.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">file=&quot;0_model_info.txt&quot;;
+		cat $file| awk '{if ( match($0,&quot;MODEL&quot;) ||
+		(match($0,&quot;dM&quot;) ) ) { } else if ($2 != &quot;*&quot;) {$1
+		= $1 &quot; .&quot;; } else {$1=$1&quot;&quot;;}; if (NF &gt;11)
+		{print $0;}};' &gt; temp.txt; mv temp.txt $file</SPAN></SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+		</SPAN></FONT></FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	shell script called 'n' (in /usr/local/bin/. You'll need to use
+	'sudo' to do anything to the file.) that takes care of the setting
+	up a growlnotification for any command you run. Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>&gt;
+		n command_name_here &amp;</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Should
+	look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Upload my group meeting
+	presentation and advisor meeting notes to the wordpress blog</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Make a 'page' for group meeting
+		presentations/notes, and for advisor meetings/notes</FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Email Greg w/ my question(s)
+	about the alpha ratios for superadiabatic systems.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Add the Kippenhahn and Weigert
+		quotes about that to my log.</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">And add the citation for that
+		info to... whatever I'm storing my citations in now (Mendeley? Is
+		that handy for books?)</FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Test out the Mendeley plugin for
+	OpenOffice that I allegedly installed today but have to restart
+	ooffice to access. Does it work? Is it convenient? Stay tuned to
+	find out!</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Email the people I want to be on
+	my quals committee</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Go talk to the people in the
+	business office about computer purchase order stuff/ reimbursments/
+	etc.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>It doesn't matter
+	whether you start your model out with or without fusion. As long as
+	you can move from the initial input polytropic model to a converged
+	model at the next timestep, you're fine.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>If you evolve a
+		converged model forward without fusion (but with Crad and Cwrk
+		fully on), the model will *always* evolve down to the same shape
+		(for the luminosity profile, at least).</B></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>So, whether or not
+		it's physical to start a model off with or without any energy
+		generation coming from fusion, once you continue its evolution
+		without fusion, you get the same result either way.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><B>This exactly
+		what I'd been hoping to find out, so it's all good news!</B></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Now, start trying to
+	get 0.3Msun (or possibly even 0.2 or 0.1 Msun) models to converge
+	without fusion.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Use .start and .inp
+		parameter files similar to the ones used with pmsstar1NoFusion2 and
+		pmsstar1NoFusion2Cont, only with a lower mass polytropic input</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Start with the
+		0.3Msun case, and then try the 0.2 and/or 0.1 Msun cases</FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>To
+Do/Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT FACE="Helvetica, sans-serif">Trying to get the 0.3Msun case to
+	converge initially w/o fusion (only 1 timestep)</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif">Name of this run:
+		03NoFusionStart</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif">Exits with a 'STOP invstate'
+		error </FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT FACE="Helvetica, sans-serif">May need to dial down the Crad
+			or Cwrk contributions</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+				<FONT FACE="Helvetica, sans-serif">Started by changing Crad from
+				1 to 1e-10</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+				<FONT FACE="Helvetica, sans-serif">This produces a 'STOP girl'
+				error</FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT FACE="Helvetica, sans-serif">and/or reduce the timestep size
+			(reduce the value it starts with, and perhaps the lower limit on
+			the timestep size?)</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+				<FONT FACE="Helvetica, sans-serif">Restored Crad to 1, and
+				decreased dTIM from 1e11 to 1e9 seconds</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+				<FONT FACE="Helvetica, sans-serif">Still exits with a 'STOP
+				invstate' error</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+				<FONT FACE="Helvetica, sans-serif">Maybe try setting Cwrk = 0 and
+				retry?</FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+					<FONT FACE="Helvetica, sans-serif">This gets you NaN values in
+					the model</FONT></P>
+				</UL>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Helvetica, sans-serif">Maybe try running a single
+		out-of-the-box run of this 0.3Msun setup with fusion on and see
+		what happens?</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT FACE="Helvetica, sans-serif">Name of this run:
+			pmsstar03Start, using the pmsstar03.start input</FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT FACE="Helvetica, sans-serif">A comparison of all these
+	different runs (pmsstar1 with fusion, without fusion, pmsstar03 with
+	fusion) looks like this:</FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 9.41in; height: 7.06in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	1:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>A comparison of the
+	1Msun w/ and w/o fusion and 0.3Msun w/ fusion models, all normalized
+	to max M and L units (to highlight how the shapes of the profiles
+	compare).</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif">I think the best way forward might
+just be to let the 0.3Msun simulation move forward one timestep with
+fusion on, and then evolve that converged model forward without
+fusion.  I'm not 100% sure it'll work, but I think it's the quickest
+and most likely option.</FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Name of this run: 03FusionStart</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">That first step converged.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Now, to continue the run with NO
+	fusion.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Name of this (part of the) run:
+		03NoFusionCont</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">It completed the 500 timesteps
+		without crashing, so that's encouraging.  </FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">The results:</FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.02in; height: 6.02in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/03NoFusionCont/HR_evolution.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	2:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>HR diagram evolution
+	of a 0.3Msun model with (green, pmsstar03Test) and without
+	(03NoFusionCont, orange) fusion.  The last model in the no-fusion
+	case is ~6e15 seconds old, while the final model in the with-fusion
+	case is ~1e18 seconds old.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 7.54in; height: 5.66in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/03NoFusionCont/lum_profiles_with_and_without_fusion.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	3:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>A comparison of the
+	internal luminosity profiles of the with-fusion case (red) and the
+	no-fusion case (blue) at similar youthful ages in their evolution
+	(see annotations on plot).</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Let's see how well the no-fusion
+	model does if we allow it to continue forward in time for, say, 1000
+	timesteps instead of 500.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Name of this run: still
+		03NoFusionCont</FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 8.92in; height: 6.69in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/03NoFusionCont/HR_evolution.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=3><U><B>Figure
+	4:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=3>Comparison of the HR
+	diagram evolution of the with-fusion (pmsstar03Test, green) vs.
+	without-fusion (03NoFusionCont, orange) of a 0.3 Msun star.  In this
+	diagram the youngest and oldest with-fusion points are 7.0094D+11
+	and 3.5837D+18 seconds old, respectively.  The youngest and oldest
+	no-fusion models are 5.7810D+12 and 5.4727D+17 seconds old,
+	respectively. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif">The behavior of this no-fusion 0.3
+Msun model is really exciting!  Unlike the 1.0 Msun no-fusion model,
+which eventually 'blows up' (getting overly hot and luminous, and
+refusing to converge), this model does the opposite: gets small (in
+radius and luminosity) and cold (externally, at least).  I wonder
+what the transition mass between these two types of behavior is.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif">Anyway, I'm going to continue
+evolving this no-fusion 0.3Msun model forward under the same run-name
+until it reaches ~3e18 seconds of age.  This will let me compare it
+more thoroughly to the with-fusion case's evolution.  It'll also
+satisfy my curiosity about what happens to this thing if we let it
+keep evolving in the absence of fusion.  (Will the simulations ever
+refuse to converge?)</FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Actually, it looks like it
+	crashed on the previous round (the one plotted in Figure 4 above) on
+	step 989 with a 'stop no convergence' error, which is what TheCode.f
+	throws when it can't decrease the timestep size enough after 3 tries
+	to get the model to converge.  This type of error doesn't
+	necessarily mean that the model can't converge.  It's a weakness of
+	TheCode's design that it gives up after decreasing the dTIM size
+	only twice.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Oddly, though, now that I've
+	restarted that simulation from record 19 (timestep ~951), it's
+	converging fine.  Right now, it's gotten to timestep ~1771, which is
+	way beyond where it supposedly couldn't converge on the previous
+	round/attempt.  </FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">I've got a vague suspicion that
+		this has something to do with the fact that the initial dTIM, in
+		this case, is set by the dTIM size of the model/record you're
+		re-starting the simulation with.  If the dTIM value for timestep
+		951 was small enough, perhaps this somehow helps the subsequent
+		dTIMs to stay small enough to let the model converge...?</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Obviously, I can't explain why
+		this wouldn't also hold true for the round that did end up crashing
+		at ~989th timestep.</FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Next
+Steps:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif">This result is encouraging;
+perhaps it'll be easier to get models to converge as we move to less
+massive systems.  In that vein, I need to:</FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Make polytropic input models for 
+	0.25Msun, 0.2Msun, and 0.15Msun systems</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Find the polytr03.inp file</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Make new copy of it as
+		polytr025.inp, with the necessary modifications</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Run the new .inp files thru
+		polytr.F, and move the resulting model to the /inputs directory</FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Start by testing out the 0.25Msun
+	system</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Create a single-timestep
+		with-fusion run .start file for it (base it on 03FusionStart.start)</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Run that .start file thru the
+		with-fusion version of TheCode.f</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Create a no-fusion, several 1000
+		timestep .inp file for the result (base it on 03NoFusionCont.inp)</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Run that .inp file thru the
+		no-fusion version of the code</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">See if/how it crashes...</FONT></P>
+	</UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">If the 0.25Msun case doesn't
+	crash, then just plot its HR diagram &amp; internal structure
+	evolution diagrams, and repeat the same steps for the two smaller
+	masses.</FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

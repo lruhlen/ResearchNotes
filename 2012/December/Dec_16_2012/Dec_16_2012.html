@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121216;22092700">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Dec. 16, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>See how Peter's code
+handles the G3J calculations at the outer boundary.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>The chunk of Peter's
+code that changes the quantity [L(jMax) - L(jMax-1)] happens just
+before the main program first calls the Henyey subroutine, and looks
+like this:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+call massflux(TIME,Zflux)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+if(konv.gt.0. or. MODEL.eq.1) then</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+mode=999</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+else</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+mode=0</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+call gridmov</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#800000"><FONT FACE="Courier, monospace"><FONT SIZE=2>c
+endif </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><FONT SIZE=3>It's the
+gridmov subroutine that's causing the change.</FONT> Makes sense, b/c
+its job is to de/refine the mass cell size/structure to optimize the
+Henyey process. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>There are two ways to
+debug this, and I'll try both next time:</FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Run Peter's code
+	WITHOUT the pre-Henyey call to gridmov, and see how the CDEG and dX
+	values it generates compare to Helena's results.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Make the starting model
+	for Helena the 'refined' model that Peter's code uses after passing
+	it through gridmov.</FONT></FONT></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's work:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Run Peter's code
+	WITHOUT the pre-Henyey call to gridmov, and see how the CDEG and dX
+	values it generates compare to Helena's results.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Make the starting model
+	for Helena the 'refined' model that Peter's code uses after passing
+	it through gridmov.</FONT></FONT></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For step 1, need to do
+the following:</FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Modify cdeg_debug2.f to
+	NOT call the gridmov subroutine before calling Henyey</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Run the simulation
+		with dTime = 1 second</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Capture the corrections
+	(and CDEG values) outputs from the first Henyey iteration</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Plot/compare them
+	against the most recent Helena results (w/ dTime = 1 second) </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>If they agree, then
+		woohoo! </FONT></FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>If not, debug as
+		necessary...</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>I can't even get
+			Peter's code w/ dTime = 0 to agree with the results it was giving
+			me before.  This is frustrating.  Will continue debugging this
+			tomorrow.  <STRIKE>Maybe it's got something to do w/ the cond_nab
+			calculations not being disabled??</STRIKE><SPAN STYLE="text-decoration: none">
+			Nope, that's not it.  ARG!!!</SPAN></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">Now,
+			Peter's model produces dX values that are ~2.6x larger than they
+			were before...  WHY IS THIS HAPPENING??</SPAN></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>To illustrate what's
+going on, see Figure 1.  The part on the left is the stuff that
+Peter's code is spitting out now (compared to the Dec. 7 v2 Helena
+results).  The part on the right is Peter's previous dX values
+plotted against the same Helena results.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 13.13in; height: 6.5in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For step 2, need to do
+the following:</FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Modify cdeg_debug2.f to
+	CALL the gridmov subroutine before calling Henyey.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Run the simulation
+		with dTime = 1 second</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Have the main program
+	print out the post-gridmov, pre-Henyey model</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Capture that output</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Plot/compare the
+	starting models from Helena and post-gridmov Peter </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Note what the relevant
+		changes seem to have been</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Another thing to check
+is how often gridmov alters the model in Peter's code as you let it
+go through multiple Henyey iterations on the way to convergence.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Also, take a look at the
+gridmov subroutine, and see how complicated it would be to also
+implement it in my code.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

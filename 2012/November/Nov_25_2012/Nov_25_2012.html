@@ -1,0 +1,244 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121125;20301700">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Nov. 25, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>See
+	if Peter's code will still converge a 10 Mj no fusion model w/ the
+	L/H parameter set to zero. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Result:
+		It will converge, but NOT for the dTIME = 0 case. You have to let
+		dTIME &gt; 0 for it to converge. But, when you do that, it
+		converges very quickly.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Change
+	Helena and Peter codes (back) to the state where they call the
+	Henyey method once on the 10Mj no-fusion input model</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>And
+		make them print out the CDEG/corrections values again, too.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Make
+	sure both codes now produce the same CDEG profiles on the 10Mj
+	no-fusion system, particularly at the outer boundary / bottom of the
+	atmosphere.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Reacquaint
+		myself with all the procedures I used to get CDEG profiles out of
+		the main body of the system in each of the two codes</FONT></FONT></FONT></P>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Run
+		each code for a single iteration on the 10Mj no-fusion system.</FONT></FONT></FONT></P>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Capture
+		the relevant outputs into txt files</FONT></FONT></FONT></P>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Compare
+		the results in python. (You already have scripts for comparing the
+		two codes' results for this stuff, remember.)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Make
+	sure that both codes now produce the same P/R/L/T correction
+	profiles.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+		not, then you've still got problems with the outermost CDEG
+		values... probably</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>THERE
+		ARE PROBABLY STILL ADDITIONAL DEBUGGING STEPS TO PLOT OUT, HERE, SO
+		COME BACK TO THIS.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's Work:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>The
+	codes still produce very different correction profiles.  I think the
+	first thing to check in Helena is what it's returning from atmos.cpp
+	as the Msurface, Tsurface, etc. values-- make sure those are defined
+	correctly relative to Peter's code.</FONT></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>From
+Peter's code:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Rinput:
+  87542104809.4471     </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Linput:
+  1.402235808868283E+032</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Ratm:
+   10585274057.0057     </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Patm:
+   142586276.993159     </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Tatm:
+   7092.18036444053     </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>RhoSurface:
+  3.447663183948292E-004</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>From
+Helena:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Rinput:
+87542104809.4471</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Linput:
+1.402235808868283e+32</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Rout-Rsurface:
+1.05844e+10</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Psurface:
+1.4343e+08</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Tsurface:
+7102.12</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>RhoSurface:
+0.00034644</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>From
+identical L and R inputs, the two codes produce roughly the same
+atmos output values (though not absolutely identical values).  The
+differences are at the level of one part in ~100 to 1000.  I wouldn't
+think that would be a significant difference, but it maybe it could
+cause the outer CDEG values to differ enough to create the correction
+profile differences I've been seeing.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Here
+are two plots of the correction profile differences (Figures 1 and
+2).  </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8.47in; height: 6.35in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The luminosity
+	correction profiles agree perfectly, but nothing else does.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.63in; height: 6.47in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	2:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The luminosity
+	corrections differ by a factor of -1.0, but all of the other
+	corrections agree pretty well... or at the very least, have the same
+	sign throughout.  There's definitely some wonkiness going on at the
+	outer boundary with the dR and dT profiles, but I'm not sure how
+	important that will end up being in the overall march towards
+	convergence.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>What
+did I change in Helena b/w v2 and v3?  I think it might have been
+whether/how I multiplied the CDEG values by -1.0 or not... that would
+have been w/in the Henyey matrix inversion routine...?  Let's take a
+look at that code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>After
+I get that working...</FONT></FONT></FONT></P>
+<UL>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Check
+	that Helena successfully converges the 10Mj no fusion model</FONT></FONT></P>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Compare
+	the converged model to Peter's results</FONT></FONT></P>
+	<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Check
+	that Helena and Peter also produce the same converged model with
+	dTime &gt; 0</FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Keep
+		dTIME = 0, just for comparing the CDEG and variable correction
+		values that get calculated on the first convergence loop to see if
+		they're the same b/w the two codes. </FONT></FONT>
+		</P>
+		<LI><P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>After
+		you get those results to agree, change dTIME &gt; 0 in both codes,
+		and check that all the relevant profiles still agree. Probably this
+		will provide plenty of fodder for debugging...</FONT></FONT></P>
+	</UL>
+</UL>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in"><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

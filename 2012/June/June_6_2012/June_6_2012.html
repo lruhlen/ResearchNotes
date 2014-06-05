@@ -1,0 +1,216 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120606;20504900">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: June 6, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+From campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: Mendeley, /Desktop/Research/CppHenyeyCode/CodingSandbox/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Next
+time, start with:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Locate the bilinear interpolation error xsin, presumably, my code.
+	(Be particularly on the lookout for ln vs log10 mix-ups, and/or not
+	dividing by some constant factor in the bilinear interpolation
+	process...)</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		It looks like the error might be in the bilinear interpolation.  It
+		could also be in the lookup routine.  Ways to test this:</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Check my bilinear interpolation routine against Peter's</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Lookup the same rho(P,T) values in both codes, and compare the
+			'bracket' values of T and P the two processes return.</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				Results from my code:</P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+xval = 250	yval = 2500</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Bracketing x and y values: 
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	x1 = 100	x2 = 500</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	y1 = 1000	y2 = 5000</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+dx = 400	dy = 4000</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+rho = 4.69341e-09</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+xval = 100	yval = 1000</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Bracketing x and y values: 
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	x1 = 100	x2 = 100</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	y1 = 1000	y2 = 1000</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+dx = 0	dy = 0</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+rho = 2.81849e-09</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				Results from Peter's code:</P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ !!</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ !! Starting the interesting stuff</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ P =    250.000000000000       T =    2500.00000000000       rho =  
+2.154153966316130E-009</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ !!</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ !! Starting the interesting stuff</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ P =    100.000000000000       T =    1000.00000000000       rho =  
+2.818492994549615E-009</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			For P = 1e2 and T=1e3, both lookups give the same result.  For
+			P=2.5e2 and T = 2.5e3, however, the results differ by a factor of
+			slightly over 2.</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Try to find out what the eos table's 'bracketing values' of P and T
+		are for Peter's code.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			From my code, the log(rho) bracketing values are:</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+log(fQ11) = -8.54998	</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+log(fQ12) = -9.51035	</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+log(fQ21) = -7.85101	</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+log(fQ22) = -8.81132</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			From Peter's code, the log(rho) bracketing values are:</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ XX(j) =   -8.471849    
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ XX(j) =   -8.523041    
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ XX(j) =   -8.521851    
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ XX(j) =   -8.573041    
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ EOS(i) =   -8.549983    
+</P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		From comparing these results, it looks like the lower resolution of
+		my eos table grid may, in fact, be causing the density discrepancy
+		between the two cases.  To fix this, I need to generate another
+		'kludgy' eos/rho look-up table with a much finer P and T resolution
+		than the one I'm currently employing.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Am in the middle of setting up the eostableKludge.f code to do
+			this, but gfortran is throwing inscrutable errors when I try to
+			compile it.  Googling the error messages has not proven helpful. 
+			I've emailed Greg, and will start here tomorrow (assuming he
+			answers it by then). 
+			</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Create another 'kludgy' cP (eos) lookup table from Peter's code,
+	using the same T &amp;P values I used for density table I created
+	using that same kludgy technique</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Figure out how/what the calculations in Peter's 'nabla' subroutine
+	are doing</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Specifically, figure out what physical quantity the variable TPNAB
+		is representing.</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Finish programming the runga-kutta integration parts of the
+	atmos-type calculations, and</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Move the sandboxing code for that which is currently in 'main.cpp'
+		into its own subroutine (and make a header file for that code, too)</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Look up papers about the FU Orionis outbursts (spiral density waves,
+	accretion disks, boosting accretion rate and therefore accretion
+	luminosity onto/from those young stars).</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		People haven't considered the effects of accretion boosting (i.e.
+		disk draining timescale shrinking ) by spiral density waves in
+		planetary systems, as far as Greg knows off the top of his head, so</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Check if that's true, and</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Think about how I might want to investigate that, myself.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

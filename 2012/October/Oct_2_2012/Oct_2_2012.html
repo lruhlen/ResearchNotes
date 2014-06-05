@@ -1,0 +1,257 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121002;21502200">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 1, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Check (via python
+	scripts and judicious substitutions), that the E42 thing is really
+	what's responsible for driving the difference b/w the codes'
+	results, and that it doesn't turn out to just be totally
+	inconsequential.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Done. It looks like
+		that E42 difference actually isn't what's driving the dL profile
+		differences between the codes. It's mostly caused by something in
+		the outermost D matrix, and the final bit of agreement is driven by
+		something in the outermost G matrix. </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Note: setting the
+			outermost Helena D and G matrix values to their Peter counterparts
+			does NOT cause any of the other dX profiles to start to disagree.</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Go through and figure
+	out which element(s) of the outermost G and D matrices are
+	responsible for getting the dL profiles to match up.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To Do Today:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>To get around the
+	outermost boundary conditions nonesense caused by the algorithm's
+	pathological sensitivity to very slight changes in the outermost dX
+	values:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>What if I always set
+		HA[outer] = 0?</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Bad idea.  This
+			changes the profiles a lot, and does not get the Peter and Helena
+			dX profiles even close to agreeing with each other.</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>What if you alsways
+		set HA[outer] = HA[outer-1]?</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Bad idea, for same
+			reasons as above.</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>What if you always set
+		HA[outer] = scale * vars[outer]?</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Bad idea, for the
+			same reasons as above.</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Also, is the outer
+	boundary condition stuff as much of an issue at Mjup scale models? 
+	Try this out on a ~Mjup test case (try this step out first, to see
+	if you even need to attempt the ill-conceived plans above).</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Short answer, after
+		doing all the stuff below: yeah, it's still a big issue.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Get the
+		fortran code to print out the model after 1 iteration, starting
+		from the already converged Mjup-ish test case.</STRIKE>  Done. 
+		Result stored in:
+		<B>/BodenheimerCode/UnalteredCode/outputs/10MjNF_first_iter_corrections.txt</B></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Make sure the
+			fortran code is set to do the full calculations for the outermost
+			CD matrix values, though, even on the first model iteration.</STRIKE>
+			 Done.  Just used the same cdeg_debug.f I've been using all along,
+			with inputs/10MjNF.start as the input file for the run.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Capture the
+			outputs.</FONT></FONT></STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>
+			Done. Results are stored in
+			</FONT></FONT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>/BodenheimerCode/UnalteredCode/outputs/10MjNF_[cdeg]values.txt</B></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Make sure
+				they're in the same form as the outputs I've been using to debug
+				the 1Msun case.</STRIKE> Done.</FONT></FONT></P>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Get Helena to
+		do the same.</STRIKE> Done.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Change the
+			vars read-in file names to the 10Mjup input case (the eos and
+			kappa tables can stay the same).</STRIKE> Done.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Change the
+			jMax value for this run from 298 to 551.</STRIKE> Done.  Remember,
+			you need to run make clean; make to incorporate any changes you
+			make to the AboutThisRun.h header file...</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>Run
+			helena_wrapper on it.</STRIKE> Done.</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2>Outputs from
+				this/these runs 10Mjup system are be stored in:</FONT></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Courier, monospace"><FONT SIZE=2><B>/Users/laurel/Desktop/Research/CppHenyeyCode/misc_debugging_records/2012/Oct/Oct_02_2012/v1[or
+					additional numbers, maybe!]/Oct_02_2012</B></FONT></FONT></P>
+				</UL>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>U<STRIKE>pdate the
+		python scripts to use the 10Mjup dX (&amp; etc.) files from Peter
+		as the comparison basis.</STRIKE> Done.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>U<STRIKE>se the python
+		scripts (compare_codes_corrections and compare_dX_walkthrough) to
+		see:</STRIKE></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>if the two
+			models agree better in their dX profiles in this lower mass
+			regime.</STRIKE> Done. Not really.  They still seem to differ by a
+			somewhat constant factor of a few, except for the dL profiles,
+			which have completely opposite signs.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE>if the models
+			are equally sensitive to slight changes in the outermost D matrix
+			values (inversion in the S matrix, small changes in very small
+			numbers causing huge differences in the inverted result, etc.)</STRIKE>
+			 Done. Upon first glance, it seems like that's still the case in
+			this lower mass regime.  </FONT></FONT>
+			</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+keep in mind for later:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>What's
+	up with the dL profiles having opposite signs b/w Peter and Helena?</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>This
+		is important, b/c if I just let Helena's convergence process run,
+		the luminosity profile will always go off the rails (at least,
+		relative to Peter's results, and likely just in general).  </FONT></FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Need
+			to figure out what's causing this to happen.  Is it something at
+			the outer boundary?  Is it something that's happening throughout
+			the system (at all j values) b/c some derivative has the wrong
+			sign?  Is it something at the *inner* boundary?</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

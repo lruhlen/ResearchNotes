@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121106;8035000">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Date
+&amp; Time: Nov. 5, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 7.84in; height: 8.96in; border: none; padding: 0in; background: #ffffff">
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="../Nov_2_2012/Figure1.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+			1: </B></FONT></FONT>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Comparison of the
+			atmos variables (tau, dTau, M, R, T, and P) generated at each step
+			in the RK4 integration process in Peter and Helena. As the
+			workflow illustrated in Diagram 1 indicates, Helena's atmos
+			subroutine started 'anew' at each new cell in the atmosphere, with
+			values fed in from Peter's code. </FONT></FONT>
+			</P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">The
+percent error b/w the two codes' results in Figure 1 was defined as:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../Nov_2_2012/Nov_2_2012_html_m7661834f.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=363 HEIGHT=44 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">The
+take-home point from </SPAN><B>Figure 1</B> <SPAN STYLE="font-weight: normal">is:
+the RK4 calculations-- the actual ODEs, or perhaps the way results
+from the 4 intermediate steps are assembled-- are messed up in
+Helena.</SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	the step above works <I>[it doesn't so disregard what follows]</I>,
+	then have Helena do an adaptive tau-step size algorithm (step size
+	halving --&gt; results after 2 steps should be the same as result
+	after 1 step with the larger dTau value)</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">&quot;Something
+	subtly wrong with my RK4 method... maybe not using an updated value
+	in one of the steps...&quot;</FONT></FONT></FONT></P>
+</UL>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<HR>
+<P STYLE="margin-bottom: 0.08in"><FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0.08in; font-weight: normal"><FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Have
+	Peter's atmos code print out all of the dMk1, dMk2, etc. values for
+	all 4 variables at each dTau step.</FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">
+	 Done. (/outputs/RK4_debugging_1.txt)</FONT></FONT></SPAN></FONT></P>
+	<LI><P STYLE="margin-bottom: 0.08in; font-weight: normal"><FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Have
+	Helena do the same, using the same 'starting anew at each new cell
+	with fresh values from Peter's code' approach that made the results
+	of Figure 1, here.</FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">
+	 Done.  (/misc_debugging_records/atmos_vals/dMRTPk1234_values_1.txt)</FONT></FONT></SPAN></FONT></P>
+	<LI><P STYLE="margin-bottom: 0.08in; font-weight: normal"><FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Go
+	thru each of the 4 variables, and compare their dk1, dk2, dk3, and
+	dk4 step values.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in; font-weight: normal"><FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Find
+		with variables, and which k-steps w/in those calcs, are making
+		things go pear-shaped in Helena.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">I
+checked on the RK4 stepsize effect, and it looks like taking tau
+stepsizes that are half the size that Helena normally uses does
+produce atmos profiles that differ noticeably from the ones that use
+'regular' stepsizes.  That is another good indication that my
+atmospheric RK4 method is subtly flawed somewhere.  Now that I'm
+convinced of that, time to start comparing the Mk1, Mk2, etc. values
+b/w the two codes.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">It
+looks like the dMk1 and/or dRk1 values are the ones that differ the
+most b/w the two codes (the T and P intermediate RK4 values do
+disagree as well, but not as much, percentage-wise).  So, start by
+going through Helena's dMk1 and dRk1 calculations very carefully to
+try to locate errors in those.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">The
+dPk values are too large. This causes the dTk values to be too small.
+ It also gives Pmax and Tmax values (at bottom of the atmos) that are
+too large and small, respectively.  Mtemp being too large could be
+one thing that's causing all of this.  So, need to get the Mtemp (aka
+Zat) values out of Peter's code at each k-step w/in the atmos, and
+compare it to the Mtemp values being generated w/in Helena.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

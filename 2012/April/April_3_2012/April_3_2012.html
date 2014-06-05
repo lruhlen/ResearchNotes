@@ -1,0 +1,443 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120403;22350400">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Date
+&amp; Time: April 3, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Computing
+context: Macho Mac:
+/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Scripts/Software
+created today:</B></U></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">Set
+	a (as yet non-permanent) command line alias to take me to the
+	/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results
+	folder:</SPAN></FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">plots=&quot;cd
+		/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results&quot;</SPAN></FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B><FONT FACE="Helvetica, sans-serif">Useful
+computer stuff figured o</FONT>ut recently:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">How
+	to automatically fill in that '* goes here to indicate convection is
+	happening at this mass cell' column in all the model files in the
+	/results/ directory.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">file=&quot;0_model_info.txt&quot;;
+		cat $file| awk '{if ( match($0,&quot;MODEL&quot;) ||
+		(match($0,&quot;dM&quot;) ) ) { } else if ($2 != &quot;*&quot;) {$1
+		= $1 &quot; .&quot;; } else {$1=$1&quot;&quot;;}; if (NF &gt;11)
+		{print $0;}};' </SPAN></SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">&gt;
+		temp.txt; mv temp.txt $file</SPAN></SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+		</SPAN></FONT></FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	shell script called 'n' (in /usr/local/bin/. You'll need to use
+	'sudo' to do anything to the file.) that takes care of the setting
+	up a growlnotification for any command you run. Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>&gt;
+		n command_name_here &amp;</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Should
+	look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next
+	time: test out initial(-ish) conditions that are closer to what I
+	need for a planet. Specifically:</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Same
+		starting condition that Cases3A/B/C used, with</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Crad
+		= 1</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Cwrk
+		= 1</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">SMax
+		= -2e37</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Efrac
+		= 0 (in TheCode.f &lt;-- hard code this change and recompile.
+		Perhaps name that version of the compiled code something else?)</FONT></FONT></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next
+	time: it might be useful to get the fortran code to put out some
+	information about when/where/how much fusion is turning on within
+	the star. In particular, it'd be revealing to correlate that info
+	with models' positions on the HR diagram. (The idea here is to test
+	my assumption that fusion is turning on at that &quot;elbow&quot; in
+	the PMS track.)</FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	</P>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>To
+Do/Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<P STYLE="margin-bottom: 0.08in"></P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Start
+	with Step 1e (from above).  Call this Case3D.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Running
+		now, for 500 timesteps.  Did a quick run (10 timesteps, printing
+		out the model at each step) first, to check that it'd successfully
+		converge and not go off the rails and/or take a crazy long time to
+		converge at each step like Case3C did.  Seemed to go okay. </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#ff3366"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Not
+			sure why not having fusion in the .start portion of the simulation
+			causes an immediate crash, but doesn't seem to be an issue in the
+			.inp stage</I></FONT></FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Results
+		(HR diagram evolution and internal structure evolution) are shown
+		below in Figures 1 and 2, respectively.</FONT></FONT></FONT></P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+			1: </B>Case 3D (SMAX = large, negative number, Cwrk and Crad both
+			on).</FONT></FONT></P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	2:</B> Case 3D (SMAX = large, negative number, Cwrk and Crad both
+	on).</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#ff3366"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Note:
+	The initial model profile in Figure 2 looks a little uneven.  I
+	should re-run the pmsstar1.start phase of the run, and then start
+	the Case3D.inp evolution on that 'clean' starting point model. 
+	Also, want to let Case3D evolve forward for a longer amount of time,
+	to see if it hits the main sequence or what.  The energy from fusion
+	is supposed to be turned off in this compilation of TheCode.f, but
+	it looks like the star is evolving as if fusion *is* turning on in
+	its core.</I></FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Follow
+		up:  Changed the input file to be outputs/pmsstar1start.mod</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>It
+		might be good to go back and run CasesA/B/C forward from
+		pmsstar1start.mod, too, though I don't think the results are going
+		to differ vastly.</I></FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Simulation
+		stopped(?) around 1100th timestep with a 'stop invstate' error
+		message.</FONT></FONT></STRIKE></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Simulation
+		throws a 'stop invstate' message around the 700th timestep, and the
+		size of the timesteps decreases steeply thereafter</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">I
+			ran an additional simulation moving forward from the 700th
+			converged model to the step where the 'stop invstate' error
+			appeared (711), printing out the model at each timestep to get a
+			clearer idea of what might be going on there.</FONT></FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Results
+		(HR diagram and internal structure evolution)</FONT></FONT></FONT></P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 8.45in; height: 6.65in; border: none; padding: 0in; background: #ffffff">
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Cases/Case3Dsecond/HR_evolution.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+			3a: </B>HR diagram evolution of Case3Dsecond, which has Cwrk and
+			Crad both set to 1, SMAX = -2e37, and run with the Efusion = 0
+			version of TheCode.f (the 'unaltered' version)</FONT></FONT></P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+		<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Cases/Case3Dsecond/ModelIterationSummary.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+		3b:</B> Internal structural evolution of Case3Dsecond, which has
+		Cwrk and Crad both set to 1, SMAX = -2e37, and run with the Efusion
+		= 0 version of TheCode.f (the 'unaltered' version)</FONT></FONT></P>
+	</SPAN><BR CLEAR=LEFT><FONT COLOR="#ff3366"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>I
+	need to check, somehow, what's going on with the fusion energy
+	generation rate as a function of time in TheCode.f.</I></FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+		nucrat subroutine in TheCode.f just sets all return values to zero
+		and exits/returns immediately if the temperature is less than 5e5
+		Kelvin. </FONT></FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+			<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+			the temperature isn't above 5e5 anywhere, fusion shouldn't be
+			happening anywhere.</FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+			<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">I
+			could modify that if-statement to always be in effect, regardless
+			of the temperature...</FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+			<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Did
+			that, tested it on the pmsstar1.inp/start inputs to make sure it
+			doesn't cause the simulations to crash, and it ran fine.</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Next
+steps:</FONT></FONT></FONT></P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Run
+		the just-tested version of the fusion-less code on
+		Case3Dsecond-like inputs</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+			<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Will
+			need to run a clean version of pmsstar1.start (WITH THE FUSION-ON
+			CODE!) to get a clean starting model for those runs</FONT></FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Compare
+		those runs to the ones shown in Figure3 above (is it evolving in
+		the same way?)</FONT></FONT></FONT></P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		</P>
+	</UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

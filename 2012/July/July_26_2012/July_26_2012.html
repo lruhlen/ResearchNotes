@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120727;2370400">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: July 26, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Times New Roman, serif"><SPAN STYLE="text-decoration: none"><FONT SIZE=3><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">The
+results from this 4x4 inversion method, while still imperfect, seem
+better than the results from the Gauss-Jordan elimination inversion
+method I had been using. I think I'll switch all of the 4x4 matrix
+inversions in Helena's modifiedHenyeyMatrixInversion.cpp subroutine
+over to this new method.</SPAN></SPAN></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>To do today:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Still need to check
+on why the A/B and dX values that Helena's
+modifiedHenyeyMatrixInversion routine generates are so different from
+the ones Peter's code produces... </FONT></FONT>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Change over the
+	matrix inversion method in the modifiedHenyeyMatrixInversion routine
+	to the 4x4 method.</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT FACE="Times New Roman, serif"><FONT SIZE=3>See if that
+		changes/improves Helena's results (as compared to Peter's).</FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=3>If it does, then
+			we're done with this part of the debugging</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=3>If not, need to
+			check my Sum and S matrix values against his. </FONT></FONT>
+			</P>
+		</OL>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>I loaded the
+InverseS and G matrices FROM PETER'S CODE (at j=0) into my C++
+program, multiplied them together in the C++ program and examined the
+results.  They should agree with the A vector values from Peter's
+code, but they very much don't.  This means one of two things is
+going wrong in my code:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>1. My matrix
+multiplication subroutine has an error in it.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>2. My understanding
+(and coding) of how the A matrix should be generated is wrong.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>3. I'm printing out
+the wrong info from Peter's code.  What I think are the A and B
+matrices in there are not, in fact, the real A and B matrices</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>I'm pretty sure (1)
+isn't what's causing this, so let's look into (2) by re-examining the
+matrix inversion algorithm laid out in Peter's cookbook.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Nope, looks like
+I've coded the A/B matrix stuff correctly in Helena.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>This means I've
+misunderstood the details of Peter's GIRL subroutine.  (Ugh.  That
+means more wading through cryptic Fortran code.)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>It looks like maybe
+this is related to the way I'm reading in the E array (generated by
+Peter's code) into my own code?  Maybe??</FONT></FONT></P>
+</BODY>
+</HTML>

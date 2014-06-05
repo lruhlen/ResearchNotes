@@ -1,0 +1,302 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120529;17145200">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: May 29, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+From home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: Mendeley, /Desktop/Research/CppHenyeyCode/CodingSandbox/src</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Start coding:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>from polytr1.inp: </FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>X= 0.710000 Y= 0.272930</FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>Closest match in GN93hz_opal_opacity_table.txt:</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>TABLE # 73 $G&amp;N'93 Solar$ X=0.7000 Y=0.2800
+			Z=0.0200 dXc=0.0000 dXo=0.0000</FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>This is the first line of the opac.cool table:</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>0.386 0.386 0.386 0.386 0.386 0.386 0.386 2.000 &lt;---
+			final value here is log10(T)</FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>0.386 0.386 0.386 0.386 0.386 0.386 0.386</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The other values listed are the log(kappa) values at
+			the following log(R) values:</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>-12., -11., -10., -9., -8., -7., -6., -5., -4., -3.,
+				-2., -1., 0., 1.</FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The opac.cool table covers log(T) values between
+			2.000 and 5.000</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The opacity coverage in this table is complete.</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The outer atmos pressure values are (according to the
+			results from Peter's code, at least) going to be ~10^2 dyne/cm^2.
+			However, my Saumon EOS table doesn't go any lower than P = 10^4.
+			How am I supposed to calculate the density (via eos lookup tables)
+			in the atmosphere, then?? Check how Peter's code does this...</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>It's rather tricky to figure out. He says the table
+				values are based on the Saumon et al. 1995 EOS, but those don't
+				extend to pressures below 10^4 dyne/cm^2. Also, the variable
+				values in the eostable file of his aren't labelled. This makes it
+				hard for me to parse.</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>I don't think I'll use the data in that table/file,
+				at least not directly.</FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>Perhaps once you're in low-P, low-T regime, you can
+			just use the ideal gas EOS without too much trouble?</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>I tested this out in my C++ code by feeding the same
+				P and T values to the EOS lookup table and to an ideal gas eqn.
+				of state, and seeing how well they agreed. In general, it's not a
+				perfect match, even at the lower pressures (~10^4 dyne/cm^2). The
+				degree of mismatch b/w results is more pronounced at lower
+				temperatures, which makes sense: lower T = lower degree of
+				ionization = more deviation from the fully ionized mean molecular
+				weight formula that only depends on metallicity. </FONT>
+				</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>While the table lookup and ideal EOS densities
+				differ by a factor of ~2, this has absolutely no effect on the
+				opacity values (which depend on T &amp; rho) I get from the
+				opacity table look-up process. Apparently, opacity isn't that
+				sensitive to ~x2 changes in density?</FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>From looking at Greg's 1989 write-up, it seems like
+			he had to do something more sophisticated than just using pv = nRT
+			to calculate the atmospheric density (had to calc the ionization
+			fraction &amp; etc.). He made this easier on himself by only
+			having one 'metal' -- aka Promethium-- in his star.</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>I looked into the sections of the Mihilas book that
+				he referenced in his write-up, which go into the math behind his
+				code/calculations, and understand the overall idea behind it,
+				though I couldn't derive any of it from scratch by myself on a
+				moment's notice. (Partition functions play an important role.
+				::shudder::)</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT SIZE=2>The procedure his code used to calculate the degree
+				of ionization (and therefore the density) at a given T and P is
+				also iterative. So, it's a process that you have to loop through
+				a few times until you get the right electron number density. It
+				involves a gnarly-looking summation. I am not particularly keen
+				to delve into this particular process at the moment.</FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Right now, I'll attempt to sidestep this EOS table problem with
+			the following kludge:</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				I don't understand precisely what all the entries are in the
+				eostable file from Peter's code, but I do trust his program's EOS
+				calculations. 
+				</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				Values that the invstate subroutine returns: RHO, cP, alpha,
+				beta, delta</P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					It looks like that subroutine doesn't return all the info I'd
+					need to fill in an OPAL-like table (see next bullet point on
+					what that entails), but I can at least get a grid of densities
+					out of it, which is all I need to get the atmos process working.</P>
+					<UL>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+						I'll have to figure out how to read in this abridged form of an
+						EOS table.  Hopefully that won't take too long...?</P>
+						<UL>
+							<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+							It might be a good idea to write a general C++ read-in method
+							for all table types.  That way I wouldn't be tied to the
+							clunky table-type-specific read-in machinery I've been using,
+							which is costing more time that it's saving, at least right
+							now...</P>
+						</UL>
+					</UL>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				So, I'll feed the invstate subroutine in TheCode.f a variety of P
+				and T values (with the metallicity I've been using from the OPAL
+				table, listed above), see what values for rho, adgrad, radgrad,
+				etc. it spits out, and collect that info in to a 'low-temperature
+				EOS table' of my own, for use in my C++ code.</P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					Format of the OPAL tables:</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					logT, # of pressure pts on that isotherm</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					log P: P is the pressure in dyn/cm**2. 
+					</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					X(H2): The number concentration of H2 molecules (He atoms for
+					helium).</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					X(H): The number concentration of H atoms (He+ ions for helium).</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					log rho: rho is the mass density in g/cm**3.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					log S: S is the entropy in erg/g/K.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					log U: U is the internal energy in erg/g. The zero point of
+					energy is the ground state of the H2 molecule for hydrogen, and
+					the ground state of the He atom for helium. 
+					</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					d log rho/d log T|P: Logarithmic derivative of the density with
+					respect to the temperature at constant P.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					d log rho/d log P|T: Logarithmic derivative of the density with
+					respect to the pressure at constant T.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					d log S/d log T|P: Logarithmic derivative of the entropy with
+					respect to the temperature at constant P.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					d log S/d log P|T: Logarithmic derivative of the entropy with
+					respect to the pressure at constant T.</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					d log T/d log P|S The adiabatic gradient.</P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					All logarithms are in base 10. The contribution from the photon
+					gas is NOT included.</P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				And maybe, just maybe, then I'll finally be able to make some
+				progress on the atmos outer-boundary-conds coding. 
+				</P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Papers/reading:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Compile a list of the paper's I've read in the past ~10 days, and
+		post to the website</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Go through my list of papers to import to Mendeley and read, and
+		post it on the website</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Also, import those papers to Mendeley</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Check that my online Mendeley database contains the *annotated*
+		versions of the papers I've read.</P>
+	</UL>
+</UL>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

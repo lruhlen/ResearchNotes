@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121112;22344600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Nov. 12, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><FONT COLOR="#000000"><SPAN STYLE="font-style: normal"><U><B>Continuing
+from last time:</B></U></SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>I (eventually) figured
+out the stuff in &quot;Notes 1&quot; by comparing the dTk[1-4] values
+in Helena to their Peter counterparts.  This by itself uncovered an
+important typo in my dTk4 equation (using M rather then Mtemp). 
+That's fixed, and that certainly helps, but it's not the silver
+bullet for the atmos profiles problem.  It did, however, clue me in
+to the fact that the dTk[1-4] values (all 4 of them, all the time--
+not one individual one of them) hold the key to getting the right
+profiles out of this RK4 process.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>The only quantity unique
+to the dTk[1-4] calculations is &quot;nab,&quot; defined in Eqn (1)
+as:   </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Nov_12_2012_html_m6bd06ed4.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=347 HEIGHT=17 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's work:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Continue with the 'nab'
+value debugging in the atmos subroutine.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Get Peter's code to
+print out the TPNAB values @ each point In the atmosphere </FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Get Helena to do the
+same.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Compare the two.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8in; height: 6in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Figure
+	1:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">A
+	comparison of the nabla values used in Helena's and Peter's
+	atmospheric calculations. The pink curve represents the nabla values
+	that Peter's code actually uses in the calculations.   The black and
+	blue curves represent the nabla values you'd expect to get from
+	Peter and Helena using Eq. (1).  </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Interesting result (see
+Figure 1).</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>I think the difference
+b/w the pink and other curves may be due to Peter's code using some
+sort of convective energy gradient, in addition to the radiative and
+adiabatic ones.  The question is: why isn't that info included in the
+ABNAB value that his code returns?  And, how are the ADNAB and
+CONVNAB (for lack of a better variable name) values combined? 
+Averaged?  Inverse fraction adding?  Simply added?  Need to find the
+portion of his code that calculates CONVNAB &amp; combines it w/
+ADNAB to answer these questions.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Looking at the NABLA
+subroutine in Peter's code points to a sort of fiddly, slog-y process
+of incorporating the CONVNAB calculations into Helena.  Before diving
+into that whole processes, I should check that this
+nabla-discrepancy-business really *is* the thing that will fix my
+atmos calculation problems.  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>To do this:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1) Use Peter's code to
+create a 'nabla' lookup table</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>2) Read that table into
+Helena, perhaps in place of the adnab table I'm currently using</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>3) Re-run Helena's atmos
+calculations with that new lookup table in place</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>4) Capture the outputs
+of the Helena run (in the RK4_debug... file format)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>5) Plot the resultant T1
+curves from that Helena run, and compare them to the T1 curves from
+the analogous Peter atmos calculation run.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

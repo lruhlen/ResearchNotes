@@ -1,0 +1,629 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120405;19273200">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Date
+&amp; Time: April 5, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Computing
+context: Macho Mac:
+/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-style: normal"><U><B>Scripts/Software
+created today:</B></U></SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><SPAN STYLE="font-style: normal"><U><B>Scripts/Software
+created recently:</B></U></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">addcol:
+	added to /usr/local/bin/, so it's in my path and you don't have to
+	copy/add/link it to every directory where you want to use it. It
+	adds a '.' to the 'put a * here if convection is occuring in this
+	mass cell' column of the model files. So, you run this on all the
+	model files in a new results directory immediately after you've
+	parsed the raw simulation output into individual models. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Use
+		as follows: &gt; ./addcol &lt;name of model to be examined&gt;</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./follow
+	&lt;filename&gt;</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">What
+		it does: launches 2 xterms to follow the progress of a simulation
+		by grepping the simulation's text output file for 'dtime' and
+		'record', respectively</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Where
+		it lives: /usr/local/bin/ (you need root access to write to that
+		directory)</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Language
+		it's written in: shell script/basic unix commands</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">plot_x_vs_y.py</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">What
+		it does: plots any of the HR_model_info variables against any other
+		HR_model_info variable, for an arbitrary number of results/cases.
+		Prompts the user to specify which variables to assign to the x and
+		y axes, then prompts user to select HR_model_info files to read in.
+		Then, asks the user if they want to save the resulting plot, and
+		where. The output filename is automatically assigned to be
+		Yvar_vs_Xvar.jpg/pdf, for ease of organization.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Where
+		it lives: /Desktop/Research/BodenheimerCode/</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Language
+		it's written in: python</FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Useful
+computer stuff figured out recently:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Set
+	a (as yet non-permanent) command line alias to take me to the
+	/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results
+	folder:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">plots=&quot;cd
+		/Users/laurel/Desktop/Research/BodenheimerCode/workingdir/UnalteredCode/results&quot;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">How
+	to automatically fill in that '* goes here to indicate convection is
+	happening at this mass cell' column in all the model files in the
+	/results/ directory.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">file=&quot;0_model_info.txt&quot;;
+		cat $file| awk '{if ( match($0,&quot;MODEL&quot;) ||
+		(match($0,&quot;dM&quot;) ) ) { } else if ($2 != &quot;*&quot;) {$1
+		= $1 &quot; .&quot;; } else {$1=$1&quot;&quot;;}; if (NF &gt;11)
+		{print $0;}};' &gt; temp.txt; mv temp.txt $file</SPAN></SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">
+		</SPAN></FONT></FONT></FONT>
+		</P>
+	</UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	shell script called 'n' (in /usr/local/bin/. You'll need to use
+	'sudo' to do anything to the file.) that takes care of the setting
+	up a growlnotification for any command you run. Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>&gt;
+		n command_name_here &amp;</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><I>Should
+	look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif">Make a Radius vs. time
+	plot comparing Extinguish1 and pmsstar1Test (to see how they differ,
+	or don't)</FONT></STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif">Maybe do the same for L,
+	P, and T vs. time, too, for both of those cases</FONT></STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Try to get Extinguish1 to evolve
+	farther forward in time</FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Try decreasing the Crad setting.</FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">The 'stop invstate' error is
+			happening because TheCode thinks the Pgas is negative, which is of
+			course unphysical. Since it calculates Pgas by subtracting Prad
+			from... something, you can eliminate this error by reducing Prad.
+			You do that by turning down Crad.</FONT></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">If Extinguish1 can be coaxed
+		into evolving further in time, see:</FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">if it turns into a
+			white-dwarf-like thing</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">How its R/P/L/T surface values
+			vary with time, compared to something like pmsstar1Test </FONT>
+			</P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">May have to run pmsstar1Test
+				farther forward in time to compare the two cases meaningfully, if
+				this all works.</FONT></P>
+			</OL>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Take a look at the input files of
+	mine (for the no fusion vs. with fusion cases) that weren't behaving
+	as expected back around March 29.</FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">See if I can find the input
+		parameter that was responsible for that weird behavior</FONT></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Compare the results from the
+	'unaltered' code to results from my own altered version of TheCode.f</FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">R/L/P/T as a function of time
+		(plot_x_vs_y.py)</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">HR
+		diagram evolution/behavior (plot_several_HR_diagrams.py)</FONT></FONT></FONT></P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		</P>
+	</OL>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>To
+Do/Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Results
+	from Steps 1&amp;2 in the 'continuing from last time' list above:</FONT></FONT></P>
+</UL>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR>
+		<TD COLSPAN=2 WIDTH=100% VALIGN=TOP>
+			<P ALIGN=CENTER> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><FONT SIZE=4><B>Figure
+			1:</B></FONT> </FONT></FONT>
+			</P>
+			<P ALIGN=CENTER><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">L/R/P/T
+			(surface values, i.e. at the tau = 2/3 surface) vs. time for the
+			default out-of-the-box case (pmsstar1Test) vs. the no-fusion
+			version of the 'unaltered' code (Extinguish1). The two systems
+			only start to differ appreciably after ~30 million years (maybe
+			slightly before that).  It's interesting that the radius evolution
+			of both doesn't change, though.  Maybe the photosphere moves
+			farther out (in mass) in the (hopefully) white dwarf/red
+			giant-like Extinguish1 case, which is what's keeping its
+			photospheric radius the same as the regular, fusion-on case?</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1/Luminosity_vs_Time.jpg" NAME="graphics1" ALIGN=RIGHT WIDTH=715 HEIGHT=540 BORDER=0><BR CLEAR=RIGHT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1/Radius_vs_Time.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=719 HEIGHT=539 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1/Pressure_vs_Time.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=719 HEIGHT=539 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1/Surface_Temperature_vs_Time.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=719 HEIGHT=539 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Step 3, from the list/section
+	above: getting Extinguish1 to evolve farther forward in time.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Calling the files associated
+		with this part of the run Extinguish1Cont</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif">Setting Crad = 1e-10 gets around
+		the 'stop invstate' (negative gas pressure/ radiation pressure is
+		too high), but the simulation stops after 22 rounds with an 'exit:
+		error in subroutine GIRL'.  Since GIRL is the matrix-inversion
+		subroutine, I'm guessing that one of the CDEG derivatives is
+		getting huge.  The inversion of sparse matrices (such as the Henyey
+		matrix, which is composed of zeros and those derivatives) is highly
+		sensitive to small changes in off-diagonal elements.  This inherent
+		instability in combination with the presence of a large value,
+		might be what's pushing the Henyey matrix here towards singularity.</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">Results: </FONT>
+			</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont/ModelIterationSummary.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	2:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	 <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Internal
+	structural evolution of the Extinguish1Cont case.  Notice the rather
+	sharp changes in radius, density, pressure, and temperature near the
+	outer edge of the star.  I think these rather sharp changes may be
+	somehow responsible for the matrix inversion error that popped up
+	during this run.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 6.38in; height: 4.78in; border: none; padding: 0in; background: #ffffff">
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont/HR_evolution.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+				3:</B> </FONT></FONT>
+				</P>
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">HR
+				diagram evolution of the Extinguish1Cont case (orange) with the
+				Extinguish1 results (green) provided for context.  The
+				Extinguish1Cont case doesn't evolve forward in time very far (the
+				dTime values plummet right before the GIRL subroutine error gets
+				thrown), which is why the orange points are all right on top of
+				each other.  </FONT></FONT>
+				</P>
+			</SPAN><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif">Another
+			reason I suspect that one of the derivatives is getting huge is
+			the fact that the dTime values start to plummet in the rounds
+			shortly before this error occurs.  So, it's likely that some value
+			in there starts changing very rapidly with time.</FONT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">Do another run where I lower
+			the minimum allowed timestep size, and see what happens then.</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">Name for this case:
+				Extinguish1Cont2</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">Another 'STOP girl' error. 
+				Final model before it crashes:</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">MODEL:   722  TIME: 1.2292D+15
+				<B>DTIME: 4.1554D+06</B> NET CHANGE:  2.63D-01</FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Helvetica, sans-serif">Since the dtime value there
+					is greater than the lower limit I set (1e0 seconds), we know
+					it's not a timestep size lower limit that's preventing the model
+					from converging here.</FONT></P>
+				</UL>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif">Also try changing the settings
+			for the temperature requirements for the upper and lower
+			boundaries of the atmosphere.</FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">Name for this case:
+				Extinguish1Cont3</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">Raised the Atmx value to ~1e6
+				(so, letting the base? of the atmosphere be much hotter than I
+				had before)</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">It didn't crash within the
+				first 40 steps, at least!</FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">The dtime values were all on
+				the order of 1e9 seconds, so even though the results appear kind
+				of piled up in Figure 4 below they are separated by decent chunks
+				of time.</FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Helvetica, sans-serif">Changing the Atmx parameter
+					seems to have fixed whatever was causing the simulation to keep
+					decreasing the dTime values in the Extinguish1Cont2 run. </FONT>
+					</P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif">The results from those first
+				40 time steps:</FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 7.11in; height: 5.33in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont3/HR_evolution.jpg" NAME="graphics7" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	4:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">HR
+	diagram evolution of the initial Extinguish1Cont3 run (with dTMN =
+	1e0, and ATMX value raised to 1.15e6 (orange points).  The green
+	points are the data from the Extinguish1 run that it's supposedly
+	continuing.  </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 7.28in; height: 5.46in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont3/ModelIterationSummary.jpg" NAME="graphics8" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	5:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">The
+	internal structural evolution of the Extinguish1Cont3 case.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT FACE="Helvetica, sans-serif">Now, let this Extinguish1Cont3
+	version run for, say, 500 timesteps and have it print out every ~20
+	models or so, and see what happens.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">Name for this case:
+		Extinguish1Cont3.1</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">Exits with another 'STOP girl'
+		error on step 51 or 52:</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			 <FONT FACE="Helvetica, sans-serif">MODEL:   751  TIME: 1.2294D+15
+			DTIME: 3.0564D+08 NET CHANGE:  7.40D-01</FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">Results:</FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 5.47in; height: 4.1in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont3.1/HR_evolution.jpg" NAME="graphics9" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	6:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">HR
+	diagram evolution of Extinguish1Cont3.1</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 6.47in; height: 4.85in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont3.1/ModelIterationSummary.jpg" NAME="graphics10" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	7:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">Internal
+	structural evolution of Extinguish1Cont3.1.  Though it's hard to see
+	in this graph, the temperature and luminosity profiles both have
+	strange little jumps at the outer boundary.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame7" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Extinguish1Cont3.1/ZoomInOnOuterTandL.jpg" NAME="graphics11" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	8:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt">A
+	zoomed in view of the discontinuities in the temperature and
+	luminosity profiles the final pre-crash models produced by
+	Extinguish1Cont3.1.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT FACE="Helvetica, sans-serif">I suspect the discontinuities in
+	temperature and luminosity that appear at the outer boundary shortly
+	before the model crashes (see Figure 8 above) are linked to the
+	run's untimely demise.  The final temperature value is particularly
+	incriminating.  Its value is much lower than the other points'-- the
+	aspect ratio of Figure 8 doesn't do the discontinuity full justice,
+	but it's definitely remarkable.  Its value, in fact, is roughly the
+	average of the Atmx and Atmn values that were fed into this
+	simulation.  According to Peter's documentation:</FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+ <FONT FACE="Helvetica, sans-serif">&quot;Atmx  and Atmn  designate
+the maximum and minimum temperatures of the bottom of the atmosphere
+(outermost temperature of the interior solution) allowed by
+&quot;stellar&quot;.  If outside this range, then grid cells will be
+automatically added or deleted. Generally, <B>the program tries to
+maintain the bottom of the atmosphere at a temperature given by the
+average between Atmx and Atmn.&quot;</B></FONT></P>
+<UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	</P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT FACE="Helvetica, sans-serif">In light of that, I think the
+	next thing to try is increasing the Atmn value.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Helvetica, sans-serif">Name for this case:
+		Extinguish1Cont4</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Helvetica, sans-serif">Increased the Atmn value to
+			1e5.</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Helvetica, sans-serif">Another 'Stop girl' error
+			around step 40 or 45, and around the same time (simulation time)
+			as in the previous case.  So, this change didn't make things any
+			better.</FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif">Need to fix my 'follow'
+	script:</FONT></STRIKE></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif">Get it to read in the
+		full path to the file I want it to read...</FONT></STRIKE></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 11pt"><U><B>Next
+Steps:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Include and analyze the plots I
+	made of the results of the Extinguish1Cont4 run, including the
+	&lt;foo&gt;_vs_time.jpg ones that compare the Extinguish case to the
+	out-of-the-box with-fusion model.</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif">Think about how to get the
+	simulations to move past this point where they're getting stuck.</FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

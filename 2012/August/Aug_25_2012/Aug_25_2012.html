@@ -1,0 +1,362 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120825;21435200">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 25, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></FONT></FONT></SPAN></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Write
+	up what I figured out last time about why my G4J values are so
+	different from Peter's.</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">
+	 </SPAN></SPAN></FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Done--
+		see
+		<A HREF="../Aug_24_2012/G4J_manifesto.pdf">/Users/laurel/Desktop/desktopLabNotebook/2012/August/Aug_24_2012/G4J_manifesto.pdf</A>.</SPAN></FONT></FONT></SPAN></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Now,
+		I'd really like to get an html version of this write-up created so
+		I can include the contents directly in the wordpress blog write-up
+		for today.  I will come back to this later in the afternoon,
+		though, because my initial research on doing this makes it look
+		like it's not totally straight-forward to do.</SPAN></SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Make
+	the appropriate revisions to Helena's G4J calculation subroutine.</SPAN></SPAN></FONT></FONT></FONT><FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">
+	 </SPAN></SPAN></FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Done,
+		but now I'm getting some wonky results out of my code.  See Figure
+		1 for details.</SPAN></SPAN></FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: right; width: 13.13in; height: 4.92in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Aug_24_2012/Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	1</B></FONT></P>
+</SPAN><BR CLEAR=RIGHT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Figure
+	out why I'm still getting these ridiculous dX profiles from Helena,
+	even though I've fixed the G4J calculations</SPAN></SPAN></FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Compare
+		the G profiles.</SPAN></SPAN></FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Need
+			to get the G values at each mass cell out of Peter's code</SPAN></SPAN></FONT></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Already
+				done.  See
+				/Users/laurel/Desktop/Research/BodenheimerCode/UnalteredCode/outputs/g_values_for_python.txt</SPAN></SPAN></FONT></FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Get
+			the G values at each mass cell out of Helena</SPAN></SPAN></FONT></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Done.
+				 See
+				/Users/laurel/Desktop/Research/CppHenyeyCode/misc_debugging_records/G_values_debugging.txt</SPAN></SPAN></FONT></FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Write
+			up a python script to read in and plot both of them</SPAN></SPAN></FONT></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Done.
+				See
+				/Users/laurel/Desktop/Research/BodenheimerCode/plot_parse_utils/compare_G_values.pyxs</SPAN></SPAN></FONT></FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Plot
+			the G's from Helena against the G's calculated by Peter's code to
+			see where/if they differ.</SPAN></SPAN></FONT></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">Done.
+				 See results in Figure 2:</SPAN></SPAN></FONT></FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	2:</B></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT SIZE=3>A comparison of the four sets of G values generated by
+	Helena vs. Peter's code.  The G3J values are the same in both codes.
+	 Everything else is very different, even though Helena's G4J
+	calculations have been updated to (supposedly) calculated the G4J
+	values correctly (as they are in Peter's code).</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Why
+		are the G3J values exactly the same between the two codes, when all
+		of the other Gs differ so substantially between the codes?</SPAN></FONT></FONT></SPAN></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Got
+			the G4J calculations more-or-less fixed.  Mostly.  I think.</SPAN></FONT></FONT></SPAN></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">The
+			G2J calculations are still off between the two codes, though. </SPAN></FONT></FONT></SPAN></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Checking
+				the dM (aka Mj+1 - Mj in Helena) values against each other</SPAN></FONT></FONT></SPAN></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">They're
+					identical.  See Figure 3.</SPAN></FONT></FONT></SPAN></FONT></P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 6.4in; height: 4.26in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure3.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	3</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Check
+				the rj^3 - rj-1^3 quantity in the G2J calculations &amp; compare
+				the results between codes.</SPAN></FONT></FONT></SPAN></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Significant
+					differences between the codes.  See Figure 4.</SPAN></FONT></FONT></SPAN></FONT></P>
+					<UL>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+						<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Maybe
+						these are caused by precision differences in the r values being
+						used in Peter's code, vs. the values that I had his code print
+						out (and then read into Helena as part of the initial model)?</SPAN></FONT></FONT></SPAN></FONT></P>
+						<UL>
+							<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+							<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">That
+							could well be it, since the cdeg_var_values I've been reading
+							into Helena only have a few significant figures.</SPAN></FONT></FONT></SPAN></FONT></P>
+						</UL>
+					</UL>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 6.69in; height: 4.45in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure4.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	4</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"> </SPAN></FONT>
+	</P>
+	<UL>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Get
+				Peter's code to write out the starting model (again), but with
+				greatly increased precision/sig. figs.</SPAN></FONT></FONT></SPAN></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">Done.
+					 Results in
+					/Users/laurel/Desktop/Research/BodenheimerCode/UnalteredCode/outputs/more_precise_cdeg_var_values.txt</SPAN></FONT></FONT></SPAN></FONT></P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-weight: normal">This
+					does get the r_{j}^3 - r_{j-1}^3 values to agree between the
+					codes (see Figure 5).</SPAN></FONT></FONT></SPAN></FONT></P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 7.12in; height: 4.73in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure5.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	5</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				</P>
+			</UL>
+		</UL>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Check
+			whether or not Helena and Peter's G values agree, now that I'm
+			reading in the full-precision MLRTP values into Helena.</FONT></FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Done.
+				 Figure 6 seems to show good agreement between the two.</FONT></FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure6.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	6</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+	dX values generated by the two codes still differ markedly, though. 
+	</FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Start
+		here tomorrow</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Insert
+			a figure illustrating the existing differences</FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>And
+			start trying to figure out what's still causing them.</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Update
+	the wordpress blog.</FONT></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT SIZE=3><U><B>To keep in mind for later:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>For the 1 Mjup model: do the
+	Peter and Helena models' dX values (raw) now agree, too?  </FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

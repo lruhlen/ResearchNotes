@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120724;23385500">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: July 22, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Modifying Peter's code to output info on the (what in Helena are
+	referred to as A, B, S, Sum, InverseS) matrices in the midst of the
+	'fancy' solution method.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Mostly commenting his code to help me figure out which cryptically
+		named variables correspond to my A/B/etc. matrices so that I can
+		try to compare their values b/w the two codes.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			This is no trivial task.</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	I'm figuring out that the GIRL subroutine in Peter's code does
+	something a bit more complicated/involved than just inverting a
+	matrix.</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Let's define some arbitrary matrix A as (eqn1):</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_63791db4.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=152 HEIGHT=59 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+And let's define some vector of unknown quantities, x, that we want
+to solve for as (eqn2): 
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_4368d095.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=124 HEIGHT=59 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Finally, let's say we know that Ax = b, where b contains some known
+values b1 and b2 (eqn3):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_55e32204.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=117 HEIGHT=59 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+One way to solve for x is (eqn4):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_m278a7e6e.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=160 HEIGHT=90 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+So, in other words: invert A, then multiply A^-1 and b, and you'll
+get your x values.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+There is, however, another way to do this... if I remember correctly.
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+First, you construct a matrix that looks like this (eqn5):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_3052542e.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=245 HEIGHT=59 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Then, you perform Gauss-Jordan elimination to turn the left-hand (A)
+part of that matrix into the identity matrix. You carry along the b
+values through all of those eliminations. By the time you've turned
+the A part of the matrix into the identity matrix, you will have
+simultaneously &quot;multiplied&quot; the &quot;b&quot; part of that
+matrix by A^-1. In other words, you will have solved for the x
+values. If you want to say this in math, I guess you'd write
+something like this (eqn6):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="July_22_2012_html_2faeb293.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=261 HEIGHT=30 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+This is what I suspect the GIRL subroutine is doing. The advantage of
+doing it this way (as opposed the the way I've implemented it in
+Helena, where you first invert A, and then multiply A^-1 against the
+various matrices of interest) is that the brute-force Gauss-Jordan
+matrix inversion requires n^2 operations (where n is number of
+individual elements in A). On top of that, multiplying A^-1 by
+another vector requires another n arithmetic operations. When you do
+it Peter's way, you have to do the n^2 elimination process every time
+you want to multiply A^-1 with another vector. On the other hand,
+though, you don't have to tack on those additional n operations after
+you invert A. (In Peter's method, you don't really 'preserve' the
+A^-1 values. There's no way to really 'see' what A^-1 looks like in
+his code.)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+The reason I think Peter's code is using this approach is that the HA
+matrix (which is what gets sent to the GIRL subroutine most of the
+time) has dimensions iMax+1 by 2*(iMax+1). The &quot;+1&quot; is the
+row that holds the... A matrix? (which is really of dimensions 1 by
+iMax), while the first iMax rows hold the B matrix. (This is at any
+given mass cell, obviously. The HA matrix doesn't contain this info
+for all jMax mass cells.) And I *think* that the first iMax + 1
+columns of HA are holding the A and B matrix values. The right hand
+side of HA *may* contain the values of the matrices that we want to
+multiply by TempSInverse. (But wait, how do you get from A and B to
+S??)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S = (C*B) + D</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Sum = (C*A) + G</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+A = S^-1 * Sum</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+B = S^-1 * E</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S*A = Sum &lt;-- 1D matrix</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S*B = E &lt;-- 2D matrix</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+So, if you send GIRL(S|Sum), it will return A. If you send GIRL(S|E),
+it will return B.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+In Peter's Henyey subroutine, maybe the HA and D matrix values are
+linked? It looks like the D matrix holds the G and E matrix values.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

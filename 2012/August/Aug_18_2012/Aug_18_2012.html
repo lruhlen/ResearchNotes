@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120818;6481900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 18, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></FONT></FONT></SPAN></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><STRIKE><FONT SIZE=3><SPAN STYLE="text-decoration: none">Switch
+	Helena's Henyey solution subroutine back to using the gauss-jordan
+	elimination method for matrix inversion (instead of the recently
+	installed 4x4 algorithm) and see if that gets the n=2/3 polytrope
+	1Msun model corrections to agree with those calculated by Peter's
+	code.</SPAN></FONT></STRIKE><SPAN STYLE="text-decoration: none">
+	</SPAN><SPAN STYLE="text-decoration: none"><FONT SIZE=3>Done. Gives
+	the exact same correction values that using the Cramer's rule
+	inversion algorithm produces. So, changing the specific inversion
+	algorithm isn't the solution. </FONT></SPAN></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Correction values from this run
+		with the gauss-jordan elimination inversion method are stored in
+		CppHenyeyCode/misc_debugging_records/corrections_from_matrixInvert.txt</FONT></FONT></P>
+	</UL>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Note: modifiedHenyeyMatrixSoln
+	subroutine (in Helena) does NOT call any lookup tables, so the
+	lookup table precision problem ISN'T what's causing the codes to
+	calculate different correction values.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Hints from Greg: Numerical
+	recipes, ill-conditioned matrices (NR apparently has info on how to
+	finess those), &quot;pre-conditioning&quot; a matrix, singular value
+	decomposition?? (may only be worth it for matrices larger than 4x4,
+	but worth keeping in mind)</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN STYLE="text-decoration: none"><FONT SIZE=3><FONT COLOR="#000000"><SPAN STYLE="font-weight: normal">Even
+	with the S^-1 values from Peter's code, it seems like Helena is
+	still producing dX values very different from Peter's.</SPAN></FONT></FONT></SPAN></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Make sure I'm reading in and out
+	the dX, S^-1, etc. values that I think I am.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Figure out what is causing
+		Helena and Peter to get such different results given the exact same
+		inputs.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>Check the Sum matrix
+			values between the two codes (given the same S/S^-1/CDEG input
+			values) and see if they differ substantially.</STRIKE> Done.  See
+			Figure1 below for results. The short answer is, they do differ,
+			but not by much.</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<IMG SRC="Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+				1:</B> </FONT>
+				</P>
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<FONT SIZE=3>The four variables plotted above represent the
+				following equation: </FONT>
+				</P>
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<FONT SIZE=3>(abs(Peter(sumN value)) - abs(Helena(sumN value))) /
+				average of abs. of Peter and Helena sumN value</FONT></P>
+				<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+				<FONT SIZE=3>This gives a measure of how the two codes' results
+				vary (e.g. by what factor in a 1000).  The largest difference is
+				in the luminosity 'sum3' values, which differ by a maximum of 6
+				parts in a hundred, which isn't *that* huge of a difference.</FONT></P>
+			</SPAN><BR CLEAR=LEFT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE>Although, the differences between the dX values that the
+			two codes are generating from the same S/S^-1/CDEG values are
+			quite substantial on their own... I think.  Actually, let's check
+			that.</STRIKE> Done.  Yep, they're quite different.  The raw
+			corrections vary by several orders of magnitude between the
+			different codes.  See Figure 2 for results.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.51in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-18-2012/dX_raw_comparison.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	2</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			What's causing this big difference in the dX value results, when
+			I'm feeding Helena the same S and S^-1 matrix values (not to
+			mention the same CDEG values and raw variable values) that Peter's
+			code is using??</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Try feeding Helena the same Sum matrix values in the
+				modifiedHenyeyMatrixInversion subroutine, and see if that
+				eliminates the discrepancies?</STRIKE> Done.  It doesn't.</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				Compared the A matrix values from the two codes, and they
+				disagree (even with the same S, S^-1, CDEG, and variable values).
+				 The difference is most pronounced at the innermost mass cell.</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Maybe it's caused by the lack of precision in the
+				printouts of the cdeg values from Peter's code.  Try this again,
+				with full precision CDEG printout values (read into Helena), and
+				see if that erases the discrepancies between the two codes.</STRIKE>
+				 Done. Still getting significant differences between the two
+				codes' A matrix values at the innermost mass cell.  
+				</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Need to figure out what's causing this problem at such a
+				specific place in the model. </STRIKE> Done.  It turns out to
+				have been a careless error.  I printed out the HA matrix from
+				Peter's code (which contains the B|A matrix values after it gets
+				sent to the GIRL subroutine) before GIRL had been called on the
+				first mass cell.  When I corrected that error, all differences in
+				the A values between Peter's code and mine turn out to be on the
+				order of one part in 10^5.  I think that's set by the precision
+				limits of 'cout' in printing numbers in Helena; it's probably an
+				artifact of the C++ i/o I'm using to get these numbers into
+				python for comparison.</P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					(Come back to this one later, if necessary) Also, make sure to
+					get full-precision printouts of the var vals from Peter's code
+					and feed those into Helena.  See if that makes a difference in
+					the dX value results.</P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Now that I've got the A matrix values sorted out, let's
+				see if the two codes can now produce the same dX values.</STRIKE>
+				 Done.  Nope, there's still this more-or-less constant factor of
+				8.33328 between Peter's values and Helena's (the latter are the
+				bigger values).  See Figure 3 for results.</P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 10.59in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure3.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	3:</B> </FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>Plots of the dX Helena values / dX Peter values for all
+	four main dependent variables.  Notice the -8.3328 value at the top
+	of the y-axes.  This means that the y-values listed are actually
+	added to that constant factor.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Could this factor of 8.33328
+			between the two codes' results be due to the same precision
+			write-out limitations on the dep. var values written out by
+			Peter's code? (I don't think this is terribly likely, but it's
+			worth checking.)</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>The A values are equal-ish at
+			the outermost mass cell.  The outermost dX values should be the
+			same as the outermost A values, so something must be happening in
+			Peter's code to change the dX values at the outermost mass cell.  </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>Perhaps there's some
+				sort of rescaling going on in his code at that outermost mass
+				point?  Check the &quot;cf&quot; variable in his Henyey
+				subroutine for this.</STRIKE>  Done.  Yes, it's due to the &quot;cf&quot;
+				rescaling parameter in Peter's Henyey subroutine.</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>Next question to
+				answer is: how and why is his code determining what that cf value
+				should be?</STRIKE> Done...sort of.  It looks like he's got a
+				pragmatic (rather than physically driven) process set up to scale
+				the dX values by the cf parameter.  It looks like it might be
+				optimized to apply smaller or larger corrections depending on the
+				number of times the model has iterated through the Henyey
+				process, on what the minimum number of allowed iterations is, and
+				possibly some other conditions that I'm not grasping.  I don't
+				understand, though, why you've got to do all of that when the
+				scaled corrections from Peter and Helena always end up being
+				pretty much the same.  In other words, the limiting factor on the
+				dX values from either code seems to be the dXmax thresholds that
+				the user sets, rather than the cf value that Peter's code is
+				somehow relying on.</FONT></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+					<FONT COLOR="#000000"><FONT SIZE=3>I should talk to Greg about
+					this, and possibly then also to Peter, about the rationale
+					behind this cf business.</FONT></FONT></P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>In any case, I can
+				just set cf = 1.0 in Peter's code, and then compare its dX values
+				to Helena's.</STRIKE>  Done-- changing cf = 1.0 in Peter's code,
+				and recompiling it.</FONT></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+					<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>For the n=3/2
+					polytrope 1 Msun model: do they now agree?</STRIKE>  Done.
+					Mostly, but not totally.  See Figure 4 for results.</FONT></FONT></P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+					<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 10.59in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+						<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+						<IMG SRC="Figure4.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+						4</B></FONT></P>
+					</SPAN><BR CLEAR=LEFT>
+					</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+					<FONT COLOR="#000000"><FONT SIZE=3>For the 1 Mjup model: do they
+					now agree?  </FONT></FONT>
+					</P>
+				</UL>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Look at the comparison between
+		Peter's and Helena's S^-1 values.  </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Find the mass cell numbers
+			where the differences are largest</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Print out Helena's (and
+			Peter's?) S matrices at those locations</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>See what the dynamic range of
+			values in those matrices is/are (figure out if that's what's
+			causing the differences between the two codes' results)</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>If the difference is due to the
+			ill-conditioned-ness of the S matrices, go on the the step below.</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Test both Helena's matrix
+	inversion algorithms (MIAs) on matrices with varying dynamic ranges,
+	to see where they start to break down.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>See if Peter's [S | x] --&gt; [S
+	| S^-1 * x] method (which I'm 80% but not 100% sure is what that
+	GIRL subroutine of his is doing) truly is more numerically stable
+	with these ill-conditioned-ish matrices.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT SIZE=3><SPAN STYLE="font-weight: normal">If
+		so, implement it in my code. Or perhaps, test its robustness by
+		implementing it in my code and seeing if that'll make Helena and
+		Peter's code produce the same correction values.</SPAN></FONT></SPAN></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

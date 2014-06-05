@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121011;20460300">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 11, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">...I'm
+pretty sure this boils down to how the outermost G values are
+calculated, which in turn depends on how the atmospheric P/T/R/rho
+values are getting calculated. Debugging my atmos subroutine is
+probably going to be a long, involved, gnarly process that will drag
+on for about another month.</SPAN></FONT></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Still
+to do:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Still
+	need to fix the problem w/ the G values disagreeing at the outermost
+	boundary</SPAN></FONT></FONT></SPAN></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>What
+is the best way for me to test not only what P/T/Ratm values Peter's
+code is calculating, but how they vary with Pouter and Touter, and
+how that differs from whatever Helena's doing on that front?</B></SPAN></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>It will definitely
+involve writing another Python script, and modifying Peter's code to
+output variables and capturing them somehow and probably some fiddly
+formatting of that captured output, and...  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Arg, I got NOTHING done
+on this today in b/w all the running around and meetings and scaling
+the tablet learning curve. :-\</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>But, tomorrow I will get
+in here early and tackle this.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>To do list for the
+G-debugging, in more detail:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[] See how Peter's GI()
+subroutine handles calculating the D matrix values at the outer
+boundary   (The way those derivatives are hard-coded into the
+subroutine may tell you something about what values/vars are expected
+to change there due to changes in the atmospheric inner boundary
+values caused by very slight perturbations in the outermost model
+values)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Write down what
+those D matrix value eqns. are right there at the outer boundary.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Write down what
+those D matrix eqns. are in the 'middle' regions of the model (i.e.
+b/w the inner and outer boundaries)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+    
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[] Get Peter's code to
+write out the atmos vars (T,P,R, rho, nabla aka grad) at the
+following points:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Just the regular
+outer boundary, before any of the outer boundary values get changed</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Outer boundary
+with the Pouter value varied</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Outer boundary
+with Touter value varied</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+   <FONT FACE="Courier, monospace"><FONT SIZE=2>[] Outer boundary
+with rho_outer value varied</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[] Calculate the G
+values and the D values by hand, based on the numbers you get out in
+that previous step.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 6.07in; height: 10.06in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="test.png" NAME="graphics1" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><BR><BR>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">A
+	bit of a test-flight with handwritten work on the Waccom tablet I
+	just received.  Sometimes, the act of handwriting lets you think
+	different thoughts than typing does.  This picture was generated by
+	drawing in Inkscape with the calligraphy pen tool.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+</BODY>
+</HTML>

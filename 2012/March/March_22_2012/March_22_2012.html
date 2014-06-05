@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1044900">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120323;4341400">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I><B>Date
+&amp; Time: </B></I><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">3/22/2012</SPAN></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I><B>Location:
+</B></I><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">From
+home</SPAN></SPAN></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I><B>Computing
+context: </B></I><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Macho
+Mac </SPAN></SPAN></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-weight: normal">From
+	last time: </SPAN></SPAN></SPAN></FONT>if you want to add a constant
+	numerical value to the names of all the (numbered) files in a
+	directory, enter the following command at the unix prompt, when
+	you're within that directory:</FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"> <FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Times New Roman, serif"><I><SPAN STYLE="font-weight: normal">ls
+		*_model.txt | awk -F'[_]' '{old=$0; n=$1+100;  sub($1,n,$0); print
+		&quot;mv &quot; old &quot; &quot;$0}'|sh</SPAN></I></FONT></SPAN></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-weight: normal">If
+	you want a simulation to 'pick up' where the results of a previous
+	one left off, make sure to note and do the following!!</SPAN></FONT></FONT></SPAN></FONT></P>
+</UL>
+<P CLASS="list-3" STYLE="margin-left: 0.79in; text-indent: 0in"><FONT COLOR="#000000"><B><SPAN STYLE="text-decoration: none"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal">&quot;*
+ MODA   designates the starting model number.  For MODA=0 </SPAN></FONT></SPAN></B></FONT>
+</P>
+<P CLASS="list-3" STYLE="margin-left: 1.58in; font-style: normal; line-height: 100%">
+<FONT COLOR="#000000"><FONT SIZE=2 STYLE="font-size: 10pt"><B>*      
+  ascii data is assumed (unit number of input data = 1).</B></FONT></FONT></P>
+<P CLASS="list-3" ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; line-height: 100%">
+<FONT COLOR="#000000"><FONT SIZE=2 STYLE="font-size: 10pt"><B><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt">*
+        For MODA &lt; 0 the last model on the file is read it.&quot;</FONT></FONT></SPAN></B></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><U><B>Continuing
+from last time:</B></U></SPAN></FONT></FONT></P>
+<OL>
+	<LI><P CLASS="list-3" STYLE="text-indent: 0in; font-weight: normal"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+	a full-fusion, time-evolving 0.3Msun model forward for the same
+	amount of time as the model in step (1), and see how their
+	peregrinations throughout the HR diagram differ-- or don't.</FONT></P>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I><STRIKE>Done.
+		 See <A HREF="#figures section">Figures 1-4</A> below (in the
+		Figures section) for results + comparisons.</STRIKE></I></FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>And...
+			the results are disconcertingly wrong-looking.</I></FONT></STRIKE></FONT></P>
+			<LI><P CLASS="list-3"><FONT COLOR="#6b4794"><SPAN STYLE="text-decoration: none"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Figured
+			out why: Didn't make the following necessary change to the .start
+			files for EITHER the with OR with-out fusion second-phase cases.</SPAN></SPAN></FONT></SPAN></FONT></P>
+		</OL>
+	</OL>
+</OL>
+<P CLASS="list-3" STYLE="margin-left: 2.36in"><FONT COLOR="#6b4794"><B><SPAN STYLE="text-decoration: none"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal">&quot;*
+ MODA   designates the starting model number.  For MODA=0 </SPAN></FONT></SPAN></B></FONT>
+</P>
+<P CLASS="list-3" STYLE="margin-left: 2.36in; font-style: normal; line-height: 100%">
+<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt"><B>*      
+  ascii data is assumed (unit number of input data = 1).</B></FONT></FONT></P>
+<P CLASS="list-3" STYLE="margin-left: 2.36in; font-style: normal; line-height: 100%">
+<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt"><B>*      
+  For MODA &lt; 0 the last model on the file is read it.&quot;</B></FONT></FONT></P>
+<OL>
+	<OL TYPE=a>
+		<OL TYPE=i>
+			<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal"><A NAME="needs to be redone"></A>
+			<FONT COLOR="#6b4794"><STRIKE> <FONT SIZE=2 STYLE="font-size: 10pt">So,
+			need to re-run both of these second-phase simulations, but setting
+			MODA = -1.</FONT></STRIKE></FONT></P>
+			<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+			<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Running
+			right now.  Set two seperate instances/processes of thecode.f
+			running on the two different sets of starting conditions. 
+			Hopefully, they'll stay seperate and not interact with each other
+			(superstitious, ignorant fears of how processes and codes run on
+			operating systems...)</FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+				<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Oddly,
+				the with-fusion case seems to be running significantly faster
+				than the no-fusion case (about 1000 models ahead of the other). 
+				When they're finished running, check what the average number of
+				loops required for convergence was for each case.  Maybe the one
+				is having a harder time converging than the other.  Or, maybe
+				it's just due to the vagaries of running two copies of the
+				process simultaneously.</FONT></STRIKE></FONT></P>
+			</OL>
+		</OL>
+		<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+		<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">The
+		with-fusion case didn't evolve as far forwards in time, even after
+		making this MODA change, so I'm going to set it up to let it keep
+		running until it gets to... some time comparable to the final time
+		reached by the no-fusion case. </FONT></STRIKE></FONT>
+		</P>
+		<OL TYPE=i>
+			<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+			<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">It's
+			running right now.  Last time, it took 45 minutes to complete,
+			though that was when the two processes were running
+			simultaneously. This time, it took ~35 minutes to complete.</FONT></STRIKE></FONT></P>
+			<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+			<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">It
+			got to a bit above 10^16 seconds, but only printed out the final
+			model.  So, it only added one additional point to the HR diagram
+			plot, which lay pretty much on top of all the previous points.</FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal">
+				<FONT COLOR="#6b4794"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">It
+				looks like the with-fusion model has 'hit' the main sequence,
+				since it doesn't budge from the same spot on the HR diagram. 
+				However, its surface stays around 2900 K, which is too cool. 
+				Also, the points in question do not lie anywhere near the main
+				sequence, as plotted on the graph.</FONT></STRIKE></FONT></P>
+				<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt"><STRIKE>I
+				think grabbing the temperature at the outermost edge of the
+				atmosphere may be the wrong thing to be doing.  Maybe I should be
+				finding the temperature at the inner base of the atmosphere,
+				instead??</STRIKE>  </FONT></FONT>
+				</P>
+				<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt">It was
+				the wrong thing to be doing.</FONT></FONT></P>
+				<UL>
+					<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+					<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt">Need
+					to be searching through the atm. part of the model, looking for
+					the place where tau = 2/3, and get the temperature *there*. 
+					<B>This 'cell' seems to be marked in the code by '***', instead
+					of a cell number.</B></FONT></FONT></P>
+					<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+					<FONT COLOR="#6b4794"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Next
+					time: </B>update my model-output parsing scripts to search for
+					this elusive piece of information!</FONT></FONT></P>
+				</UL>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<P CLASS="list-3" STYLE="margin-left: 2.36in; line-height: 100%"><BR><BR>
+</P>
+<OL>
+	<OL TYPE=a>
+		<OL TYPE=i>
+			<OL TYPE=A>
+				<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Need
+				to check the time-limits on these two simulations (w/ vs. w/o
+				fusion) and possibly re-do this comparison, by re-running the
+				simulations and forcing them both to take the same sized
+				timesteps.</I></FONT></STRIKE></FONT></P>
+				<UL>
+					<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Looks
+					like the fusion-on model took smaller timesteps in the second
+					phase than the fusion-off one did.  Fusion-on only got to
+					9.9*10^15 seconds, while the fusion-off got to 8.7*10^16
+					seconds.  </I></FONT></STRIKE></FONT>
+					</P>
+					<UL>
+						<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Based
+						on the fact that both of those second-phase runs printed out
+						data every 10^3 models, that means the fusion-on timesteps were
+						~10^12 seconds apiece, while the fusion-off timesteps were
+						~10^13 seconds apiece.</I></FONT></STRIKE></FONT></P>
+						<UL>
+							<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I><STRIKE>But
+							I thought I'd capped *all* the timestep sizes 10^12 seconds. 
+							Need to check that.</STRIKE><SPAN STYLE="text-decoration: none">
+							Turns out I'd capped it at 10^13 seconds in the no-fusion
+							case. </SPAN></I></FONT></FONT>
+							</P>
+							<UL>
+								<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>So,
+								need to re-run the second phase of the no-fusion evolution.</I></FONT></STRIKE></FONT></P>
+								<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Re-running
+								the second phase of the no-fusion evolution right now. </I></FONT></STRIKE></FONT>
+								</P>
+							</UL>
+							<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>If
+							only I had the AboutThisRun stuff implemented in the
+							parse_evolved_output.pl...  Really do need to get that added
+							in before I run anything else.</I></FONT></STRIKE></FONT></P>
+						</UL>
+					</UL>
+				</UL>
+				<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>But,
+				even in the first 1000 runs, where they were both required to
+				take timesteps of size 10^11 seconds, they look different.  The
+				no-fusion case seems to get both hotter and dimmer during that
+				time, while the with-fusion case simply stays put at the same
+				spot in the HR diagram.</I></FONT></STRIKE></FONT></P>
+				<UL>
+					<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>In
+					particular, the fusion-on case stays brighter (not surprising)
+					and cooler (SURPRISING!) than the fusion-off case.</I></FONT></STRIKE></FONT></P>
+					<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Maybe
+					the fusion-on case sticks to smaller timesteps in the second
+					phase because something about the fusion processes (luminosity
+					changes, fusion rates, something?) is happening on shorter
+					timescales than in the fusion-off case.</I></FONT></STRIKE></FONT></P>
+				</UL>
+			</OL>
+		</OL>
+	</OL>
+</OL>
+<UL>
+	<UL>
+		<LI><P CLASS="list-3"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Okay,
+		that's running right now.  On the second part, with the 10000
+		models.  Will probably finish in ~20 minutes.</I></FONT></STRIKE></FONT></P>
+		<LI><P CLASS="list-3"><FONT COLOR="#008080"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt"><I>Looks
+		like it's actually going to take closer to 30-40 minutes for this
+		to complete...</I></FONT></STRIKE></FONT></P>
+		<UL>
+			<LI><P CLASS="list-3"><FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Actually,
+			ended up taking more like an hour to run... and then parse/plot.</I></FONT></FONT></P>
+			<LI><P CLASS="list-3"><FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I>In
+			light of how long this type of check takes, maybe just run it on
+			the 1.0 Msun model, rather than on both the 0.5 and 1.0Msun
+			models...?</I></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<OL>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 10pt">Basically,
+		trying to use the results from both (1) and (2) to check that the
+		basic physics at work in the bellies of these contracting balls of
+		gas is correct and possible &amp; etc.</FONT></P>
+	</OL>
+	<LI><P CLASS="list-3" STYLE="font-weight: normal"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Run
+	a full-fusion, time-evolving 0.5Msun model forward, as well</FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" STYLE="font-weight: normal"><STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">and
+		compare it with the 0.5Msun no-fusion model I've previously evolved
+		forwards</FONT></STRIKE></P>
+	</OL>
+	<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+	a full-fusion, time-evolving 1.0Msun model forward, as well.</FONT></P>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="text-decoration: none">and
+		compare it with the 1.0Msun no-fusion model I've previously evolved
+		forwards.</SPAN></SPAN></FONT></FONT></P>
+	</OL>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Figure out how to add a
+	&quot;search within this part of my lab notebook&quot; google search
+	widget to my website where I'm storing these things.</FONT></STRIKE></P>
+</OL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Have
+	uploaded the code for that to &quot;search.html&quot; in the
+	LabNotebook directory on ucolick.</I></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I>As is,
+	it doesn't seem to search within the .pdf or .py files stored there,
+	so... right now, it's looking like the wordpress option is still the
+	best (in terms of the fewest number of steps I have to go through to
+	upload these documents to a search-able, web-based, readable form.) </I></FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; text-indent: -0.25in; margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+<I><FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt">Right
+now, I'm editing/writing using OpenOffice Writer/Web.  This may do
+what I want it to...</FONT></FONT></I></P>
+<OL>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">spent all day
+		yesterday trying to figure out/find an electronic lab notebook form
+		that would work for me, with that functionality.  Failed.  This
+		seems like one of two of the best solutions for that.</FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">The other is to upload
+		my ELN entries to a wordpress blog, but I'm not sure I want that.
+		Commenting = no, and I'd like to have all of my research stuff in
+		the same web domain.</FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Main issues I
+		encountered were:</FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Not being able to do
+			nested, ordered lists with the same ease and customizability that
+			I can in OpenOffice</FONT></STRIKE></P>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Not being able to
+			upload, or resize/caption figures</FONT></STRIKE></P>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Not being able to
+			create a template to structure my documents in the way I want</FONT></STRIKE></P>
+			<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT SIZE=2 STYLE="font-size: 10pt">Not being able to
+			search through the uploaded entries for words or phrases.</FONT></STRIKE></P>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+	<FONT SIZE=2 STYLE="font-size: 10pt">Add the 'AboutThisRun' parsing
+	code stuff into parse_evolved_models.pl</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2 STYLE="font-size: 10pt">Backup/upload all of my
+	research code/results/graphs from this machine (Macho Mac) to my
+	ucolick account.</FONT></P>
+</OL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#008080"><FONT SIZE=2 STYLE="font-size: 10pt"><I>I've
+		forgotten my password... Need to find it again.</I></FONT></FONT></P>
+	</UL>
+</UL>
+<OL>
+	<OL TYPE=a START=0>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in">
+		</P>
+	</OL>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal"><A NAME="figures section"></A>
+<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Figures:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=128*>
+	<COL WIDTH=128*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_WithFusion_evolved/HR_evolution.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=435 HEIGHT=326 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			1:</B> The HR diagram evolution of a 0.3Msun star, <I>with fusion
+			turned on the entire time. </I>It's always in the forbidden region
+			to the right of the Henyey limit...</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<STRIKE><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			1:</B> The HR diagram evolution of a 0.3Msun star, <I>with fusion
+			turned on the entire time. </I>Looks kind of ... wonky to me,
+			really.  It doesn't seem to be behaving the way it ought to -- it
+			<I>should </I>eventually make its way down onto the main sequence
+			(dashed line), but it doesn't.  Also, it's always in the forbidden
+			region to the right of the Henyey limit...</FONT></FONT></STRIKE></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#6b4794"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><A HREF="#needs to be redone"><STRIKE>Needs
+			to be redone.</STRIKE></A></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_WithFusion_evolved/ModelIterationSummary.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=435 HEIGHT=326 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			2: </B><SPAN STYLE="font-weight: normal">The evolution of the
+			internal structure of the same 0.3Msun </SPAN><I><SPAN STYLE="font-weight: normal">with
+			fusion</SPAN></I><SPAN STYLE="font-weight: normal"> model plotted
+			in the HR diagram of Figure 1.  The color-ID scheme is the same in
+			both figures.</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<STRIKE><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			2: </B><SPAN STYLE="font-weight: normal">The evolution of the
+			internal structure of the same 0.3Msun </SPAN><I><SPAN STYLE="font-weight: normal">with
+			fusion</SPAN></I><SPAN STYLE="font-weight: normal"> model plotted
+			in the HR diagram of Figure 1.  The color-ID scheme is the same in
+			both figures.</SPAN></FONT></FONT></STRIKE></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#6b4794"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><A HREF="#needs to be redone"><STRIKE>Needs
+			to be redone.</STRIKE></A></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_evolved/HR_evolution.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=435 HEIGHT=326 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			3:</B><SPAN STYLE="font-weight: normal"> The same HR diagram plot
+			as Figure 1, but for a 0.3Msun </SPAN><I><SPAN STYLE="font-weight: normal">no
+			fusion </SPAN></I><SPAN STYLE="font-weight: normal"> model.  
+			Notice the different behavior of this system over time...</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<STRIKE><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			3:</B><SPAN STYLE="font-weight: normal"> The same HR diagram plot
+			as Figure 1, but for a 0.3Msun  </SPAN><I><SPAN STYLE="font-weight: normal">no
+			fusion </SPAN></I><SPAN STYLE="font-weight: normal"> model. (Note
+			to self: need to check/compare the time ranges on those two
+			models.)  Notice the different behavior of this system over
+			time...</SPAN></FONT></FONT></STRIKE></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			<BR>
+			</P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#6b4794"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><A HREF="#needs to be redone"><STRIKE>Needs
+			to be redone.</STRIKE></A></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_evolved/ModelIterationSummary.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=435 HEIGHT=326 BORDER=0><BR CLEAR=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			4: </B><SPAN STYLE="font-weight: normal">Same situation as Figure
+			2, only with </SPAN><I><SPAN STYLE="font-weight: normal">no fusion
+			</SPAN></I><SPAN STYLE="font-weight: normal">throughout the
+			0.3Msun's contraction/evolution.  Provided here for comparison
+			with Figure 2.</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<STRIKE><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+			4: </B><SPAN STYLE="font-weight: normal">Same situation as Figure
+			2, only with </SPAN><I><SPAN STYLE="font-weight: normal">no fusion
+			</SPAN></I><SPAN STYLE="font-weight: normal">throughout the
+			0.3Msun's contraction/evolution.  Provided here for comparison
+			with Figure 2.</SPAN></FONT></FONT></STRIKE></P>
+			<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#6b4794"><FONT FACE="Times New Roman, serif"><FONT SIZE=2 STYLE="font-size: 10pt"><A HREF="#needs to be redone"><STRIKE>Needs
+			to be redone.</STRIKE></A></FONT></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=50%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR>
+</P>
+</BODY>
+</HTML>

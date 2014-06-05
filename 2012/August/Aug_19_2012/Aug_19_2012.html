@@ -1,0 +1,288 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120819;22322300">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 19, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></FONT></FONT></SPAN></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Hints from Greg: Numerical
+	recipes, ill-conditioned matrices (NR apparently has info on how to
+	finess those), &quot;pre-conditioning&quot; a matrix, singular value
+	decomposition?? (may only be worth it for matrices larger than 4x4,
+	but worth keeping in mind)</FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 10.59in; height: 6.38in; border: none; padding: 0in; background: #ffffff">
+		<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../Aug_18_2012/Figure4.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+		1: </B></FONT>
+		</P>
+		<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+		<FONT SIZE=3>Comparison of Helena and Peter's scaled dX outputs,
+		given the same CDEG, S, S^-1, and Sum matrix values.  In this run,
+		the &quot;cf&quot; scaling factor in Peter's code has been set to
+		1.0, which effectively turns off dX value rescaling.  Notice that
+		the dX values calculated by the two codes still differ
+		substantially in places.  Need to figure out what's causing that to
+		happen.</FONT></P>
+	</SPAN><BR CLEAR=LEFT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+	<FONT SIZE=3>Notice that the dX values calculated by the two codes
+	still differ substantially in places (see Figure 1).  Need to figure
+	out what's causing that to happen.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+		<STRIKE><FONT SIZE=3>Compare the A2 and A3 values at the outermost
+		mass cell (these should equal the dr and dL values at that point)
+		between the two codes.</FONT></STRIKE></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+			<STRIKE><FONT SIZE=3>Done.  All A values are the same (to within a
+			few parts in 10^-5) b/w the two codes, over the entire mass cell
+			range.</FONT></STRIKE></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+		<STRIKE><FONT SIZE=3>Maybe Peter's code is rescaling the dX values
+		in some way that's causing the discrepancies in Figure 1?</FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+		<FONT SIZE=3><STRIKE>The dX values themselves DO agree between the
+		codes.  The way I was plotting the dX ratios in python was causing
+		the problem.  Peter's dX values are printed from the outside in,
+		while Helena's dX values were printed from the inside out (in terms
+		of mass cell number). </STRIKE> </FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+			<FONT SIZE=3>Fixed this by modifying my python script to always
+			sort the data by mass cell number in increasing order before
+			plotting any comparisons.  See results in Figure 2.</FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 9.26in; height: 5.82in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	2</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+	<FONT SIZE=3>Now that's cleared up, I'm going to see how the results
+	compare when I *don't* load Peter's Sum matrix values into Helena,
+	but let it compute those Sum values itself.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT SIZE=3>Results saved in:
+		/misc_debugging_records/n32_1Msun_corrections_v5.txt</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT SIZE=3>Outcome: excellent agreement between the codes. (See
+		Figure 3 for results).</FONT></P>
+	</UL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+	<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 8.6in; height: 5.18in; border: none; padding: 0in; background: #ffffff">
+		<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="Figure3.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+		3</B></FONT></P>
+	</SPAN><BR CLEAR=LEFT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+	<STRIKE><FONT SIZE=3>Next, compare the two codes' results when I let
+	Helena compute its own Sum *and* S values (but not S^-1).</FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT SIZE=3>
+	 Actually, the Sum matrices aren't involved in the Henyey matrix
+	inversion/soln. subroutine, except where they're used to find S^-1,
+	so this check isn't necessary.</FONT></SPAN></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+	<FONT SIZE=3>Next, compare the two codes' results when I let Helena
+	calculate S^-1 values, but not CDEG values. (for the 1Msun, n=3/2
+	model).</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+		<FONT SIZE=3>Results saved in:
+		/misc_debugging_records/n32_1Msun_corrections_v6.txt</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+		<FONT SIZE=3>Outcome: excellent agreement between the codes.  (See
+		Figure 4).</FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 8.71in; height: 5.25in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure4.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	4</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Next, let Helena calculate its own CDEG values, in addition to the
+	Sum, S, and S^-1 matrix values.  (Keep the primary and lookup var
+	values set to those determined by Peter's code, though.)</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Results saved in:
+		<SPAN STYLE="text-decoration: none"><FONT SIZE=3><SPAN STYLE="font-style: normal">/misc_debugging_records/n32_1Msun_corrections_v7.txt</SPAN></FONT></SPAN></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Outcome: They disagree.  See Figure 5 for details.</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 8.68in; height: 5.24in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure5.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	5</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>So, it looks like the limiting
+	factor in getting the codes dX values to agree lies NOT with the S
+	matrices or their inversions, but with the CDEG values that Helena
+	is calculating.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Next steps:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Try to isolate which, if any, of
+		the CDEG matrices are most responsible for this.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Use Peter-generated values for
+			all but one, and see how that effects the dX values' agreement b/w
+			codes.</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>For the 1 Mjup model: do the
+		Peter and Helena models' dX values (raw) now agree, too?  </FONT></FONT>
+		</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT SIZE=3><U><B>To keep in mind for later:</B></U></FONT></FONT></P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Look at the comparison between
+		Peter's and Helena's S^-1 values.  </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Find the mass cell numbers
+			where the differences are largest</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Print out Helena's (and
+			Peter's?) S matrices at those locations</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>See what the dynamic range of
+			values in those matrices is/are (figure out if that's what's
+			causing the differences between the two codes' results)</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>If the difference is due to the
+			ill-conditioned-ness of the S matrices, go on the the step below.</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Test both Helena's matrix
+	inversion algorithms (MIAs) on matrices with varying dynamic ranges,
+	to see where they start to break down.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>See if Peter's [S | x] --&gt; [S
+	| S^-1 * x] method (which I'm 80% but not 100% sure is what that
+	GIRL subroutine of his is doing) truly is more numerically stable
+	with these ill-conditioned-ish matrices.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT SIZE=3><SPAN STYLE="font-weight: normal">If
+		so, implement it in my code. Or perhaps, test its robustness by
+		implementing it in my code and seeing if that'll make Helena and
+		Peter's code produce the same correction values.</SPAN></FONT></SPAN></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

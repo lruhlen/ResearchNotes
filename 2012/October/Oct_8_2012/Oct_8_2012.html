@@ -1,0 +1,371 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121008;18431900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 8, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B><SPAN STYLE="font-style: normal">From
+last time:</SPAN></B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN STYLE="font-weight: normal"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2>Maybe
+	the differences are due to something with the timestep size in
+	Helena vs. Peter?</FONT></FONT></SPAN></FONT></SPAN></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>dTime
+	values</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>In
+		Helena: 10^11 seconds</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>In
+		Peter: 0.0 seconds</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Maybe
+	that's it then.  Let's set dTime = 0.0 seconds in Helena and re-run
+	this whole thing.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>YES,
+		THAT SOLVES IT!!!! (Well, a significant portion of it at least.)
+		Peter's code was running with a timestep size of zero seconds,
+		while my code had been running with a timestep size of 10^11
+		seconds!!! When I changed dTime in Helena to zero, here's what I
+		got (Figure 4):</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 48%; height: 255%; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Oct_4_2012/Figure4.png" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	4</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>We're
+not totally out of the woods yet, because you can see that things are
+still not lining up at the outer boundary. I'm pretty sure this boils
+down to how the outermost G values are calculated, which in turn
+depends on how the atmospheric P/T/R/rho values are getting
+calculated. Debugging my atmos subroutine is probably going to be a
+long, involved, gnarly process that will drag on for about another
+month.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>But.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>This
+is a very good and encouraging breakthrough.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U>Still
+to do:</U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Still
+	need to fix the problem w/ the G values disagreeing at the outermost
+	boundary</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Check/
+		compare the T/P/Ratm values that Peter adn Helena are generating</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>are
+			the inputs to the atmos subroutine the same every time it's called
+			(same b/w the codes, not b/w the calls)?</FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Is
+			it something buggy w/in the atmos subroutine, or is the bug in the
+			inputs that are being supplied to the atmos subroutine?</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Also
+	need to re-test that the dTime value/difference was causing the
+	differences b/w the dX profiles for the 1Msun, n=3/2 polytrope test
+	case!</SPAN></FONT></FONT></SPAN></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Run
+	both codes on both test cases for many iterations, but w/ dTime=0,
+	to see how and if they converge, and to check whether they converge
+	to the same solutions</SPAN></FONT></FONT></SPAN></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Run
+	both codes for 1 iteration w/ dTime &gt;0</SPAN></FONT></FONT></SPAN></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Run
+	both codes for several iterations, for one timestep, with dTime &gt;
+	0</SPAN></FONT></FONT></SPAN></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Run
+	both codes for several timesteps</SPAN></FONT></FONT></SPAN></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Run
+	both codes for 1 timestep, w/ a range of dTime values, to see
+	whether/how the codes' results disagree for very small or large
+	timesteps</SPAN></FONT></FONT></SPAN></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Still
+need to sort out this outer boundary condition/G-value discrepancy
+b/2 the codes before declaring victory.</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>For
+the 10Mjup, no-fusion test case:</FONT></FONT></FONT></P>
+<DL>
+	<DL>
+		<DL>
+			<DL>
+				<DL>
+					<DD>
+					<TABLE WIDTH=480 BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+						<COL WIDTH=148>
+						<COL WIDTH=149>
+						<COL WIDTH=145>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>variable
+								name/ value</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>In
+								Peter</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>In
+								Helena</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Pjmax</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.669e8</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.669e8</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Tjmax</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>12161.16</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>12161.2</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Ljmax</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.402235e32</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.40224e32</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Rjmax</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>8.75421e10</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>8.75421e10</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Patm</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.6699377e8</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.46e8</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Tatm</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>12151.18</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>7.532.03</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Latm(?)</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>N/A</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>N/A</FONT></FONT></P>
+							</TD>
+						</TR>
+						<TR VALIGN=TOP>
+							<TD WIDTH=148>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Ratm</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=149>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.5036e10</FONT></FONT></P>
+							</TD>
+							<TD WIDTH=145>
+								<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>1.1185e10</FONT></FONT></P>
+							</TD>
+						</TR>
+					</TABLE>
+				</DL>
+			</DL>
+		</DL>
+	</DL>
+</DL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Pick up where I left
+	off last time with the P/R/Tatm debugging.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>The atmos values that
+		I got/called from Peter's code-- were those at the 0th (outermost)
+		point of the atmosphere?  Or the innermost point?  Check this,
+		first, because it looks like the P/T/Ratm values Peter's code
+		returned were basically the same as the P/T/Rjmax values that were
+		fed to it.</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>From Peter's code, at
+		the outer boundary:</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>G1 =  
+			-409.950708925724     </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				 <FONT FACE="Courier, monospace"><FONT SIZE=2>Pouter =   
+				166993483.387042        Patm =    166993893.337751     </FONT></FONT>
+				</P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			 <FONT FACE="Courier, monospace"><FONT SIZE=2>G2 =  
+			-42716.9422760010     </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				 <FONT FACE="Courier, monospace"><FONT SIZE=2>X(J2,2) =   
+				87542104809.4471        X(J1,2) =    72506027832.4280      Ratm =
+				   15036119693.9613     </FONT></FONT>
+				</P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			 <FONT FACE="Courier, monospace"><FONT SIZE=2>G3 =   
+			0.00000000000000     </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				 <FONT FACE="Courier, monospace"><FONT SIZE=2>X(J2,3) =  
+				1.402235808868283E+032   X(J1,3) =   1.402235808868283E+032</FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			 <FONT FACE="Courier, monospace"><FONT SIZE=2>G4 = 
+			-3.284887504560174E-002</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				 <FONT FACE="Courier, monospace"><FONT SIZE=2>X(J2,4) =   
+				12161.1609923647        Tatm =    12161.1938412397     </FONT></FONT>
+				</P>
+			</UL>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Let's start by
+	plotting/comparing the Helena and Peter atmos values:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>tau/optical depth</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>dM</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>dtau</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>tau vs. T</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>tau vs. P</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>tau vs. R</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>tau vs. M</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+keep in mind for later:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

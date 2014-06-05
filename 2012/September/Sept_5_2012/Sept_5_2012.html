@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120917;23134800">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Sept. 5, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>The
+	G values mostly agree between the two codes, except at the outer
+	mass cell</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Set
+		the outermost G values (in Helena) to the values they have in
+		Peter's code, and see what (if any) difference that makes.</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Result:
+			doesn't make a bit of difference. The dX values from Helena are
+			still huge.</FONT></FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>Also
+		tried additionally setting the jMax-1 mass cell values of CDE to
+		Peter's values. </FONT></FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3>It
+			also failed to make a bit of difference.</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Figure out what is going on with the CDE calculations in Helena
+	that's causing the code to produce such different dX values</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		From yesterday, it looks like the DE matrices differ more between
+		codes than the C matrix values do</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Why is that??</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Go over the CDE indexing in Helena once more, and make sure I've
+		got it set to the correct indexing pattern</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			At least according to the agreement b/w the two codes' CDE values,
+			it looks like NewCalcCDEG.cpp, rather than NewCalcCDEG_flip.cpp,
+			is using the correct indexing approach.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			The CDE values have opposite signs in the two codes</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			It looks like in the D/E (can't recall which), the row 3, column 1
+			values are not staying consistent w/ that factor of -1 difference
+			b/w the codes. 
+			</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The outermost G values also differ b/w codes, especially the G2J
+		value</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			This probably has something to do with some difference in the way
+			the atmos results are getting calculated b/w Peter's code &amp;
+			Helena.</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Does setting the outmost G values to Peter's code's G values get
+		Helena to produce dX values that agree w/ Peter's code?</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Nope, it makes absolutely no difference. 
+			</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Going through and seeing what effect replacing different rows of
+		the CDEG matrics w/ the Peter values. The following seem to have
+		quite an effect:</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			C[j][2] This one has an effect on getting the dL values to be at
+			least similar orders of magnitude</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			D[j][2] This one is also connected to the sign fluctuations in the
+			dX profiles</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			D[j][3] This one is important, but I'm not sure how to describe
+			the effect it has on the dX profiles. It definitely effects
+			whether the dX profiles rise/fall as a function of mass cell
+			number, in agreement (or not) with the dX profiles calculated by
+			Peter's code.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			E[j][3] This one is connected to the sign fluctuations in the dX
+			profiles.</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The outermost G2J, G4J (but esp. the former) values differ between
+		codes. Perhaps this is also having some significant effect on the
+		outermost few CDE matrices??</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Next time, start by figuring how the G2J calculations need to be
+	modified to eliminate this discrepancy</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Next time, perhaps go through and plot/compare the A matrix values
+	b/w the two codes (a step intermediate b/w calculating the CDEG
+	values and finding the dX values). Maybe this will help show me
+	where/how things are going off the rails in the dX calculations.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Results: see Figure 1. For further details on the A3 profiles from
+		both codes, see Figure 2.</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 9.38in; height: 7.03in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	1:</B> </FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>Comparison of the A values produced by Peter's code and
+	by Helena for a 1Msun, n=3/2 input model, on the first convergence
+	pass. Notice how A2 and A4 differ most at the outermost mass cell.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 6.69in; height: 5.02in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	2:</B> </FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>The raw A3 profiles from Helena and from Peter's code.
+	The A3 profiles vary the most obviously between the two codes.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE>So, need to figure out what's going on with the A profiles
+		in Helena</STRIKE></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE>If the D or G values are 'off' at the innermost mass cell,
+			that could throw things off.</STRIKE></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The outermost G2 and G4 values are very different between the two
+		codes</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE>If this were responsible for the dX difference b/w the
+			codes, though, you'd think that setting the outermost G values in
+			Helena equal to the G values from Peter's code would fix the
+			problem...</STRIKE><SPAN STYLE="text-decoration: none"> No,
+			actually, because that wouldn't address the issues that would
+			remain in the CDE value calculations at the outermost mass cell.</SPAN></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Maybe how the two codes are determining or handling the P/r/L/T
+		values at the outermost mass cell is causing the problem.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Find what those values are at the outermost mass cell in both
+			codes.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE>Try setting Helena's Tatm, Patm, Ratm values to the ones
+			calculated by Peter's code, and see if that fixes any of the
+			discrepancies...?</STRIKE></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			How are the atmospheric T/P/r/rho values handled in Peter's code?
+			Does his code reset the outermost mass cell values to those atmos
+			values? What's going on, there, and how is it different from
+			what's going on in Helena?</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				The outermost mass cell values are not at all changed in the
+				Fortran code when the atmos subroutine is called.</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				I may have screwed up the G calculations at the outermost mass
+				cells when I updated the G calculation subroutines in Helena.
+				Let's check that out in more detail.</P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					I 'fixed' at least one issue, there, by setting the G calcs to
+					call the atmos subroutine when they're at the outermost mass
+					cell, to get the Tatm, Patm, etc. values before they
+					calculate/return the G value.</P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				It's looking like the G2 and G4 value problems at the outermost
+				mass cell are related to my atmos.cpp calculations. In the midst
+				of debugging that and comparing its results to Peter's code. 
+				</P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					My Tatm values are ~10x lower than Peters</P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					My Ratm values are just straight-up way too small...</P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT SIZE=3><U><B>To keep in mind for later:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT SIZE=3><SPAN STYLE="font-weight: normal">For
+	the 1 Mjup model: do the Peter and Helena models' dX values (raw)
+	now agree, too? </SPAN></FONT></SPAN></FONT>
+	</P>
+</UL>
+</BODY>
+</HTML>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121102;19422300">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Nov. 1, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-style: normal"><U><B>Continuing
+from last time:</B></U></SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Talked
+to Greg about my atmos code results not agreeing with Peter's. Based
+on what he said, the debugging plan is:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Have
+	Helena take in the (M,R,P,T,kappa,rho,nab) values from Peter's code
+	at each step, and have Helena calculate the RHSs of the 4 ODEs and
+	compare them to what Peter's code gets from those same inputs. This
+	step is to verify that the RHSs of the ODEs in Helena are correct.</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>R<STRIKE>ead
+		in the atmos profile produced by Peter's code to python.</STRIKE></FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Have
+		python print out each of the (tau,M,R,P,T) values at each step to
+		its own individual file.</FONT></FONT></STRIKE></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=3><FONT SIZE=2><SPAN STYLE="font-weight: normal">I
+			forgot to have python put newlines b/w entries when writing the
+			arrays to file. So, will need to start tomorrow redoing that step
+			(and all the ones that follow it).</SPAN></FONT></FONT></FONT></STRIKE><B><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=3>
+			</FONT></FONT></SPAN></B><FONT FACE="Courier, monospace"><FONT SIZE=3><SPAN STYLE="text-decoration: none"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Done.</SPAN></FONT></SPAN></FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=3><B><SPAN STYLE="text-decoration: none"><FONT SIZE=2><U>To
+Do:</U></FONT></SPAN></B></FONT></FONT></FONT></P>
+<UL>
+	<UL>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		</P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		</P>
+		<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 5.7in; height: 10.53in; border: none; padding: 0in; background: #ffffff">
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<IMG SRC="../Nov_1_2012/diagram1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Diagram
+			1:</B></FONT></FONT></P>
+			<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Program
+			workflow for Helena atmos subroutine debugging</FONT></FONT></P>
+		</SPAN><BR CLEAR=LEFT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=3><FONT SIZE=2><SPAN STYLE="font-weight: normal">See
+		Diagram 1 for the work-flow for the following steps (this is stupid
+		and nitpicky, but very important to get right!)</SPAN></FONT></FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Read
+		each of those files into Helena's atmos subroutine, and have it
+		calculate the atmos profile from those.</FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT FACE="Courier, monospace"><FONT SIZE=2>
+		 Done.</FONT></FONT></SPAN></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE><SPAN STYLE="font-weight: normal">Record
+		the ratio b/w what Helena calculates and what Peter gets at each
+		step</SPAN></STRIKE><SPAN STYLE="font-weight: normal">,  Done. 
+		Results stored in
+		/misc_debugging_records/atmos_vals/ratio_comparison.txt</SPAN></FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><STRIKE><SPAN STYLE="font-weight: normal">Plot/compare
+		the results.</SPAN></STRIKE><SPAN STYLE="font-weight: normal"> 
+		Done.  </SPAN><B><A HREF="#graphics2|graphic">See Figure 1</A></B><SPAN STYLE="font-weight: normal">,
+		below.</SPAN></FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 7.84in; height: 8.96in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<A NAME="graphics2|graphic"></A><IMG SRC="Figure1.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1: </B></FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Comparison of the atmos
+	variables (tau, dTau, M, R, T, and P) generated at each step in the
+	RK4 integration process in Peter and Helena.  As the workflow
+	illustrated in Diagram 1 indicates, Helena's atmos subroutine
+	started 'anew' at each new cell in the atmosphere, with values fed
+	in from Peter's code. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">The
+percent error b/w the two codes' results in Figure 1 was defined as:</SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Nov_2_2012_html_m7661834f.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=363 HEIGHT=44 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">The
+take-home point from </SPAN><B>Figure 1</B><SPAN STYLE="font-weight: normal">
+is: the RK4 calculations-- the actual ODEs, or perhaps the way
+results from the 4 intermediate steps are assembled-- are messed up
+in Helena.</SPAN></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+	the step above works <I>[it doesn't so disregard what follows]</I>,
+	then have Helena do an adaptive tau-step size algorithm (step size
+	halving --&gt; results after 2 steps should be the same as result
+	after 1 step with the larger dTau value)</FONT></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>&quot;Something
+	subtly wrong with my RK4 method... maybe not using an updated value
+	in one of the steps...&quot;</FONT></FONT></FONT></P>
+</UL>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.08in"><FONT COLOR="#ff0000"><FONT FACE="Courier, monospace"><FONT SIZE=3><U><B>Next
+time, start by:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#ff0000"><FONT SIZE=3><B><FONT FACE="Courier, monospace">having
+	Peter's atmos code print out all of the Mk1, Mk2, etc. values for
+	all 4 variables at each dTau step.</FONT></B></FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#ff0000"><FONT SIZE=3><B><FONT FACE="Courier, monospace">having
+	Helena do the same, using the same 'starting anew at each new cell
+	with fresh values from Peter's code' approach that made the results
+	of Figure 1, here.</FONT></B></FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#ff0000"><FONT SIZE=3><B><FONT FACE="Courier, monospace">Go
+	thru each of the 4 variables, and compare their k1, k2, k3, and k4
+	step values.</FONT></B></FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#ff0000"><FONT SIZE=3><B><FONT FACE="Courier, monospace">Find
+		with variables, and which k-steps w/in those calcs, are making
+		things go pear-shaped in Helena.</FONT></B></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

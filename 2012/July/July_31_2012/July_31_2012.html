@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120801;185700">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: July 31, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">I think I misunderstood (or at
+least, didn't print out/index correctly) which data structures were
+storing the A and B matrices.  In addition, I think I misinterpreted
+the details of Peter's cookbook about how to calculate the A &amp; B
+matrices.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">In Peter's code, Dpost = [B |
+A].</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">B = -1.0 * HE * InverseS = -1.0
+* InverseS.transpose * HE.transpose</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">A = -1.0 * G * InverseS = -1.0 *
+InverseS.transpose * G.transpose</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">Note: the relations above are
+only true for the innermost mass cell, j=0/1.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">...</SPAN></SPAN></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Turns
+out I was mixing up the row/column indices in assigning values to the
+CDE matrices.  Also had in index mix-up in the ReadInArray
+subroutine, with the 3D arrays.  Both of these are now fixed (I
+hope...).</SPAN></SPAN></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Now,
+Helena and Peter's code producing very similar correction values when
+I read in Peter's CDEG values to Helena.</SPAN></SPAN></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">The next step is to see if they
+end up producing similar correction values when Helena calculates the
+CDEG values itself.</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt">To do this, I'll need to use a
+different test case than the n=3/2 1Msun test case I've been using to
+debug so far, because Helena's (kludged) EOS tables don't cover that
+parameter range.  </FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Made
+a new start file for this:
+/UnalteredCode/inputs/10MjupCDEGdebug.start</SPAN></SPAN></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><B>To
+do today:</B></U></SPAN></FONT></FONT></SPAN></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Logging today's code outputs in
+/BodenheimerCode/UnalteredCode/temp2.txt.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	I've already run and compared the corrections that Helena and
+	Peter's code calculate for the 10Mjup model, and they don't agree. 
+	This is either because:</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The two codes are producing very different CDEG values, or</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The relatively small discrepancies b/w the two codes' results from
+		the 1Msun n=3/2 polytropic test case are more of an issue for this
+		lower-mass test case.</P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	To test which is the case, I need to:</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE>Get cdeg_debug to print out its CDEG and A/B matrices at
+		j=0/1 (to start with)</STRIKE><SPAN STYLE="text-decoration: none"> 
+		Done.</SPAN></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE>Get Helena to do the same</STRIKE><SPAN STYLE="text-decoration: none">
+		 Done.</SPAN></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE>Compare the results.</STRIKE><SPAN STYLE="text-decoration: none">
+		 Done.</SPAN></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Need to make sure both programs are using the same dTime value, so
+that the luminosity derivatives come out the same...</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	cdeg_debug is using dTime = 1e11 seconds 
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Helena is using dTime =  0 seconds.  So!  Resent that to 1e11
+	seconds and re-run.</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Also, get very different G values at j=0/1 from the two programs.  It
+looks like those differing G values are what lead to the differences
+in the B and A matrices (oddly, it has very little effect on the CDE
+matrix values), so I need to look into what's causing the
+differences.  It could be one of the following things:</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	The variable values themselves are different at j=0</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		To check, have both codes print out all the of the variables (both
+		primary and secondary) being used at j=0</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			P, r, L, and T are the same in both codes at j=0</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	The differences in the way the left-most part of the dP differences
+	in the G1 (and other) values are calculated in Helena vs. Peter's
+	code is causing the difference.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		If all variables in both codes are the same at j=0, go into each of
+		the Gi calculations and have each code print out the intermediate
+		steps/values in those calculations</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			I've checked that (see the temp2.txt file that's logging all of
+			this-- note to self: upload that text file to the blog), and
+			that's not the case, at least not at j=0</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	The lookup tables in the two codes are returning different
+	rho/delta/cP results, which means something about the structure of
+	Helena's look-up tables needs to be tweaked</P>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			The secondary vars (rho/kappa/etc) are very slightly different
+			between the two codes, but I don't *think* that's enough to drive
+			the several-orders-of-magnitude G value differences between the
+			two codes.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Actually, it turns out that it is.  If the values differ at the
+			fourth or fifth significant figure (which they do), you end up
+			getting G1 = 1e22 instead of 1e22, for example.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			The next question is: can my code still get the model to converge,
+			even with these small numerical value differences from Peter's
+			code?  Or will I need to dig into re-jiggering the lookup tables
+			(ugh)?</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+To test the lookup table effects/convergence consequences, do the
+following:</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Modify Helena to do the following:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Rescale the corrections appropriately</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Apply the corrections to the variables</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Let it run through several convergence loops</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Print out the largest correction to each variable in each loop</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		See whether or not it runs off the rails.</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+It does run off the rails, or at least it doesn't converge before it
+encounters something that makes it segfault (it did this several
+times when I let it go through up to 1e3 convergence loops).  So, I
+think I need to really dig in to the lookup tables stuff (UGH).</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ 
+</P>
+</BODY>
+</HTML>

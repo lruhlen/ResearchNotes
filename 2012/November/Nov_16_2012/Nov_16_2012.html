@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121116;15074300">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"> <FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Nov. 16, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 2.49in; height: 0.21in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="Nov_16_2012_html_m341dce39.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2><I>Eqn.
+	2</I></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For reference, the
+difference that this causes in the nabla values used b/w the two
+codes is shown in Figure 3.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Need to remember to ask
+Greg why the nabla profile difference shown in Figure 3 would lead to
+the different atmospheric temperature profiles-- in terms of physical
+processes/intuition for what's going on in there.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>So, now that we know
+that the difference b/w the atmos codes' results is due to the
+non-zero values of CONVNAB in Peter's code, the next thing to do is
+to see if I can figure out a way to (artificially?) suppress that in
+Peter's code. In his nabla subroutine, it looks like this convective
+gradient thing depends on the mixing length scale height parameter. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>If I set the L/H
+parameter to zero (in the input conditions file), will that turn off
+the convective gradient contribution in Peter's code?</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Using
+inputs/10MjNF_no_conv_nab.start as the input. It has L/H set to zero.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Well, it doesn't cause
+the code doesn't crash!</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Outputting the RK4
+debugging results from that run to outputs/RK4_debugging_4.txt </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Let's plot those results
+in python, and compare them to the Helena atmos outputs from one of
+its runs that used Eqn. (1) to generate nabla values. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Results from this test
+shown in Figure 4old.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 5.49in; height: 4.67in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Nov_13_2012/Figure4.png" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	4old:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="font-weight: normal">Comparison
+	of the atmospheric temperature profiles generated by Peter and
+	Helena</SPAN> <SPAN STYLE="font-weight: normal">when the
+	mixing-length parameter in Peter's code is set to zero (i.e. CONVNAB
+	contribution to overall TPNAB value is eliminated...?). </SPAN></FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Figure 4old shows that
+the two codes results agree very well, though not perfectly, when the
+CONVNAB value is Peter's code is forced to equal zero (at least, I
+think that's what setting the L/H parameter to zero does. It's
+possible that in the case L/H=0, Peter's code resets the RHL
+parameter to some default non-zero value. The RHL parameter shows up
+in the CONVNAB calculations, and is derived from the L/H parameter
+specified in the input file.)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>I may want to go back,
+later, and actually hard-code CONVNAB = 0 into Peter's code, because
+it looks like there's still maybe some non-zero contribution from
+that parameter going on. See Figure 5old for evidence of that.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame6" DIR="LTR" STYLE="float: left; width: 8.64in; height: 4.21in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Nov_13_2012/Figure5.png" NAME="graphics7" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	5old:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>A comparison of the
+	nabla and TPNABLA values generated by the two codes when Peter's
+	code uses the input L/H = 0.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For reference, Eqn (3)
+defines TPNAB.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame7" DIR="LTR" STYLE="float: left; width: 1.43in; height: 0.4in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="Nov_16_2012_html_b4c804d.jpg" NAME="graphics8" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2><I>Eqn.
+	3</I></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#ff0000"><FONT FACE="Courier, monospace"><FONT SIZE=3><B>To
+sum up:</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#ff0000"><FONT FACE="Courier, monospace"><FONT SIZE=3><B>I
+think I know why Peter's code and mine weren't agreeing. It's due to
+the way the nabla values in the atmosphere are calculated.</B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#ff0000"><FONT FACE="Courier, monospace"><FONT SIZE=3><B>MAYBE
+NOW IS A GOOD TIME TO BREAK OUT THE CAUTIOUS OPTIMISM?</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's
+work:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Hard-code
+CONVNAB = 0 into Peter's code, because it looks like there's still
+maybe some non-zero contribution from that parameter going on. See
+how well it agrees w/ Helena's results then. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Results
+of that shown in Figure 1. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 6.39in; height: 5.78in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Comparison of the
+	atmospheric nabla profiles produced from Peter's code and Helena,
+	when the CONVNAB calculations in Peter's code are completely
+	by-passed, <I>in addition to</I> having the L/H input parameter set
+	to zero. </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The two codes agree
+	perfectly in this case. All of the other atmospheric parameter
+	profiles also agree perfectly b/w the two codes now, too. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>See
+	if Peter's code will still converge a 10 Mj no fusion model w/ the
+	L/H parameter set to zero. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Result:
+		It will converge, but NOT for the dTIME = 0 case. You have to let
+		dTIME &gt; 0 for it to converge. But, when you do that, it
+		converges very quickly.</FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Consequences
+		for debugging: for the next step, keep dTIME = 0, just for
+		comparing the CDEG and variable correction values that get
+		calculated on the first convergence loop to see if they're the same
+		b/w the two codes. </FONT></FONT>
+		</P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>After
+			you get those results to agree, change dTIME &gt; 0 in both codes,
+			and check that all the relevant profiles still agree. Probably
+			this will provide plenty of fodder for debugging...</FONT></FONT></P>
+		</UL>
+		<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+		this step fails:</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>See
+			if Peter's code will converge a 1 Msun with fusion system,
+			starting from the PMSS tar.star-like polytropic initial
+			Conditions. </FONT></FONT></FONT>
+			</P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+				this fails: you need to bite the bullet and implement those
+				CONVNAB Calculations in Helena.</FONT></FONT></FONT></P>
+			</UL>
+			<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Try
+			Peter's code (w/ L/H = 0) on a 1 Msun polytropic model WITHOUT
+			fusion. I</FONT></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+				this fails, get Greg's help, b/c I have no idea why this would
+				happen if it worked on the otherwise identical with-fusion case.</FONT></FONT></FONT></P>
+			</UL>
+			<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Try
+			Peter's code w/ L/H=0 on a somewhat evolved 1Msun no-fusion model.</FONT></FONT></FONT></P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+				that fails, compare how the internal structural evolution in both
+				the body of the system and its atmosphere differ b/w the L/H=0
+				and L/H&gt;0 cases. Maybe that will offer some clues about why it
+				fails here and not before.</FONT></FONT></FONT></P>
+			</UL>
+			<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>Try
+			Peter's code w/ L/H=0 on the mass chain-down process that you used
+			to get the 10Mjup test-case model you've been using for the past
+			~year. If this succeeds, then you've just found yourself the
+			10Mjup no-fusion test case that you need for subsequent steps. </FONT></FONT></FONT>
+			</P>
+			<UL>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+				this doesn't work... ugh. First, find the mass at which the
+				chain-down process stops working. That may give some clues about
+				what's going on.</FONT></FONT></FONT></P>
+				<LI><P STYLE="margin-bottom: 0in"><FONT COLOR="#808080"><FONT FACE="Courier, monospace"><FONT SIZE=2>COME
+				BACK HERE AND FILL IN MORE DEBUGGING IDEAS ON THIS BRANCH.</FONT></FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Make
+	sure both codes now produce the same CDEG profiles on the 10Mj
+	no-fusion system, particularly at the outer boundary / bottom of the
+	atmosphere.</FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Reacquaint
+		myself with all the procedures I used to get CDEG profiles out of
+		the main body of the system in each of the two codes</FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Run
+		each code for a single iteration on the 10Mj no-fusion system.</FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Capture
+		the relevant outputs into txt files</FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Compare
+		the results in python. (You already have scripts for comparing the
+		two codes' results for this stuff, remember.)</FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Make
+	sure that both codes now produce the same P/R/L/T correction
+	profiles.</FONT></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>If
+		not, then you've still got problems with the outermost CDEG
+		values... probably</FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>THERE
+		ARE PROBABLY STILL ADDITIONAL DEBUGGING STEPS TO PLOT OUT, HERE, SO
+		COME BACK TO THIS.</FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Check
+	that Helena successfully converges the 10Mj no fusion model</FONT></FONT></P>
+	<LI><P STYLE="margin-bottom: 0in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Compare
+	the converged model to Peter's results</FONT></FONT></P>
+	<LI><P><FONT FACE="Courier, monospace"><FONT SIZE=2>Check that
+	Helena and Peter also produce the same converged model with dTime &gt;
+	0</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

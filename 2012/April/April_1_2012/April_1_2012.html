@@ -1,0 +1,894 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120401;20390700">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+</B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Scripts/Software
+created today:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<P></P>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<P STYLE="font-weight: normal; text-decoration: none"></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+	</P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Useful
+computer stuff figured out recently:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>A shell
+	script called 'n' (in /usr/local/bin/. You'll need to use 'sudo' to
+	do anything to the file.) that takes care of the setting up a
+	growlnotification for any command you run. Use as follows:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>&gt;
+		n command_name_here &amp;</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>If
+	you get the following error when attempting to use growlnotify:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>growlnotify[681:903]
+		could not find local GrowlApplicationBridgePathway, falling back to
+		NSDNC</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Go
+		to System Preferences --&gt; Growl --&gt; Stop Growl (then Start
+		Growl)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>From
+	last time: I copied over a clean version of Peter's code (as
+	initially modified by Greg to get it to work) from my &quot;backup&quot;
+	dir in to &quot;UnalteredCode&quot; in my working dir. </FONT></FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>All
+		runs involving Peter's version of the code mentioned here are
+		produced using that clean <I>copy</I> <SPAN STYLE="font-style: normal">of
+		his code in my working dir. (I'm not messing with the actual backup
+		copy!)</SPAN></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>If
+	you want to add a constant numerical value to the names of all the
+	(numbered) files in a directory, enter the following command at the
+	unix prompt, when you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}' | sh</I></FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>If
+		you want a simulation to 'pick up' where the results of a previous
+		one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -s -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>It
+	looks like thecode.f can't handle NRIT values above 1000. Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999. So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps. For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><I>Should
+	look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P CLASS="list-3"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">See
+	Table 1 from March 29, copied below (Maybe need to do a little
+	editing/tidying up/inserting legerdemaine when uploading this
+	particular bit of info to the wordpress blog.) </FONT></FONT>
+	</P>
+</UL>
+<TABLE WIDTH=100% BORDER=3 BORDERCOLOR="#000000" CELLPADDING=3 CELLSPACING=0 STYLE="page-break-inside: avoid">
+	<COL WIDTH=17*>
+	<COL WIDTH=116*>
+	<COL WIDTH=123*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7%>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>System Mass</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=45%>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>.start files</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=48%>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>.inp files</B></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR></TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7%>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>1 Msun</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=45%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>********
+			<SPAN STYLE="background: #ffff00">pmsstar.start</SPAN> (v3.6)
+			*****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 1 polyout</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY OUTPUT
+			FILE: 2 <SPAN STYLE="background: #ff00ff">pmsstar1.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">MODA=
+			0 NMOD= 100 NRIT= 50 </SPAN><SPAN STYLE="background: #ffffff">ITMN=
+			2 </SPAN><SPAN STYLE="background: #ffff00">ITMX= 200</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD= 0 JSUB= 0
+			NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">Atmx=
+			2.00E+05 Atmn= 1.00E+04 dTAX= 1.00E-05</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dLmx=
+			1.00E-01</SPAN> dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			5.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dPmx=
+			5.00E-02</SPAN> <SPAN STYLE="background: #ffff00">dPmn= 1.00E-03</SPAN>
+			Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk= 0.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dZmx=
+			5.00E-03</SPAN> dZmn= 1.00E-06 <SPAN STYLE="background: #ffff00">dZdt=
+			5.00E-00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-04 epsR= 1.00E-04 epsL= 5.00E-04 epsT= 1.00E-04 </SPAN></FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN= 1.00E-05
+			1.00E-05 <SPAN STYLE="background: #ffff00">1.00E+10 </SPAN>1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX</SPAN>=
+			<SPAN STYLE="background: #ffff00">0.060000 0.060000</SPAN>
+			<SPAN STYLE="background: #ffff00">0.500000</SPAN> <SPAN STYLE="background: #ffff00">0.060000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dTIM=
+			1.00E+11</SPAN> FACT= 1.00E+00 <SPAN STYLE="background: #ffff00">dTMN=
+			2.00E+08 dTMX= 1.00E+12</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN= 0.030000
+			<SPAN STYLE="background: #ffff00">CHMX= 0.060000</SPAN> XX =
+			0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01 <SPAN STYLE="background: #ffff00">-4.00E-05</SPAN>
+			3.40E-03 2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04 4.53E-05
+			5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06 5.69E-05
+			9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03 1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>* Time Mass Flux</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00 0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E34 0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37 0.00</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=48%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*******
+			<SPAN STYLE="background: #ffff00">pmsstar.inp</SPAN> (v3.6)
+			*****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 2 pmsstar1.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY OUTPUT
+			FILE: 2 <SPAN STYLE="background: #ff950e">pmsstar1.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">MODA=
+			-10 NMOD= 500 NRIT= 250 </SPAN><SPAN STYLE="background: #ffffff">ITMN=
+			2</SPAN><SPAN STYLE="background: #ffff00"> ITMX= 80</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD= 0 JSUB= 0
+			NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">Atmx=
+			1.15E+05</SPAN><SPAN STYLE="background: #ffff00"> Atmn= 5.00E+03
+			dTAX= 1.00E-06</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dLmx=
+			3.90E-03</SPAN> dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			4.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dPmx=
+			4.00E-02</SPAN> <SPAN STYLE="background: #ff950e">dPmn= 5.00E-03</SPAN>
+			Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk= 1.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dZmx=
+			4.00E-03 </SPAN>dZmn= 1.00E-06 <SPAN STYLE="background: #ff950e">dZdt=
+			2.00E+01</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-05 epsR= 1.00E-05 epsL= 1.00E-04 epsT= 1.00E-05</SPAN> </FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN= 1.00E-05
+			1.00E-05 <SPAN STYLE="background: #ffff00">2.00E+37 </SPAN>1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX=
+			0.080000 0.080000</SPAN> <SPAN STYLE="background: #ffff00">-2.00E+37</SPAN>
+			<SPAN STYLE="background: #ffff00">0.080000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dTIM=-1.00E+09
+			</SPAN>FACT= 1.00E+00 <SPAN STYLE="background: #ffff00">dTMN=
+			1.00E+07 </SPAN><SPAN STYLE="background: #ff950e">dTMX= 1.00E+15</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN= 0.030000
+			<SPAN STYLE="background: #ffff00">CHMX= 0.120000 </SPAN>XX =
+			0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01 <SPAN STYLE="background: #ffff00">4.00E-05</SPAN>
+			3.40E-03 2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04 4.53E-05
+			5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06 5.69E-05
+			9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03 1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>* TIME MFLX</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00 0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37 0.00</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR></TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7%>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>0.3 Msun</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=45%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>********
+			pmsstar03.start (v3.6) *****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 1 polyout</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY
+			OUTPUT FILE: 2 <SPAN STYLE="background: #ff00ff">pmsstar03.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">MODA=
+			0 NMOD= 100 NRIT= 50</SPAN> ITMN= 2 <SPAN STYLE="background: #ffff00">ITMX=
+			200</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD=
+			0 JSUB= 0 NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">Atmx=
+			2.00E+05 Atmn= 1.00E+04 dTAX= 1.00E-05</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dLmx=
+			1.00E-01</SPAN> dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			5.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>dPmx=
+			5.00E-02 <SPAN STYLE="background: #ffff00">dPmn= 1.00E-03</SPAN>
+			Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk= 0.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>dZmx=
+			5.00E-03 dZmn= 1.00E-06 <SPAN STYLE="background: #ffff00">dZdt=
+			5.00E-00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-04 epsR= 1.00E-04 epsL= 5.00E-04 epsT= 1.00E-04</SPAN> </FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN=
+			1.00E-05 1.00E-05 <SPAN STYLE="background: #ffff00">1.00E+10
+			</SPAN>1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX=
+			0.060000 0.060000 0.500000 0.060000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dTIM=
+			1.00E+11</SPAN> FACT= 1.00E+00 <SPAN STYLE="background: #ffff00">dTMN=
+			2.00E+08 dTMX= 1.00E+12</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN=
+			0.030000 <SPAN STYLE="background: #ffff00">CHMX= 0.060000</SPAN>
+			XX = 0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01
+			<SPAN STYLE="background: #ffff00">-4.00E-05</SPAN> 3.40E-03
+			2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04
+			4.53E-05 5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06
+			5.69E-05 9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03
+			1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*
+			Time Mass Flux</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E34
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37 0.00</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=48%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*******
+			pmsstar03.inp (v3.6) *****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 2 pmsstar03.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY
+			OUTPUT FILE: 2 <SPAN STYLE="background: #ff950e">pmsstar03.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">MODA=
+			-10 NMOD= 500 NRIT= 250</SPAN> ITMN= 2 <SPAN STYLE="background: #ffff00">ITMX=
+			80</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD=
+			0 JSUB= 0 NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">Atmx=
+			1.35E+05</SPAN><SPAN STYLE="background: #ffff00"> Atmn= 5.00E+03
+			dTAX= 1.00E-06</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dLmx=
+			5.00E-03</SPAN> dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			4.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dPmx=
+			5.00E-02</SPAN> <SPAN STYLE="background: #ff950e">dPmn= 1.00E-02
+			</SPAN>Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk=
+			1.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dZmx=
+			5.00E-03</SPAN> dZmn= 1.00E-06 <SPAN STYLE="background: #ff950e">dZdt=
+			1.00E+01</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-05 epsR= 1.00E-05 epsL= 1.00E-04 epsT= 1.00E-05</SPAN> </FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN=
+			1.00E-05 1.00E-05 <SPAN STYLE="background: #ffff00">2.00E+37
+			</SPAN>1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX=
+			0.080000 0.080000 -2.00E+37 0.080000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dTIM=-1.00E+11</SPAN><SPAN STYLE="background: #ffff00">
+			</SPAN>FACT= 1.00E+00 <SPAN STYLE="background: #ffff00">dTMN=
+			1.00E+07 </SPAN><SPAN STYLE="background: #ff950e">dTMX= 5.00E+16</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN=
+			0.030000 <SPAN STYLE="background: #ffff00">CHMX= 0.120000</SPAN>
+			XX = 0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01
+			<SPAN STYLE="background: #ffff00">4.00E-05 </SPAN>3.40E-03
+			2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04
+			4.53E-05 5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06
+			5.69E-05 9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03
+			1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*
+			TIME MFLX</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37
+			0.00</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR></TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=7%>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>3 Msun</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=45%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>********
+			pmsstar3.start (v3.6) *****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 1 polyout</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY
+			OUTPUT FILE: 2 <SPAN STYLE="background: #ff00ff">pmsstar3.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">MODA=
+			0 NMOD= 100</SPAN> NRIT= 50 ITMN= 2 <SPAN STYLE="background: #ffff00">ITMX=
+			200</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD=
+			0 JSUB= 0 NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">Atmx=
+			2.00E+05 Atmn= 1.00E+04 dTAX= 1.00E-05</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dLmx=
+			1.00E-01</SPAN> dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			5.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dPmx=
+			5.00E-02 dPmn= 1.00E-03</SPAN> Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk=
+			0.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dZmx=
+			5.00E-03</SPAN> dZmn= 1.00E-06 dZdt= 5.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-04 epsR= 1.00E-04 epsL= 5.00E-04 epsT= 1.00E-04</SPAN> </FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN=
+			1.00E-05 1.00E-05 <SPAN STYLE="background: #ffff00">1.00E+10</SPAN>
+			1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX=
+			0.060000 0.060000 0.500000 0.060000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">dTIM=
+			1.00E+11 </SPAN>FACT= 1.00E+00 <SPAN STYLE="background: #ffff00">dTMN=
+			2.00E+08 dTMX= 1.00E+12</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN=
+			0.030000 <SPAN STYLE="background: #ffff00">CHMX= 0.060000</SPAN>
+			XX = 0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01
+			<SPAN STYLE="background: #ffff00">-4.00E-05</SPAN> 3.40E-03
+			2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04
+			4.53E-05 5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06
+			5.69E-05 9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03
+			1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*
+			Time Mass Flux</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E34
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37 0.00</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=48%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><BR><BR>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*******
+			pmsstar3.inp (v3.6) *****************************************</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">STARTING
+			MODEL : 2 pmsstar3.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>BINARY
+			OUTPUT FILE: 2 <SPAN STYLE="background: #ff950e">pmsstar3.mod</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">MODA=
+			02</SPAN><SPAN STYLE="background: #ffff00"> NMOD= -10 </SPAN><SPAN STYLE="background: #ff950e">NRIT=
+			50</SPAN> ITMN= 2 <SPAN STYLE="background: #ffff00">ITMX= 80</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>JADD=
+			0 JSUB= 0 NATM= 10</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">Atmx=
+			2.35E+05 </SPAN><SPAN STYLE="background: #ffff00">Atmn= 5.00E+03
+			dTAX= 1.00E-06</SPAN> L/H = 2.00E-00</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dLmx=
+			4.20E-03 </SPAN>dLmn= 1.00E-03 <SPAN STYLE="background: #ffff00">dXmx=
+			4.00E-02</SPAN> dXmn= 1.00E-02</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dPmx=
+			4.20E-02 </SPAN><SPAN STYLE="background: #ffff00">dPmn= 1.00E-02</SPAN>
+			Crad= 1.00E-00 <SPAN STYLE="background: #ffff00">Cwrk= 1.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dZmx=
+			4.00E-03</SPAN><SPAN STYLE="background: #ffff00"> </SPAN>dZmn=
+			1.00E-06 <SPAN STYLE="background: #ff950e">dZdt= 5.00E+00</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">epsP=
+			1.00E-05 epsR= 1.00E-05 epsL= 1.00E-04 epsT= 1.00E-05 </SPAN></FONT></FONT>
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>SMIN=
+			1.00E-05 1.00E-05 <SPAN STYLE="background: #ffff00">2.00E+37</SPAN>
+			1.00E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ffff00">SMAX=
+			0.080000 0.080000 -2.00E+37 0.080000</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><SPAN STYLE="background: #ff950e">dTIM=
+			1.00E+09</SPAN> FACT= 1.00E+00 <SPAN STYLE="background: #ff950e">dTMN=
+			1.00E+09 dTMX= 3.00E+12</SPAN></FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>CHMN=
+			0.030000 <SPAN STYLE="background: #ff950e">CHMX= 0.100000</SPAN>
+			XX = 0.710000 YY = 0.272930</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>7.10E-01
+			<SPAN STYLE="background: #ffff00">4.00E-05</SPAN> 3.40E-03
+			2.72E-05</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>5.02E-04
+			4.53E-05 5.53E-04 3.84E-04</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>3.32E-06
+			5.69E-05 9.39E-04 1.26E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>8.25E-03
+			1.65E-03</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>*
+			TIME MFLX</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>0.00
+			0.00</FONT></FONT></P>
+			<P ALIGN=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>1.00E37
+			0.00</FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Investigated
+	the effects of changing the following parameters in the .inp
+	file/phase with their .start file values:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">SMIN
+		(2e37 --&gt; 1e10)</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Noticeable
+			but not earth-shattering effect</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>SMAX
+		 (-2e37 --&gt; -0.5)</B></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Big
+			effect</B>: the luminosity of the system never decreased (though
+			the surface temperature did vary across a wide range of values)</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">dZdT
+		(20 --&gt; 5)</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">No
+			noticeable effect</FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>To
+Do/Done Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">See
+	what the differences between the following .inp runs are:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Case
+		1: SMAX = -0.5, Cwrk = 0</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">&quot;STOP
+			NO CONVERGENCE&quot;</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Only
+			gets to a final time of 1.8746D+13 before it can't converge
+			anymore</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Case
+		2: SMax = -0.5, Cwrk = 1</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Finishes
+			all 600 (total) runs w/out convergence issues</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">The
+			results (see chartreuse points in Figure 1 below) aren't at all
+			physical, though</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Case
+		3: SMax = -2e37, Cwrk = 0</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Only
+			gets to a final time of 1.8977D+13 before it can't converge
+			anymore. (This takes fewer timesteps than case 1 does, but gets
+			farther in time.  I wonder if I could get this case to converge if
+			I could set the timesteps to be smaller...  It looks like the
+			final timestep it takes before it fails is ~1d7 seconds long,
+			which is the lower limit for the timestep size as set up in this
+			iteration.)</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Smax
+		= -2e37, Cwrk = 1 (This one is the default, out-of-the-box case for
+		the .inp stage of the system's evolution. So, the graph for this
+		one is just the HR evolution diagram from
+		UnalteredCode/results/pmsstar1Test/)</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 9.41in; height: 7.06in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; line-height: 100%">
+	<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Cases/HR_evolution.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	1: </B>The HR diagram evolution of cases 1, 2, 3 and 4. Case 4 is
+	the default .inp setting. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Next
+	steps:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Case3A:</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Take
+			Case 3, and have it print out a model at every timestep until it
+			hits the point where it can't converge anymore</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Can
+				probably start that run from the last recorded model on the
+				/outputs/Case3.mod</FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Result:
+			Case3A  ceases converging because the ITMX value is, perhaps, too
+			low.  </FONT></FONT>
+			</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Try
+				this again, but with ITMX set to 1000 instead of 80.</FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Result:
+			Case3A now gets a bunch of NAN values in the model on the second
+			timestep.</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Try
+				plotting the internal structure evolution of the Case3A system
+				and see what's going on.  (See Figure 2 below.)</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 7.68in; height: 5.76in; border: none; padding: 0in; background: #ffffff">
+					<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+					<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Cases/Case3A/ModelIterationSummary.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+					2: </B>Case 3A, in the timestep before the NAN values show up.</FONT></FONT></P>
+				</SPAN><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>If
+				I could plot the progress of the iterations as it blows up in the
+				next timestep, that might give me some insight into what's
+				happening here.  That feature isn't implemented in the unaltered
+				version of the code, though, and I'd like to hold off on
+				modifying this version of TheCode.f any further for the time
+				being.</FONT></FONT>
+				</P>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Case3B</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Do
+			the same with Case3, but lower dTmn.  See if/how/when the
+			simulation then fails to converge.</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Changed
+				dTmn from 1e7 to 1e3.</FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Result:
+			the dTime value plummets down to 1e3 over the course of 17
+			timesteps, until the model hits the dTmn limit.  (Then, obviously,
+			&quot;STOP NO CONVERGENCE&quot;).</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">The
+				HR diagram:</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 6.88in; height: 5.16in; border: none; padding: 0in; background: #ffffff">
+					<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+					<IMG SRC="../../Research/BodenheimerCode/workingdir/UnalteredCode/results/Cases/Case3B/HR_evolution.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+					3: </B>The HR evolution of Case 3B.  Note: Cwrk is turned off in
+					this case.  Therefore, it looks like Cwrk might start becoming
+					essential to the system's evolution/convergence around this
+					point.</FONT></FONT></P>
+				</SPAN><BR CLEAR=LEFT>
+				</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">The
+				internal structure of the model:</FONT></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Trying
+					to plot this, but the python script is hung up on the 'missing'
+					values in the 'convection present here?' (second) column.</FONT></FONT></P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Start
+					here when I resume, figuring out how to automatically fill in
+					that column in all 17 of the model files in the
+					/results/Cases/Case3B directory.</FONT></FONT></P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

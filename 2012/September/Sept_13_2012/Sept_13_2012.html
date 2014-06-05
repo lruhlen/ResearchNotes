@@ -1,0 +1,1051 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120914;15000">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Sept. 13, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><FONT COLOR="#000000"><SPAN STYLE="font-style: normal"><B>From
+last time:</B></SPAN></FONT></U></FONT></FONT></P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">The
+		CDE profiles don't differ until you hit the outermost mass cell.
+		(Note: I had to tweak some signs in the NewCalcCDEG.cpp subroutine
+		to get the CDE signs to more-or-less agree b/w the two codes. The
+		outermost mass cell values remain hard to get right, as usual.) </SPAN></FONT></FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">However,
+		the A matrix values start differing between the codes before that
+		point. So, need to figure out why that's happening.</SPAN></FONT></FONT></P>
+	</UL>
+</UL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>What if I also set the
+		outermost C (and DE?) matrix values to Peter's values, and repeat?
+		Will that fix the A profiles' discrepancies at the outermost mass
+		cell?</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Swapping in the
+			outermost C values alone doesn't fix it.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">Swapping
+			the outermost values of CDEG all at once doesn't fix it, either.
+			(How is that possible????!!!!!!) </SPAN></FONT></FONT>
+			</P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">Let's
+		try replacing the 5 outermost CDEG values with the results from
+		Peter's code, and see if that gets the A profiles to agree with
+		each other, at least at the outer edge of the system.</SPAN></FONT></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">The
+			outermost A3 values still differ in magnitude and sign when I do
+			this.  The outermost A2 values differ slightly.  All the other A
+			profiles agree.</SPAN></FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Compare the B values
+	generated by the two codes (as part of figuring out why I can't get
+	the dX profiles to agree b/w codes when Helena uses its own CDEG
+	values, despite the fact that the CDEG values agree pretty well b/w
+	the two codes.)</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Instead of getting the
+		B values from the Fortran code, use Helena to read in Peter-vals
+		and then print out the B values it calculates from those, vs. the B
+		values it calculates from the CDEG values it generates, itself.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Done.  See the (most
+			interesting to me) results in Figure 1, below.  The ratios of the
+			Peter/Helena input-generated B matrix values average out to close
+			to 1 (or 0, in the case where both sets of rows are = 0), for all
+			rows except row 3, which is noticeably off.</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2>The B values are
+				calculated starting from the innermost mass cell outwards (j=0),
+				so if the initial B calculation is off, it will cascade through
+				the rest of the calculations as you move outwards in mass cell
+				number.</FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 8in; height: 6in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure1</B></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>A comparison of the 3rd row of the B matrix values
+	generated from Peter inputs, vs. from pure Helena inputs.  Note:
+	both B-matrix calculations were performed in Helena.  The 'inputs'
+	in question are the CDEG matrix values.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The B31 values are
+	really off initially (by a factor of -1)</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>All of fow 3 of the B
+		matrix, actually)</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>This would be caused
+		by either row 3 of InverseS, or columns 1 and 4 of E, since:</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>B = S^-1 E</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Interestingly, in
+		Peter's values, B32 and B33 !=0, while they do =0 in the Helena
+		value-based calculations</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>This suggests that it
+			must be the InverseS, row 3 that's cuasing teh difference between
+			teh 2 codes</FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Check this by comparing
+	the InverseS values in the same way as I just did for the B
+	matrices:</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Use Helena vs.
+		Peter-generated CDEG values, and have Helena run them through its
+		modifiedHenyey... subroutine, then print out the InverseS values
+		generated from each pass and plot/compare the two.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Done.  See Figure 2
+			for details. I don't notice any striking differences b/w the
+			InverseS profiles around j=0, so it's still unclear what's causing
+			the B (and A) profiles to start varying so much there.</FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 13.13in; height: 9.85in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; line-height: 150%">
+	<IMG SRC="Figure2.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	2:</B> </FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; line-height: 150%">
+	<FONT SIZE=3>A comparison of the InverseS values Helena generates
+	from Peter's CDEG values, vs. from the CDEG values it calculates
+	itself.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The table below
+	contains a side-by-side comparison of the InverseS, E, and B matrix
+	values at j=0 from both Peter- and Helena-value-based calculations
+	(in Helena), to attempt to figure out why and how the A and B matrix
+	values start differing b/w the two cases so early on on.   </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Yellow highlighting =
+		significantly different values</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Orange highlighting =
+		significantly different values AND of opposite signs.   </FONT></FONT>
+		</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ 
+</P>
+<TABLE WIDTH=1015 BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=130>
+	<COL WIDTH=463>
+	<COL WIDTH=384>
+	<TR VALIGN=TOP>
+		<TD WIDTH=130>
+			<P ALIGN=CENTER STYLE="margin-left: -1.58in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<BR>
+			</P>
+		</TD>
+		<TD WIDTH=463>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><B>From the
+			Helena-generated CDEG values at j=0:</B></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=384>
+			<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+			  <FONT FACE="Courier, monospace"><FONT SIZE=2><B>From the
+			Peter-generated CDEG values at j=0:</B></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130 HEIGHT=95>
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>InverseS
+			values:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=463 VALIGN=TOP>
+			<TABLE WIDTH=386 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+				<COL WIDTH=106>
+				<COL WIDTH=107>
+				<COL WIDTH=51>
+				<COL WIDTH=89>
+				<TR VALIGN=TOP>
+					<TD WIDTH=106>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="-3.4426E-020" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.44E-020</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="4118.4" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>4118.4</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR>
+					<TD WIDTH=106 VALIGN=TOP SDVAL="0.00018572" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 VALIGN=TOP SDVAL="1.2187E-020" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1.22E-020</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 VALIGN=TOP SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="-1457.9" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1457.9</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=106 SDVAL="1.2074E+019" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffff00">1.21E+019</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0.41543" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffff00">0.42</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="6.875E+025" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>6.88E+025</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=106 SDVAL="-0.000000087756" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-8.78E-008</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="-3.0196E-027" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.02E-027</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="-0.99977" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			  
+			</P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			      
+			</P>
+		</TD>
+		<TD WIDTH=384 VALIGN=TOP>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<TABLE WIDTH=390 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0 STYLE="page-break-inside: avoid">
+				<COL WIDTH=90>
+				<COL WIDTH=91>
+				<COL WIDTH=87>
+				<COL WIDTH=89>
+				<TR VALIGN=TOP>
+					<TD WIDTH=90 SDVAL="-1.0005" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=91 SDVAL="-3.4367E-020" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.44E-020</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=87 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="4124" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>4124</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=90 SDVAL="0.00018738" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=91 SDVAL="1.2187E-020" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1.22E-020</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=87 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="-1462.4" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1462.4</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=90 SDVAL="3.762E+015" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffff00">3.76E+015</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=91 SDVAL="0.00012922" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffff00">0</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=87 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="6.88E+025" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>6.88E+025</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=90 SDVAL="-0.000000087746" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-8.77E-008</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=91 SDVAL="-3.0139E-027" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.01E-027</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=87 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="-0.99964" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>E values:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=463 VALIGN=TOP>
+			<TABLE WIDTH=385 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+				<COL WIDTH=104>
+				<COL WIDTH=107>
+				<COL WIDTH=51>
+				<COL WIDTH=89>
+				<TR VALIGN=TOP>
+					<TD WIDTH=104 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=104 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=104 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=104 SDVAL="-0.000000087757" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-8.78E-008</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="1.0001" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+		</TD>
+		<TD WIDTH=384 VALIGN=TOP>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; line-height: 100%">
+			<BR><BR>
+			</P>
+			<TABLE WIDTH=392 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0 STYLE="page-break-inside: avoid">
+				<COL WIDTH=89>
+				<COL WIDTH=90>
+				<COL WIDTH=90>
+				<COL WIDTH=89>
+				<TR VALIGN=TOP>
+					<TD WIDTH=89 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=89 SDVAL="-0.0000000878" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-8.78E-008</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+	<TR>
+		<TD WIDTH=130>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>The resulting B
+			values:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=463 VALIGN=TOP>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+			<BR><BR>
+			</P>
+			<TABLE WIDTH=385 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+				<COL WIDTH=103>
+				<COL WIDTH=107>
+				<COL WIDTH=51>
+				<COL WIDTH=90>
+				<TR VALIGN=BOTTOM>
+					<TD WIDTH=103 SDVAL="1.0009" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="-4119" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-4119</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=BOTTOM>
+					<TD WIDTH=103 SDVAL="-0.00031366" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="1458.1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1458.1</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=BOTTOM>
+					<TD WIDTH=103 SDVAL="-6.0402E+018" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff950e">-6.04E+018</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="-6.8759E+025" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-6.88E+025</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=BOTTOM>
+					<TD WIDTH=103 SDVAL="0.000000000019117" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff950e">1.91E-011</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=107 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=51 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0.99991" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+		<TD WIDTH=384 VALIGN=TOP>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<BR><BR>
+			</P>
+			<TABLE WIDTH=392 BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0 STYLE="page-break-inside: avoid">
+				<COL WIDTH=96>
+				<COL WIDTH=83>
+				<COL WIDTH=90>
+				<COL WIDTH=89>
+				<TR VALIGN=TOP>
+					<TD WIDTH=96>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1.0009            
+						        </FONT></FONT>
+						</P>
+					</TD>
+					<TD WIDTH=83 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-4124  </FONT></FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=96>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-0.00031578       
+						        </FONT></FONT>
+						</P>
+					</TD>
+					<TD WIDTH=83 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1462.4 </FONT></FONT>
+						</P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=96 SDVAL="6.0369E+018" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff950e">6.04E+018</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=83 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89 SDVAL="-6.88E+025" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>-6.88E+025</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=96 SDVAL="-0.000000000021903" SDNUM="1033;0;0.00E+000">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff950e">-2.19E-011</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=83 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=90 SDVAL="0" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>0</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=89>
+						<P ALIGN=CENTER STYLE="background: #ffffff; border: none; padding: 0in">
+						<FONT FACE="Courier, monospace"><FONT SIZE=2>1</FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Now, let's check these
+	B = InverseS * E values/results in python, just to make sure the
+	multiplication is getting carried out correctly w/in Helena.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>(Helena-based values)</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>In [438]: print(Hb)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[[  1.000900e+00  
+0.000000e+00   0.000000e+00  -4.119000e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -3.136600e-04  
+0.000000e+00   0.000000e+00   1.458100e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -6.040200e+18  
+0.000000e+00   0.000000e+00  -6.875900e+25]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  1.911700e-11  
+0.000000e+00   0.000000e+00   9.999100e-01]]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>In [439]:
+print(dot(Hinvs,He))</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[[ -1.000861e+00  
+0.000000e+00   0.000000e+00   4.118812e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  3.136609e-04  
+0.000000e+00   0.000000e+00  -1.458046e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  6.040706e+18  
+0.000000e+00   0.000000e+00   6.875687e+25]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -1.918411e-11  
+0.000000e+00   0.000000e+00  -9.998700e-01]]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>(Peter-based values)</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>In [440]: print(Pb)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[[  1.000900e+00  
+0.000000e+00   0.000000e+00  -4.124000e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -3.157800e-04  
+0.000000e+00   0.000000e+00   1.462400e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  6.036900e+18  
+0.000000e+00   0.000000e+00  -6.880000e+25]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -2.190300e-11  
+0.000000e+00   0.000000e+00   9.996400e-01]]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>In [441]:
+print(dot(Pinvs,Pe))</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[[ -1.000862e+00  
+0.000000e+00   0.000000e+00   4.124000e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  3.157787e-04  
+0.000000e+00   0.000000e+00  -1.462400e+03]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[ -6.036878e+18  
+0.000000e+00   0.000000e+00   6.880000e+25]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier, monospace"><FONT SIZE=2>[  2.239200e-11  
+0.000000e+00   0.000000e+00  -9.996400e-01]]</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Notice the
+				opposing signs, in both cases, b/w the InverseS * E and B matrix
+				values...  Why/how is that happening?</FONT></FONT></STRIKE></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Oh, it's
+					because B = -1.0 * InverseS * E, and I had the code write out
+					the InverseS values, rather than the -1.0 * InverseS.  So that's
+					actually all fine.</FONT></FONT></STRIKE></P>
+				</UL>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>I wonder if the sign
+			differences b/w the Peter and Helena calculations are caused by
+			not multiplying the PeterCDE values by -1.0 when I read them into
+			Helena?</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2>Once I do that, here
+				are the results:</FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>At j=0 (from Peter CDEG
+values):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>InverseS values:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1.0005      3.4367e-20 
+0           -4124       </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-0.00018738 -1.2187e-20
+0           1462.4      </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.762e+15  -0.00012922
+-1          -6.88e+25   </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>8.7746e-08  3.0139e-27 
+0           0.99964     </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>E values:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1          -0         
+-0          -0          </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-0          -0         
+-0          -0          </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-0          -0         
+-0          -0          </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>8.78e-08    -0         
+-0          -1          </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>The resulting B
+values:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1.0009      -0         
+-0          -4124       </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-0.00031578 -0         
+-0          1462.4      </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>6.0369e+18  -0         
+-0          -6.88e+25   </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-2.1903e-11 -0         
+-0          0.99964     </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 3.15in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>And here's a graph of
+	the resulting dX values that Helena generates (Figure 3).  As you
+	can see, the dX profiles STILL do not agree.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 8in; height: 6in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure3.png" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	3</B></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 2.36in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2>For further
+				comparison, Figure 4 shows how the dX profiles differ when I use
+				the Peter CDEG starting values both with (correct sign) and
+				without (WRONG signs) multiplying the CDE matrices by -1.0 before
+				sending them off to the modifiedHenyey... subroutine to calculate
+				the dX values.  Notice that the two profiles are NOT exact mirror
+				images of each other.  If you plot their ratios, you'll see the
+				results wiggle about -0.75, and NOT -1.0 as you might naively
+				expect.</FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 8in; height: 6in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure4.png" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	4:</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2><B><SPAN STYLE="background: #ff950e">Start
+	tomorrow by multiplying the CDE matrix values (generated by Helena)
+	by -1.0 before sending them off to the modifiedHenyey... subroutine,
+	and see if maybe THAT will get the dX profiles to agree with each
+	other.</SPAN></B></FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Update wordpress blog</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Back up fortran and cpp
+	codes to BitBucket</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+keep in mind for later:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>For
+	the 1 Mjup model: do the Peter and Helena models' dX values (raw)
+	now agree, too? </FONT></FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

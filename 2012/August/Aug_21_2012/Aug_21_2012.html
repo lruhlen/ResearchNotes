@@ -1,0 +1,666 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120917;22320100">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 21, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Hints from Greg: Numerical
+	recipes, ill-conditioned matrices (NR apparently has info on how to
+	finess those), &quot;pre-conditioning&quot; a matrix, singular value
+	decomposition?? (may only be worth it for matrices larger than 4x4,
+	but worth keeping in mind)</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT SIZE=3><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal">I</SPAN></SPAN></FONT><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none">t
+	looks like the limiting factor in getting the codes dX values to
+	agree lies NOT with the S matrices or their inversions, but with the
+	CDEG values that Helena is calculating.</SPAN></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Which D/E matrix elements
+	typically differ most b/w Peter and Helena?</FONT></FONT></P>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>For the E matrices: Row 4,
+			Column 1 in Helena is typically ~100x smaller than the same value
+			from Peter.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>For the D matrices: Row 4,
+			Column 1; Row 4, Column 2; Row 3, Column 1; (all three all have at
+			least the wrong sign); Row 4 Column 3 (sometimes)</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Have Helena calculate its own
+		CDE values, but replace the most (typically) divergent elements in
+		each Helena matrix by their Peter values.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>See if this then generates dX
+			values that agree b/w the two codes.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>If that fixes it, then I'll
+			need to look into why those particular CDE values asre so
+			different in the two codes.</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Also may need to do a similar
+		analysis on the G values, too.</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Results:</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][0]</B>
+= PeterD[j][0]; // Effects the scale of all dX profiles, but not
+their shapes</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>D[j][1]
+= PeterD[j][1]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][2]</B>
+= PeterD[j][2]; // Has an effect on the scale of the dL profile, but
+not on anything else.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][3]</B>
+= PeterD[j][3]; // This one has a big effect on both profile shape
+and scale for all dXs.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][0]
+= PeterE[j][0]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][1]
+= PeterE[j][1]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][2]
+= PeterE[j][2]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>E[j][3]</B>
+= PeterE[j][3]; // This one has a big effect on both profile shape
+and scale for all dXs.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>G[j][0]
+= PeterG[j][0]; // This one might make the raw dr profile very
+slightly scruffy, but has no noticeable effect besides that</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>G[j][1]
+= PeterG[j][1]; // This one might make the raw dr profile very
+slightly scruffy, but has no noticeable effect besides that</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>G[j][2]
+= PeterG[j][2]; // This one makes the raw dr profile a little
+scruffy, but doesn't have any noticeable effect besides that</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>G[j][3]</B>
+= PeterG[j][3]; // This one matters for overall scale (factor of ~2)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Further details:</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][3][0]</B>
+= PeterD[j][3][0]; // Big effect on all profiles' shape and scale.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][3][1]</B>
+= PeterD[j][3][1]; // Big effect on scale of overall dX profiles, but
+not on their shapes</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>D[j][3][2]</B>
+= PeterD[j][3][2]; // BIG EFFECT</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>D[j][3][3]
+= PeterD[j][3][3]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2><B>E[j][3][0]</B>
+= PeterE[j][3][0]; // BIG EFFECT</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][3][1]
+= PeterE[j][3][1]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][3][2]
+= PeterE[j][3][2]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier New, monospace"><FONT SIZE=2>E[j][3][3]
+= PeterE[j][3][3]; // No effect</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Based on which CDEG elements have
+	the biggest effect on the resulting dX profiles, I think the biggest
+	problem is probably caused by differences in the way the two
+	programs are calculating the G4J values. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Compare the G4J values between
+		the two codes</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Find a few specific mass cells
+			where the differences are clearest (This is not an exhaustive
+			list. First column = mass cell number indexed from zero. Second
+			column = ratio of myG4 values over PeterG4 values.)</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2><B>j = 195 0.000362701</B></FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 145 -0.00704422</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 119 -1258.19</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 107 48.2341</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 105 20.7388</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 106 -9.56686</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 99 -13.9177</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 100 -43.9002</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 101 -57.0342</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2><B>j = 74 9.82774</B></FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 75 -36.5872</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 76 -25.4231</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2><B>j = 77 -42.1986</B></FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 78 -9.13495</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 79 11.7386</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 80 4.19183</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 81 38.6061</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 72 30.2949</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=2>j = 73 576.507</FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>For comparison, here are all
+			the indices (from Helena) where the G4J values agree decently well
+			between the two codes:</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3><B>57</B>, 127, 138, 140, 162,
+				167, 173, 175, <B>192</B>, 220, 225, 238, 242, 251, 253, 256,
+				261, 264, 266, 267, 270, 273, 275, 276, 277, 278, 279, 280, 281,
+				282, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, <B>294</B></FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>Check the following at some of
+			the above locations (taking the bolded ones, chosen at random, to
+			start):</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3>Bj and Bj+1 values</FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+				<FONT COLOR="#000000"><FONT SIZE=3>Tj+1 - Tj values</FONT></FONT></P>
+			</UL>
+		</UL>
+	</UL>
+</UL>
+<TABLE WIDTH=723 BORDER=1 CELLPADDING=4 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=105>
+	<COL WIDTH=100>
+	<COL WIDTH=118>
+	<COL WIDTH=88>
+	<COL WIDTH=101>
+	<COL WIDTH=140>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Peter or Helena?</B></FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Good or poor G4J value agreement?</B></FONT></P>
+		</TD>
+		<TD WIDTH=118>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Mass cell index (Helena/Peter)</B></FONT></P>
+		</TD>
+		<TD WIDTH=88>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Tj+1 - Tj</B></FONT></P>
+		</TD>
+		<TD WIDTH=101>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Bj+1</B></FONT></P>
+		</TD>
+		<TD WIDTH=140>
+			<P ALIGN=LEFT><FONT SIZE=3><B>Bj</B></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Helena</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>poor</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6" SDVAL="74" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>74</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-2000" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-2000</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.000000092313" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>9.23E-008</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.000000092159" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>9.22E-008</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Peter</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>poor</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>74 (+1)</I></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-2000" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-2000</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.0000000921641847841267" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>9.22E-008</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.000000092347552702426" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>9.23E-008</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Helena </FONT>
+			</P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>poor</FONT></P>
+		</TD>
+		<TD WIDTH=118 SDVAL="77" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT SIZE=3>77</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1000" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1000</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.0000000929828" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>9.30E-008</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.0000000927241" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>9.27E-008</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Peter</FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>poor</FONT></P>
+		</TD>
+		<TD WIDTH=118>
+			<P ALIGN=LEFT><FONT SIZE=3>77 (+1)</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1700" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1700</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.0000000929375697286806" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>9.29E-008</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.0000000927341922718477" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>9.27E-008</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Helena</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>poor</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6" SDVAL="195" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT SIZE=3><I>195</I></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-6400" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-6400</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.000000462927" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.63E-007</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.000000452004" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.52E-007</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Peter</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>poor</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>195 (+1)</I></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-6380" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-6380</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.000000462927801353093" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.63E-007</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.0000004520230670324" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.52E-007</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Helena</FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>good</FONT></P>
+		</TD>
+		<TD WIDTH=118 SDVAL="57" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT SIZE=3>57</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1000" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1000</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.0000000899245" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>8.99E-008</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.0000000898124" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>8.98E-008</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Peter</FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>good</FONT></P>
+		</TD>
+		<TD WIDTH=118>
+			<P ALIGN=LEFT><FONT SIZE=3>57 (+1)</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1000" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1000</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.0000000898860564481963" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>8.99E-008</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.0000000897757161228451" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>8.98E-008</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Helena</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>good</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6" SDVAL="192" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT SIZE=3><I>192</I></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-6600" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-6600</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.000000430558" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.31E-007</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.000000420689" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.21E-007</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>Peter</I></FONT></P>
+		</TD>
+		<TD WIDTH=100 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>good</I></FONT></P>
+		</TD>
+		<TD WIDTH=118 BGCOLOR="#e6e6e6">
+			<P ALIGN=LEFT><FONT SIZE=3><I>192 (+1)</I></FONT></P>
+		</TD>
+		<TD WIDTH=88 BGCOLOR="#e6e6e6" SDVAL="-6570" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>-6570</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 BGCOLOR="#e6e6e6" SDVAL="0.000000430613166021781" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.31E-007</I></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 BGCOLOR="#e6e6e6" SDVAL="0.000000420656561100642" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3><I>4.21E-007</I></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Helena</FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>good</FONT></P>
+		</TD>
+		<TD WIDTH=118 SDVAL="294" SDNUM="1033;">
+			<P ALIGN=LEFT><FONT SIZE=3>294</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1250" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1250</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.00000530296" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>5.30E-006</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.00000514511" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>5.15E-006</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=105>
+			<P ALIGN=LEFT><FONT SIZE=3>Peter</FONT></P>
+		</TD>
+		<TD WIDTH=100>
+			<P ALIGN=LEFT><FONT SIZE=3>good</FONT></P>
+		</TD>
+		<TD WIDTH=118>
+			<P ALIGN=LEFT><FONT SIZE=3>294 (+1)</FONT></P>
+		</TD>
+		<TD WIDTH=88 SDVAL="-1256" SDNUM="1033;">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>-1256</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=101 SDVAL="0.00000530354603343534" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>5.30E-006</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=140 SDVAL="0.00000514638794446149" SDNUM="1033;0;0.00E+000">
+			<P ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+			<FONT COLOR="#000000"><FONT SIZE=3>5.15E-006</FONT></FONT></P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>For the 1 Mjup model: do the
+	Peter and Helena models' dX values (raw) now agree, too? </FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT SIZE=3><U><B>To keep in mind for later:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Look at the comparison between
+	Peter's and Helena's S^-1 values. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Find the mass cell numbers where
+		the differences are largest</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>Print out Helena's (and
+		Peter's?) S matrices at those locations</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>See what the dynamic range of
+		values in those matrices is/are (figure out if that's what's
+		causing the differences between the two codes' results)</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>If the difference is due to the
+		ill-conditioned-ness of the S matrices, go on the the step below.</FONT></FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>Test both Helena's matrix
+	inversion algorithms (MIAs) on matrices with varying dynamic ranges,
+	to see where they start to break down.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT SIZE=3>See if Peter's [S | x] --&gt; [S
+	| S^-1 * x] method (which I'm 80% but not 100% sure is what that
+	GIRL subroutine of his is doing) truly is more numerically stable
+	with these ill-conditioned-ish matrices.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT SIZE=3>If so, implement it in my code.
+		Or perhaps, test its robustness by implementing it in my code and
+		seeing if that'll make Helena and Peter's code produce the same
+		correction values.</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

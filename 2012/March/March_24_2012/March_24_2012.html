@@ -1,0 +1,519 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120325;5351800">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Date
+&amp; Time: </B><SPAN STYLE="font-weight: normal">03/24/12</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Location:
+</B><SPAN STYLE="font-weight: normal">From home</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Computing
+context: </B><SPAN STYLE="font-weight: normal">Macho Mac</SPAN></FONT></FONT></FONT></P>
+<HR>
+<P STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Software/Scripts
+created today:</B></U></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="font-style: normal"><U><B>Useful
+computer stuff figured out recently:</B></U></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">From
+	last time: </SPAN></SPAN></SPAN>if you want to add a constant
+	numerical value to the names of all the (numbered) files in a
+	directory, enter the following command at the unix prompt, when
+	you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>ls
+		*_model.txt | awk -F'[_]' '{old=$0; n=$1+100; sub($1,n,$0); print
+		&quot;mv &quot; old &quot; &quot;$0}'|sh</I></FONT></FONT></STRIKE></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>ls
+		*_model_info.txt | sort -r | awk -F'[_]' '{old=$0; n=$1+100;
+		sub($1,n,$0); print &quot;mv &quot; old &quot; &quot;$0}'  | sh</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	you want a simulation to 'pick up' where the results of a previous
+	one left off, make sure to set MODA = -1 in the .start file</FONT></FONT></FONT></P>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>It
+	looks like thecode.f can't handle NRIT values above 1000.  Either
+	that, or it can't figure out how to do mod-arithmatic on NMOD values
+	above 9999.  So, you can't really run the code for 10000 timesteps
+	and have it write output every 1000 steps.  For now, my best work
+	around is to let the code go for 9500 time steps, and have it write
+	out model data every 500 steps.</I></FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Should
+		look into this more next time, in thecode.f itself.</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000">    <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Figured
+	out how to get the legend on my python-generated figures to have
+	multiple columns (and thereby fit on the visible portion of the
+	graph):</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">legend(prop={'size':8},loc='lower
+		center', ncol=3, fancybox=True, shadow=True)</FONT></FONT></FONT></P>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Updated
+		both MyPythonGUIPlottingScript.py and plot_HR_evolution.py to
+		include this nicer, more legible version of the legend.</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">To
+	set a pop-up notification on my desktop that lets me know when one
+	of these really long thecode.f runs is finished (running in the
+	background), start the run like this:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">./thecode
+		&lt; inputfile.start &gt; outputfile &amp;&amp; growlnotify -m
+		'TheCode finished running' &amp;</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Continuing
+from last time:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.08in; text-decoration: none"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Redo
+	my 0.3Msun with and without fusion HR/evolution long-time runs with
+	this spiffy new output parsing stuff.</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<P STYLE="margin-bottom: 0.08in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Which
+		runs do I need to entirely re-run, and which do I still have the
+		output from and can just re-parse?</FONT></FONT></STRIKE></FONT></P>
+	</OL>
+</OL>
+<UL>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000080">Meh,
+		just re-do them all from scratch.  Take the guesswork and potential
+		for error out of it.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+	the 0.3Msun with and without fusion cases forward in time for 1000
+	(fixed dT at 10^11 seconds apiece) + 9000 (letting thecode determine
+	the best dT values on the fly.</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Make
+		sure to start both types from the converged one-step-with-fusion
+		model.</FONT></FONT></STRIKE></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Make
+			sure to set MODA = -1 for that in the .start file...</FONT></FONT></STRIKE></P>
+		</OL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Proceedure
+		for this:</I></FONT></FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Start
+			with ./polytr &lt; polytr03.inp</I></FONT></FONT></STRIKE></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>./thecode
+			&lt; pmsstar03.start &gt; temp.txt 
+			(pmsstar03StartWithFusion.mod)l</I></FONT></FONT></STRIKE></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>parse
+			pmsstar03StartWithFusion.txt (--&gt; into
+			/debugging_results/0.3Msun_withfusionstart)  </I></FONT></FONT></STRIKE></FONT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>./thecode
+			&lt; pmsstar03NoFusion &gt; tempNoFusionFirst1000
+			(pmsstar03NoFusionFirst1000.mod)</I></FONT></FONT></STRIKE></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Parse
+			iv and v (debugging results filenames = ?)</I></FONT></FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Use
+				pythonParser.py to parse each.
+				(0.3Msun_NoFusion/0.3MsunNoFusionFirst1000,
+				0.3Msun_WithFusion/0.3MsunWithFusionFirst1000)</I></FONT></FONT></STRIKE></FONT></P>
+			</OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Plot
+			iv and v results on HR diagram, and internal structure</I></FONT></FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Use
+				MyPythonGUIplotting.py to plot each.</I></FONT></FONT></STRIKE></FONT></P>
+			</OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE> <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Do
+			vii while starting the following runs</I></FONT></FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>./thecode
+				&lt; pmsstar03WithFusion &gt; Next9000WithFusion
+				(pmsstar03WithFusionNext9000.mod)</I></FONT></FONT></STRIKE></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">./thecode
+				&lt; pmsstar03NoFusion &gt; Next9000NoFusion
+				(pmsstar03NoFusionNext9000.mod)</FONT></I></FONT></STRIKE></FONT></P>
+			</OL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><STRIKE> <FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">Parse
+			the results of A and B above using pythonParser.py</FONT></I></FONT></STRIKE></FONT></P>
+			<OL TYPE=A>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">The
+				'with fusion' results --&gt; 
+				/0.3Msun_WithFusion/0.3MsunWithFusionNext9000</FONT></I></FONT></STRIKE></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+					<FONT COLOR="#ff00ff"><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">Arg!
+					 A managed to *delete* my internal structure models from the
+					Next9000 part of this run!!!</FONT></I></FONT></FONT></P>
+					<UL>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT COLOR="#ff00ff"><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">...did
+						this while attempting to batch re-name the model_info.txt files
+						in that folder, using the awk command in the 'useful computer
+						stuff I've recently figured out' in the section above.</FONT></I></FONT></FONT></P>
+						<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+						<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">Figured
+						out why: lower numbered models were replacing higher numbered
+						models in the renaming process. Updated the awk command to
+						avoid doing this in the future.  The key is to reverse the
+						order in which the renaming command hits the files in the
+						directory, hence the addition of the 'sort -r' to the command.</FONT></I></FONT></FONT></P>
+					</UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+					<FONT COLOR="#ff00ff"><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">However,
+					I've already started a run going forward for an additional 10000
+					timesteps for the with-fusion case, since the simulation didn't
+					progress as far forward in time as the no-fusion case did during
+					this second phase of the evolution run.</FONT></I></FONT></FONT></P>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+					<FONT COLOR="#ff00ff"><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">The
+					HR info for the Next9000 part of the with-fusion run is still
+					there, though, as is the AboutThisRun file.</FONT></I></FONT></FONT></P>
+				</UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><I><FONT SIZE=2 STYLE="font-size: 10pt">The
+				'no fusion' results --&gt;
+				/0.3Msun_NoFusion/0.3MsunNoFusionNext9000</FONT></I></FONT></STRIKE></FONT></P>
+			</OL>
+		</OL>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Plot
+	the (cumulative) results of both</FONT></FONT></STRIKE></P>
+</OL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+	 Here they are.  Figure 2 (evolution of the 'with fusion' case) is
+	concerning...</FONT></FONT></FONT></P>
+</UL>
+<OL START=2>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 6.23in; height: 4.67in; border: none; padding: 0in; background: #ffffff">
+		<P ALIGN=LEFT STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_NoFusion/HR_evolution.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+		1:</B> Evolution of the NO FUSION 0.3Msun system.  It stays within
+		the Hayashi track as it shrinks, which is good!  It would be
+		interesting to see whether it ends up in the white dwarf area of
+		the HR diagram if I let it evolve even farther forward in time.</FONT></FONT></P>
+	</SPAN><BR CLEAR=LEFT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 6.55in; height: 5.19in; border: none; padding: 0in; background: #ffffff">
+		<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../Research/BodenheimerCode/debugging_results/0.3Msun_WithFusion/HR_evolution.jpg" NAME="graphics3" ALIGN=RIGHT WIDTH=98% BORDER=0><BR CLEAR=RIGHT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+		2:</B> Evolution of the WITH FUSION 0.3Msun system.  It stays
+		within the Hayashi track, but never hits the main sequence.</FONT></FONT></P>
+	</SPAN><BR CLEAR=LEFT><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2>Make
+	sure both cases stay within the Hayashi limit, and don't do anything
+	else physically un-possible.</FONT></FONT></STRIKE>
+	</P>
+</OL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">See
+		Figure 2 above.  I don't know why it's never landing on the main
+		sequence, but regardless of why it's bad news.</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>I'm
+		going to run an out-of-the-box 1.0Msun model forward for many
+		timesteps, and plot its progress on the HR diagram to see if it
+		behaves correctly.</I></FONT></FONT></FONT></P>
+		<UL>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>./polytr
+				&lt; polytr1.inp</I></FONT></FONT></FONT></P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>./thecode
+				&lt; pmsstar1.start &gt; temp1Msun.txt  (1Msun.mod)</I></FONT></FONT></FONT></P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>If
+			it doesn't, then I'm probably doing something wrong in calculating
+			the surface luminosities of these models.</I></FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#008080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>If
+			it does, that means something inexplicable and probably difficult
+			to debug is happening within thecode.f itself when it starts
+			dealing with low-mass contracting objects.</I></FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<OL START=4>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	steps 1-4 above produce physically possible and meaningful results,
+	repeat the no-fusion process for the 0.2Msun case.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Also
+	repeat the fusion vs. no-fusion check on a 1.0 Msun system.</FONT></FONT></P>
+</OL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Those
+		are both running right now.  I'll check on them when I wake up
+		tomorrow.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<OL START=6>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Also
+	do the no-fusion process for a 0.1Msun case.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#008080"><I>Figure
+	out how long it takes a pre-main sequence object to reach the main
+	sequence.</I></FONT> <FONT COLOR="#008080"><I>(Should the 0.3Msun
+	with-fusion stars *really* be taking so incredibly long to hit the
+	main sequence?)</I></FONT></FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Answer:
+		no, not really.</FONT></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">From
+		http://www.pas.rochester.edu/~emamajek/coolplots.html:</FONT></FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000080"><SPAN STYLE="background: #e6e6ff">&quot;
+			<A HREF="http://www.pas.rochester.edu/%7Eemamajek/images/zams.png">Pre-MS
+			contraction time versus stellar mass</A>: How long does it take a
+			pre-main sequence star to contract and reach the main sequence? It
+			takes a 1 solar mass star roughly 44 million years to contract to
+			the point at which hydrogen fusion accounts for nearly all of the
+			energy production (i.e. reaches the &quot;zero-age main
+			sequence&quot;). Plot was contructed using the <A HREF="http://www.mporzio.astro.it/%7Edantona/">D'Antona
+			&amp; Mazzitelli</A> evolutionary tracks and results from <A HREF="http://adsabs.harvard.edu/abs/1965ApJ...141..993I">Iben
+			1965</A>. Stars below ~1 Msun spend most of their pre-MS epoch
+			with mostly (or even fully) convective energy transport, whereas
+			the more massive stars evolve to the main sequence having mostly
+			radiative energy transport. (image last updated 8/2/2011)&quot;</SPAN></FONT></FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT COLOR="#000080"><SPAN STYLE="background: #ffffff">  <FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Based
+			on the relation posited in Figure 3 below:  </SPAN></FONT></FONT></FONT>
+			</P>
+			<TABLE WIDTH=258 BORDER=1 CELLPADDING=3 CELLSPACING=3>
+				<COL WIDTH=103>
+				<COL WIDTH=132>
+				<TR VALIGN=TOP>
+					<TH WIDTH=103 HEIGHT=23>
+						<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Mass
+						( in Msun)</FONT></FONT></P>
+					</TH>
+					<TH WIDTH=132>
+						<P><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Pre-MS
+						contraction time (in seconds)</FONT></FONT></P>
+					</TH>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1.386
+						* 10^15</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TH WIDTH=103 SDVAL="0.5" SDNUM="1033;">
+						<P STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.5</FONT></FONT></P>
+					</TH>
+					<TH WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">4.14
+						* 10^15</FONT></FONT></P>
+					</TH>
+				</TR>
+				<TR VALIGN=TOP>
+					<TH WIDTH=103 SDVAL="0.4" SDNUM="1033;">
+						<P STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.4</FONT></FONT></P>
+					</TH>
+					<TH WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">5.89
+						* 10^15</FONT></FONT></P>
+					</TH>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="0.3" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.3</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">9.28777
+						* 10^15</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="0.2" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.2</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1.76
+						* 10^16</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="0.1" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.1</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">5.27
+						* 10^16</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="0.05" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.05</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">1.57
+						* 10^17</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR VALIGN=TOP>
+					<TD WIDTH=103 SDVAL="0.01" SDNUM="1033;">
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">0.01</FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">2.00
+						* 10^18</FONT></FONT></P>
+					</TD>
+				</TR>
+				<TR BGCOLOR="#e6e6ff" VALIGN=TOP>
+					<TD WIDTH=103>
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="background: #e6e6ff">10^-3</SPAN></FONT></FONT></P>
+						<P ALIGN=CENTER STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="background: #e6e6ff">(~
+						Jupiter mass)</SPAN></FONT></FONT></P>
+					</TD>
+					<TD WIDTH=132>
+						<P ALIGN=LEFT STYLE="font-weight: normal"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="background: #e6e6ff">7.61
+						* 10^19</SPAN></FONT></FONT></P>
+					</TD>
+				</TR>
+			</TABLE>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			</P>
+		</OL>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 5.52in; height: 5.35in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="zams.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Figure
+	3:</B> PMS contraction time as a function of mass.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<OL START=8>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Add
+	in mass-chaindown capabilities to thecode.</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Compare
+		the behavior of a 0.2 or 0.1Msun model obtained through mass
+		chain-down to the models obtained in step(s) 5 and/or 7.</FONT></FONT></P>
+	</OL>
+</OL>
+<OL>
+	<OL TYPE=a>
+		<OL TYPE=i>
+			<P STYLE="margin-bottom: 0.08in"></P>
+		</OL>
+	</OL>
+</OL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal"><A NAME="figures section"></A>
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Figures:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

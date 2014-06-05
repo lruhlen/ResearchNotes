@@ -1,0 +1,890 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121023;7120700">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 22, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>...I'm
+pretty sure this boils down to how the outermost G values are
+calculated, which in turn depends on how the atmospheric P/T/R/rho
+values are getting calculated. Debugging my atmos subroutine is
+probably going to be a long, involved, gnarly process that will drag
+on for about another month.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Still
+to do:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Still
+	need to fix the problem w/ the G values disagreeing at the outermost
+	boundary</FONT></FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+Do Today:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<TABLE WIDTH=100% BORDER=1 BORDERCOLOR="#000000" CELLPADDING=4 CELLSPACING=0>
+	<COL WIDTH=64*>
+	<COL WIDTH=64*>
+	<COL WIDTH=61*>
+	<COL WIDTH=67*>
+	<THEAD>
+		<TR VALIGN=TOP>
+			<TH WIDTH=25%>
+				<P><BR>
+				</P>
+			</TH>
+			<TD WIDTH=25%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Results
+				from the Helena 10Mjup, no fusion model, atmospheric values:</B></U></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=24%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Results
+				from the Helena: atmospheric values, from the Peter-supplied
+				values:</B></U></FONT></FONT></P>
+			</TD>
+			<TH WIDTH=26%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U>Results
+				from Peter's atmos subroutine:</U></FONT></FONT></P>
+			</TH>
+		</TR>
+	</THEAD>
+	<TBODY>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Atmos
+				values: before any inputs get changed:</B></U></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=25%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.75421e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40224e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>---------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.46546e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7533.33</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.11869e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				(outermost) atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 81.2677</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1893.63</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.18294e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.0018962</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=24%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.75421e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40224e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.46546e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7533.33</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.11869e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				(outermost) atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 81.2677</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1893.63</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.18294e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.0018962</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=26%>
+				<PRE STYLE="margin-bottom: 0.02in">(inputs)
+Zmass=  1.748663683671694E+031
+Pout =    166993483.387042     
+Rout =    87542104809.4471     
+Lout =   1.402235808868283E+032
+Tout =   1.402235808868283E+032
+
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>(outputs)</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>First values of:</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>P= 8.7966E+01 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>RHO= 1.2812E-09 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>T= 1.8933E+03</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>AKM= 1.9530E-03</FONT></FONT></PRE><P STYLE="margin-bottom: 0.02in">
+				<FONT FACE="Courier New, monospace"><FONT SIZE=2>Atmospheric
+				Parameters: </FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T=
+				1.22E+04 </FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>R=
+				1.50E+10 </FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P=
+				1.67E+08 </FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>RHO=
+				2.13E-04</FONT></FONT></P>
+				<PRE STYLE="margin-bottom: 0.02in">     
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Stellar Parameters:  </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>T=  2.25E+03 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>R=  8.75E+10 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>L=  1.40E+32</FONT></FONT></PRE>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Atmos
+				values with R varied</B></U></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=25%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.75859e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40224e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.46605e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7531.27</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.11951e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				(outermost) atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 81.4052</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1893.15</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.18531e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.00189106</FONT></FONT></P>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=24%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.79798e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40224e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.43102e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7461.85</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.12059e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				(outermost) atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 82.6592</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1888.91</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.20717e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.00184538</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=26%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">(inputs)
+				</SPAN></FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">Pout
+				= 166993483.387042 </SPAN></FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">Rout
+				= 87979815323.7107 </SPAN></FONT></FONT>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">Lout
+				= 1.402235808868283E+032</SPAN></FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">Tout
+				= 1.402235808868283E+032</SPAN></FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><BR><BR>
+				</P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">(outputs)</SPAN></FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">First
+				values of:</SPAN></FONT></FONT></P>
+				<PRE STYLE="margin-bottom: 0.02in"><SPAN STYLE="background: transparent">P = 8.9239E+01          </SPAN>
+<SPAN STYLE="background: transparent">RHO = 1.3040E-09                 </SPAN>
+<SPAN STYLE="background: transparent">T = 1.8886E+03                   </SPAN>
+<SPAN STYLE="background: transparent">AKM = 1.9025E-03 </SPAN>
+
+<SPAN STYLE="background: transparent">Atmospheric Parameters:</SPAN>
+<SPAN STYLE="background: transparent">Tatm =    11930.8659605887 </SPAN>
+<SPAN STYLE="background: transparent">Rhoatm =   2.115572669503067E-004</SPAN>
+<SPAN STYLE="background: transparent">Ratm =    14954723622.7242 </SPAN>
+<SPAN STYLE="background: transparent">Patm =    162772825.885528 </SPAN>
+
+<SPAN STYLE="background: transparent">Stellar Parameters:</SPAN>
+<SPAN STYLE="background: transparent">T=  2.25E+03 </SPAN>
+<SPAN STYLE="background: transparent">R=  8.80E+10 </SPAN>
+<SPAN STYLE="background: transparent">L=  1.40E+32</SPAN></PRE>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD WIDTH=25%>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Atmos
+				values with L varied</B></U></FONT></FONT></P>
+			</TD>
+			<TD WIDTH=25%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.75421e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40294e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.46475e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7534.33</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.11881e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				(outermost) atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 81.171</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1893.86</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.18134e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.00189848</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P><BR>
+				</P>
+			</TD>
+			<TD WIDTH=24%>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout
+				= 1.66993e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout
+				= 8.75421e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout
+				= 1.40925e+32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout
+				= 12161.2</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm
+				= 1.4685e+08</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm
+				= 7556.32</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>Ratm
+				= 1.12149e+10</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>First
+				atmos values:</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>P
+				= 80.3151</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>T
+				= 1895.99</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>rho
+				= 1.16714e-09</FONT></FONT></P>
+				<P STYLE="margin-bottom: 0.02in"><FONT FACE="Courier New, monospace"><FONT SIZE=2>kappa
+				= 0.00191897</FONT></FONT></P>
+				<P><FONT FACE="Courier New, monospace"><FONT SIZE=2>----------------------</FONT></FONT></P>
+			</TD>
+			<TD WIDTH=26%>
+				<PRE STYLE="margin-bottom: 0.02in">(inputs)
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Pout =    166993483.387042     </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Rout =    87542104809.4471     </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Lout =   1.409246987755913E+032</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Tout =   1.402235808868283E+032</FONT></FONT>
+
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>(outputs)</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>First values of:</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>P = 8.7055E+01 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>RHO = 1.2658E-09</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>T = 1.8956E+03 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>AKM = 1.9761E-03</FONT></FONT>
+
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Atmospheric Parameters:</FONT></FONT></PRE><P STYLE="margin-bottom: 0.02in">
+				<FONT FACE="Courier New, monospace"><FONT SIZE=2>Tatm =
+				12282.8685099036</FONT></FONT> 
+				</P>
+				<PRE STYLE="margin-bottom: 0.02in">Rhoatm =   2.112800701284692E-004
+Ratm =    15149478351.8969     
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Patm =    167698890.222631  </FONT></FONT>
+
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Stellar Parameters:</FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>T=  2.25E+03 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>R=  8.75E+10 </FONT></FONT>
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>L=  1.41E+32</FONT></FONT></PRE>
+			</TD>
+		</TR>
+	</TBODY>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>[] Calculate the outer G
+values and the D values for both Peter &amp; Helena by hand, based on
+the numbers you get out in the previous steps.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 4.87in; height: 3.62in; border: none; padding: 0in; background: #ffffff">
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="../Oct_19_2012/Oct_19_2012_html_m10539e05.jpg" NAME="graphics1" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><FONT SIZE=2><I>Eqn.
+	1</I></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=4 CELLSPACING=3>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<COL WIDTH=51*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Results
+			from the Helena 10Mjup, no fusion model, atmospheric values:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Results
+			from the Helena: atmospheric values, from the Peter-supplied
+			values:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Results
+			from Peter's code:</B></U></FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD ROWSPAN=2 WIDTH=20%>
+			<P ALIGN=LEFT><FONT FACE="Courier New, monospace"><FONT SIZE=2><U><B>Atmos
+			values: before any inputs get changed:</B></U></FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Outer G
+			values, calculated by hand</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>G1:
+			2.0447e7</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>G2:
+			?? (Need Rout-1 to calc. this)</FONT></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>G3:
+			?? (Need Lout-1 to calc. this)</FONT></FONT></P>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>G4:
+			4627.87</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>G1:
+			2.0447e7</FONT></FONT></P>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>G4:
+			4627.87</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.02in"><FONT FACE="Courier, monospace"><FONT SIZE=2>G1:
+			~0</FONT></FONT></P>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>G4:</FONT></FONT></P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Outer D
+			values, calculated by hand</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD ROWSPAN=2 WIDTH=20%>
+			<P><FONT SIZE=1 STYLE="font-size: 2pt"><U><B><FONT FACE="Courier, monospace"><FONT SIZE=2>Atmos
+			values: with R varied</FONT></FONT></B></U></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Outer G
+			values, calculated by hand</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Outer D
+			values, calculated by hand</FONT></FONT></P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+		<TD WIDTH=20%>
+			<P ALIGN=LEFT><BR>
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace"><B>[done]</B></FONT><FONT FACE="Courier, monospace">
+Carry out a few more of these outer D &amp; G value calculations
+using both the Peter and Helena atmos values - - just enough to
+verify that the problem lies w/ the atmos subroutine calcs in Helena
+</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><U><FONT FACE="Courier, monospace">Then,
+go about debugging the atmos subroutine in Helena. Do this in several
+steps:</FONT></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace"><B>1)
+[done]</B></FONT><FONT FACE="Courier, monospace"> Give Helena the
+same starting (outermost) atmos P and T (and kappa ? ) values that
+Peter's code starts from, and see if that fixes, or even changes,
+anything in Helena's atmos results . (I suspect it will not, but
+we'll see.)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">In
+Peter's code, w/ the nothing - varied atmos for the 10 Mjup test
+case, the outermost atmos starting values are:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">P
+= 89.239 </FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">rho
+= 1.3040e-9</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">T
+= 1888.6</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">kappa
+= 1.9025e-3 </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Sure
+enough, plotting/comparing the results using compare_atmos_calcs.py
+reveals that the two codes' atmos results still do not agree at all.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace"><B>2)</B></FONT><FONT FACE="Courier, monospace">
+Read in the dTau values from Peter's atmosphere, and have Helena use
+those, instead of the Ones it's been calculating itself. To do this,
+will need to do the following Steps: </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>A)</B></FONT><FONT FACE="Courier, monospace">
+Use Python to read in the atmos. values/data from Peter's atmos
+Calcs. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>B)</B></FONT><FONT FACE="Courier, monospace">
+Use python to calculate and write out the dTau values from Peter's
+atmosphere. </FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>C)</B></FONT><FONT FACE="Courier, monospace">
+Get Helena's atmos subroutine to read that file into an array.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>D)</B></FONT><FONT FACE="Courier, monospace">
+Get the atmos subroutine to loop over the elements of that dTau
+array, rather than using the do - while loop it currently is.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>E)</B></FONT><FONT FACE="Courier, monospace">
+Instead of calculating the dTau value at each step, as it currently
+is, get the subroutine to use the Nth element in the dTau list.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+</FONT><FONT FACE="Courier, monospace"><B>F)</B></FONT><FONT FACE="Courier, monospace">
+Modify Helena to print out the atmos valueS at each step to a text
+file.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">   <FONT SIZE=2><FONT FACE="Courier, monospace">[done--
+See Figure 1] </FONT><FONT FACE="Courier, monospace"><B>G)</B></FONT><FONT FACE="Courier, monospace">
+Plot those results against the atmos values calculated by Peter's
+code, and see how well or poorly they agree.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 9.88in; height: 7.41in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in"><IMG SRC="Figure1.png" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><FONT SIZE=2><SPAN STYLE="font-style: normal"><B>Figure
+	1:</B></SPAN></FONT><I> </I></FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">A
+	comparison of Helena and Peter atmos calcs, starting from the same
+	initial (outer) conditions (P, T, rho, and kappa), and using the
+	same dTau values used/generated by Peter's atmos subroutine.  Both
+	calculations are for the 10 Mjup, no fusion model.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Note
+that the analysis results shown in Figure 1 are entirely independent
+of how either code handles the outermost G/D calcs. (This should be
+BLAZINGLY obvious, but future - me will probably forget that &amp;
+get unnecessarily confused at some point, so here it is in writing
+for all posterity.)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">The
+results from the two codes do NOT match up well at all, which means
+one or more of the following:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace"><B>1)</B></FONT><FONT FACE="Courier, monospace">
+The way Helena is figuring out / using the Mtemp and Rtemp values at
+each Runge - kutta step is wrong</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><STRIKE><FONT FACE="Courier, monospace"><B>2)</B></FONT></STRIKE><STRIKE><FONT FACE="Courier, monospace">
+The initial conds for M/R in Helena are wrong. (Because I'm setting
+them incorrectly w/ in the atmos subroutine.)</FONT></STRIKE><FONT FACE="Courier, monospace">
+ This seems to be okay.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace"><B>3)</B></FONT><FONT FACE="Courier, monospace">
+I have a typo in one or more of the RK4 intermediate integration
+steps.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">To
+figure which it is, need to get outputs fr. Peter's code fr. the
+intermediate steps in the atmos Rk4 integration, and compare them to
+what Helena's doing at the same points.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><U><FONT FACE="Courier, monospace">The
+first things to do to debug this are:</FONT></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+Get Peter's code to print out the Rtemp and Mtemp values (and atmos
+tau cell #) it's using in just the first Rk4 step thru-out the
+atmos.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Hmm...
+there are 1358 tau cells in this atmos (Peter's Code, calling the
+atmos subroutine immediately after reading in the 10 Mj starting
+model - before running the Henyey subroutine)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Before,
+there were only 967 cells... or at least, that's true for the data
+that went into generating the values plotted in Figure 1.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Is
+this going to be a problem? Keep an eye on this...</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+Print that info to a text file </FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Results
+stored in
+/BodenheimerCode/UnalteredCode/outputs/10MjNF_atmos_debug_2.txt</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+Modify the Helena atmos subroutine to do the same.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">Results
+stored in
+/CppHenyeyCode/misc_debugging_records/10MjNF_atmos_debug_5.txt</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+Plot / compare the results, to see if they differ in a way that
+explains the problems in Figure 1.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace">[
+] This may involve writing a python script to read in, process, plot
+the files.</FONT></FONT></STRIKE></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT SIZE=2><FONT FACE="Courier, monospace">[done]
+I know that the tau = 2/3 surface in both cases falls b/w the 157th
+and 158th atmos cells. After this point, the Mtemp and Rtemp Values
+should start changing, and no longer be Mstar and Rstar,
+respectively.  Does this actually happen in the Helena atmos calcs?</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace">--&gt;
+Answer: in Helena, Mtemp always = Mstar, and Rtemp always = Rstar. 
+So, the way I've got it calculating the M/Rtemp values must be (at
+least one of) the bug(s).</FONT></FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT SIZE=2><FONT FACE="Courier, monospace">
+ No, that was just b/c of a typo-- I'd accidentally commented out the
+portion of the code where it finds the tau = 2/3 surface and sets
+Mtau23 and Rtau23.</FONT></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace"><U>To
+Fix My M/Rtemp Error:</U></FONT><FONT FACE="Courier, monospace"></FONT></FONT></STRIKE></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace">[
+] Have Helena print out the quantities in the max(foo, bar) calls in
+the M/Rtemp calcs on all of the first Runge-kutta steps.</FONT></FONT></STRIKE></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace">[
+] Have Peter's code do the same.</FONT></FONT></STRIKE></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=2><FONT FACE="Courier, monospace">[
+] Compare the two, especially where tau &gt; 2/3</FONT></FONT></STRIKE></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000">  <FONT SIZE=2><FONT FACE="Courier, monospace">Need
+to make sure both atmos subroutines are starting from the same
+initial conds. That said, it Looks like the &quot;GD&quot; value (fr.
+Peter's code) differs b/w the two codes. REALLY not sure why that is.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#ff0000"><FONT SIZE=3><FONT FACE="Courier, monospace">Start
+next time by making Sure both atmos codes are starting fr. the Same
+initial COnds. If not , fix that, and go from there.</FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Notes on
+progress/ideas/to-do for the Amazon Web Service elastic computing
+thing:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>The issues I'm
+currently trying to sort out w/ Hadoop are as follows:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>1)</B></FONT></FONT><FONT FACE="Courier, monospace"><FONT SIZE=2>
+Hadoop, by itself, Only takes map and reduce functions written in
+Java. However, Java is Hard. Also, more importantly, most scientific
+codes are *not* written in Java, or in *any* scripting language for
+that matter. So, how to get Hadoop to use one of those codes as its
+'map' function?</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>2)</B> you can start
+to get around that problem by using Hadoop streaming, which takes
+*any* executable programs in the &quot;map&quot; and &quot;reduce&quot;
+Slots . So, if you have program.cpp that Compiles to the executable
+myProgram, you could specify myProgram as your &quot;map&quot;
+function.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>However, this still
+requires that ALL the inputs to myProgram come from the command line.
+In the case of Helena, and many other Scientific computing codes, the
+program needs to read in MUCH more than just a few parameter values
+in order to do its task. For instance, Helena needs to read in an
+entire file of data to start its initial model . In addition, it
+needs to read in several files containing the E0S look-up table
+values. So, the question is: --&gt; How do you pass along the input
+files that your executable needs w/ the function call to myProgram?
+(I've Seen some mention of zipping up the external files &amp;
+passing that single .gz file along w/ the Hadoop map - reduce call,
+but I'm not entirely sure how that works, Or whether passing copies
+of all those extra files, zipped or not, will end up making the
+process too Computationally or memoy-usage-ly intensive.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>2.5)</B> scientific
+programs usually create entire files of output (sometimes several per
+individual Simulation run). Is it possible to pass those *files* as
+inputs to the &quot;reduce&quot; function? Does a single processor
+handle all of the outputs from a Single map shard process? Or is
+there no way of knowing which Set of input data generated any of the
+items reduce is acting on? This is important to figure Out, b/c your
+simulation results mean NOTHING if you don't know what inputs to use
+to reproduce them.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>3)</B> For right how,
+I don't think We need to worry about supplying a &quot; reduce &quot;
+function that does anything. In the future, you might see whether the
+reduce fuction is the appropriate place to do basic data parsing and
+analysis. Grouping results by keyword value pairs - which is how the
+reduce function basically works, may make figuring out how to
+translate my analysis Scripts to &quot;reduce&quot; - functional form
+kind of tricky. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>4)</B> In order to
+start testing any of this stuff out, I need to be able to RUN Hadoop
+on some machine. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>A)</B> First, need to
+be able to run Hadoop Locally, as a single - node cluster on my own
+machine. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>B)</B> If there is
+some way of getting my single, local machine to impersonate a cluster
+of multiple nodes, have it do that (BUT HOW?!) and run the Hadoop map
+- reduce process locally. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><B>C)</B> Once I can get
+this working and debugged on my local machine, where computing time
+is free, try getting it to work on the Amazon cloud servers. ( It
+sucks that their EMR framework doesn't let you use the free micro -
+instances to form your virtual cluster, b/c I just know I'm going to
+end up burning thru a lot of non - free computing hours on there,
+which are coming out of my own rather shallow grad student pockets
+for the time being )</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

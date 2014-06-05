@@ -1,0 +1,90 @@
+\setlength{\topmargin}{-0.2in}
+\setlength{\textwidth}{6in}
+\setlength{\textheight}{8.5in}
+\setlength{\oddsidemargin}{0.25in}
+\setlength{\evensidemargin}{0.25in}
+\setlength{\parskip}{2mm plus 1mm minus 0mm}
+\raggedbottom
+
+\newcommand{\lectitle}[1]{\begin{center} {\LARGE{\bf #1}} \end{center} \vspace{3mm}}
+
+\newcommand{\mat}[2][rrrrrrrrrrrrrrrrrrrrrrrrrrrrrr]{
+    \begin{array}{#1} #2\\ \end{array}}
+\newcommand{\drawing}[1]{\fbox{\textcolor{red}{\parbox{4in}{Placeholder
+	for the following figure: \\#1}}}\\}   
+\renewcommand{\math}[1]{\begin{displaymath}#1\end{displaymath}}
+\renewcommand{\labelitemii}{$\bullet$}
+\renewcommand{\labelitemiii}{$\bullet$}
+\newcommand{\ddx}{\frac{d}{dx}}
+\newcommand{\ddy}{\frac{d}{dy}}
+\newcommand{\ddt}{\frac{d}{dt}}
+\newcommand{\ddr}{\frac{d}{dr}}
+\newcommand{\del}{\nabla}
+\newcommand{\pfrac}[2]{\frac{\partial #1}{\partial #2}}
+\renewcommand{\sun}{\odot}
+\renewcommand{\earth}{\oplus}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\seq}{\hspace{1cm}=}
+\renewcommand{\del}{\vec{\nabla}}
+\def\farcs{\hbox{$.\!\!^{\prime\prime}$}}
+\def\arcs{$^{\prime \prime}$}
+\def\arc{$^{\prime}$}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\cm}{\textrm{ cm}}
+\newcommand{\s}{\textrm{ s}}
+\newcommand{\erg}{\textrm{ ergs}}
+\newcommand{\g}{\textrm{ g}}
+\newcommand{\K}{\textrm{ K}}
+\renewcommand{\c}{3\times10^{10} \cm/\s}
+\newcommand{\AU}{1.5\times10^{13}\cm}
+\renewcommand{\c}{3\times 10^{10}\cm/\s}
+\newcommand{\gravG}{6.67\times 10^{-8} \cm^3/(\g \s^2)}
+\renewcommand{\t}[1]{\textrm{ #1 }}
+
+%\renewcommand{\figurename}{Figure}
+%\captiondelim{. }
+%\captionstyle{\\}
+
+\newcommand{\fig}[3]{
+\floatstyle{boxed} \restylefloat{figure} % This puts a box around the figure.
+  \begin{figure}[!h]
+    \centering
+    \includegraphics[width=#3\textwidth]{#1}
+%    \caption{#2}  % To produce numbered captions.
+%    \abovelegendskip      
+    \legend{{\em #2}} % to produce unnumbered captions
+  \end{figure}
+}
+\newcommand{\figplain}[3]{
+%\floatstyle{boxed} \restylefloat{figure} % This puts a box around the figure.
+ \begin{figure}[!h]
+    \centering
+    \caption{#2}  % To produce numbered captions.
+	      \includegraphics[width=#3\textwidth,angle=90]{#1}
+ \end{figure}
+}
+
+\newcommand{\aside}[1]{
+\shadowbox{\begin{minipage}{12cm}#1\end{minipage}}
+}
+
+% How to use subfigures:
+% First, add \usepackage{subfigure} to the preamble.
+% Then...
+%
+% \begin{figure}
+% \centering
+% \subfigure[Bild a.] % caption for subfigure a
+% {
+%    \label{fig:sub:a}
+%    \includegraphics[width=4cm]{bild_a.eps}
+% }
+% \hspace{1cm}
+% \subfigure[Bild b.] % caption for subfigure b
+% {
+%    \label{fig:sub:b}
+%    \includegraphics[width=4cm]{bild_b.eps}
+% }
+% \caption{Bild a och b.}
+% \label{fig:sub} % caption for the whole figure
+% \end{figure}

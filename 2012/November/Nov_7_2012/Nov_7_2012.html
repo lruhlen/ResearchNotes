@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121108;16491500">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Date
+&amp; Time: Nov. 7, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B><SPAN STYLE="font-style: normal"><U>Continuing
+from last time:</U></SPAN></B></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">I
+checked on the RK4 stepsize effect, and it looks like taking tau
+stepsizes that are half the size that Helena normally uses does
+produce atmos profiles that differ noticeably from the ones that use
+'regular' stepsizes.  That is another good indication that my
+atmospheric RK4 method is subtly flawed somewhere.  Now that I'm
+convinced of that, time to start comparing the Mk1, Mk2, etc. values
+b/w the two codes.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">It
+looks like the dMk1 and/or dRk1 values are the ones that differ the
+most b/w the two codes (the T and P intermediate RK4 values do
+disagree as well, but not as much, percentage-wise).  So, start by
+going through Helena's dMk1 and dRk1 calculations very carefully to
+try to locate errors in those.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">The
+dPk values are too large. This causes the dTk values to be too small.
+ It also gives Pmax and Tmax values (at bottom of the atmos) that are
+too large and small, respectively.  Mtemp being too large could be
+one thing that's causing all of this.  So, need to get the Mtemp (aka
+Zat) values out of Peter's code at each k-step w/in the atmos, and
+compare it to the Mtemp values being generated w/in Helena.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Start
+with this: </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">&quot;Get
+the Mtemp (aka Zat) values out of Peter's code at each k-step w/in
+the atmos, and compare it to the Mtemp values being generated w/in
+Helena.&quot;</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">The
+Mtemp1 values / profiles disagree slightly but interestingly before J
+= ~ 480. I think this is where tau first gets above 10. Helena's
+Mtemp1 is too small below J~ 400 and then kind of sawtoothes around
+the Peter Mtemp1 value after that. </FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Note:
+even at J= 0 the two Mtemp1 values do not agree. I don't know if
+that's an artifact of different writing (or reading) precision levels
+b/w the two codes, or whether it's a sign of a genuine difference in
+their computational results.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Let's
+check whether the kappa values are the only things driving this
+difference...</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">First,
+just plug Peter's kappa values into the calculation (see Eqn. 1) with
+Helena's Mtemp and Rtemp values in python.  Then, do it w/in Helena's
+atmos code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Nov_7_2012_html_6cdd0a85.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=555 HEIGHT=62 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 12.6in; height: 9.37in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<IMG SRC="Figure1.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Figure
+	1:</B></U> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>A comparison of the
+	values calculated from Eqn. 1 with the inputs noted in the legend.
+	These profiles were calculated purely in python from the Peter and
+	Helena atmos subroutine outputs (Mtemp, Rtemp, kappa).</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">In
+Figure 1, using the profile calculated from Peter's Mtemp, Rtemp, and
+kappa values overlaps (perfectly?) with the one calculated from
+Helena's Mtemp and Rtemps and Peter's kappas.  This suggests that
+Helena's kappa values may be driving the differences b/w the profiles
+that the two codes calculate.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Next
+step in testing this is to read Peter's kappa values into my code,
+and force Helena to use them (and not the ones it generates itself
+from its own look-up table procedure) to do its atmos calculations,
+and then see whether it produces the same P/T/M/R profiles that
+Peter's code does.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">1)
+In python, read out the Peter kappa[1-4] values to a separate text
+file.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">2)
+Read those value in w/in Helena's atmos code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">3)
+Change Helena's atmos code to use those read-in kappa values, rather
+than the ones it generates itself.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">4)
+Get Helena to write out the j/P/T/M/R/tau/dTau values that modified
+run generates to a text file.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">5)
+Plot the results in that file, and compare them to the atmos profiles
+produced by Peter's code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Forcing
+Helena to use Peter's verbatim atmos kappa values does not solve the
+problem.  It doesn't even improve agreement b/w the profiles.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">What's
+going ON?  If I force the two codes to use exactly the same tau and
+dTau values, what happens again?  Under those circumstances, they
+*should* be produce the same P/T/M/R profiles.  </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">I
+can tell just from examining the outputs from Helena, when I run it
+this way, that this does NOT fix the problem.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Since
+it's not (just) a tau/dTau issue, go through at each k-step and force
+that step (only) to use the Peter-values from that step, and see if
+that corrects anything.  If that worked, that would mean that I have
+a typo or an error of some kind on one of my k-steps.  If not, then I
+guess(?) it would mean that the error is in the look-up
+table/interpolation of the kappa/nab/rho/etc. secondary variables.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt">Before
+leaving tonight: read up on the Metzger 2012 paper on planet-star
+merger signatures.  And, check my email to find out which meeting
+slot X. has me scheduled for with him tomorrow.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"></FONT></FONT></FONT></P>
+</BODY>
+</HTML>

@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121205;18425500">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Dec. 4, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>A
+sign error is entering thru the A matrices, which themselves depend
+on the S and Sum matrices. I've been trying to figure out where,
+exactly, the sign error is getting into those , w/ limited success.
+Figure 4 shows my scheme for tracking how sign  differences propagate
+thru the code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>***For
+all variables BESIDES the luminosity, the bolded values are so much
+larger than the italicized ones that differences b/w the codes HA
+values don't really register in the results:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000">    <FONT FACE="Courier, monospace"><FONT SIZE=2>HdX[j]
+= <B>dot(HB[j],HdX[j+1])</B> + <I>HA[j]***</I></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Trying
+to figure out where those errors/sign differences in the HA matrices
+are coming from, and how to eradicate them.  </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>--&gt;
+Start by drawing out what's going on with the whole
+matrix-solution/backsolving algorithm.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Done.
+ See the scanned in &quot;Henyey Backsolving Manifesto&quot; notes
+below. [Note to self: upload the pdf of the notes to the blog's
+Manifesto section when you upload your entries...]</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../November/Nov_29_2012/Figure2.png" NAME="graphics1" ALIGN=LEFT WIDTH=1062 HEIGHT=1419 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>The
+take-home point from this exercise is that <B>the G values are
+crucially important to the success of the entire dX calculation</B>. 
+</FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>So, what's going on with
+the G-matrix values in Helena:  </FONT></FONT>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>What happens if I
+	calculated the corrections using Peter's G values, but Helena's CDE
+	values?  Does that produce the correct dX profiles? &lt;--Answer:
+	not quite the silver bullet I'm looking for.</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>What if I replace
+	Helena's G[0] values w/ Peter's G[0] values?  What effect does that
+	have? &lt;--Answer: this is not the silver bullet, either.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Here's what's going on
+with the dX calculations (Figure 1):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 9.08in; height: 8.34in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Dec_2_2012/Figure1.png" NAME="graphics2" ALIGN=RIGHT WIDTH=100% BORDER=0><BR CLEAR=RIGHT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Plots of the two
+	components that go into determining the dX values.  </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Note: dX = temp + A</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>In Figure 1, above, the
+plotted quantities are defined as follows:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Dec_4_2012_html_bdfb095.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=243 HEIGHT=35 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Dec_4_2012_html_41fec6af.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=251 HEIGHT=33 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Dec_4_2012_html_m314e7039.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=204 HEIGHT=86 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For the luminosity
+values, the temp values are (close enough to) zero, and the A values
+matter.  For all the other variables, though, the A values don't
+really matter, and it's the temp values that determine the result.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Question: are the A
+values for all the variables of opposite signs, as they are for the
+luminosity?  Or is that only a luminosity thing?  (And if so, WHY???)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>--&gt; Answer (see
+Figure 2): it's only a luminosity thing.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 7.14in; height: 6.55in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Dec_2_2012/Figure2.png" NAME="graphics6" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	2:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Comparison of just the
+	A values</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>For today:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>For reference, here's
+how the temp and A values change if you ONLY set HG[2] = -1.0*HG[2] 
+(Figure 3):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 7.04in; height: 5.86in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure3.png" NAME="graphics7" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	3:</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>When I change the sign
+	on Helena's G[2] (luminosity) values, it doesn't get all of the dX
+	profiles to line up.  Rather, it just switches which profiles' signs
+	match and which don't.  So, it's not an issue limited to the G
+	values.  Therefore, I guess it has to be an issue w/ the signs in
+	Helena's CDE values?  Which would kind of make sense if the G[2]
+	values are the wrong sign, since the CDE values are just derivatives
+	of the G values. </FONT></FONT>
+	</P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+<BR><BR>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Why are only the
+	luminosity A values inverted?  (Again, remember: setting G[2] =
+	-1.0*G[2] does NOT fix the problem.)</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Does this have
+		something to do w/ needing to change the sign on the Helena CDE
+		values?</FONT></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Answer: not totally. 
+Figure 4 shows what happens when I reverse the signs on the Helena
+CDE values (but not the G values).  Now, instead of the dX sign
+reversals seen in Figures 2 and 3, you get dX profiles that are not
+only of opposite signs, but also of different magnitudes.  So, in
+short, it makes the problem worse.  However, it may be an issue of
+just changing the signs of selected rows or columns of Helena's CDE
+matrices (perhaps the ones that depend on the luminosity?)</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 6.95in; height: 5.79in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure4.png" NAME="graphics8" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	4</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<OL START=2>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>If I correct the outer
+	HA values (set them equal to their Peter counterparts), then I get
+	the correct dX profiles.  So, need to look into getting those outer
+	CDEG values to agree b/w the two codes.  </FONT></FONT>
+	</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>However, I think they
+		are closer to agreeing w/ each other than they were before I did
+		all that atmos debugging, so that's encouraging.  </FONT></FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Also, as it is now, I
+		think both codes produce dX profiles of the same signs, so even if
+		I can't get them to agree perfectly w/ each other, they should
+		still have the same net effect on the model they're trying to
+		converge.  In other words: it may not be a federal case if I can't
+		figure this bit of the problem out.</FONT></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

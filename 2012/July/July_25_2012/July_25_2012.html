@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120805;13454100">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: July 25, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Figuring out the GIRL subroutine in Peter's code: 
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+I think Peter's code uses the approach outlined in the notes for July
+22, 2012 is that the HA matrix (which is what gets sent to the GIRL
+subroutine most of the time) has dimensions iMax+1 by 2*(iMax+1). The
+&quot;+1&quot; is the row that holds the... A matrix? (which is
+really of dimensions 1 by iMax), while the first iMax rows hold the B
+matrix. (This is at any given mass cell, obviously. The HA matrix
+doesn't contain this info for all jMax mass cells.) And I *think*
+that the first iMax + 1 columns of HA are holding the A and B matrix
+values. The right hand side of HA *may* contain the values of the
+matrices that we want to multiply by TempSInverse. (But wait, how do
+you get from A and B to S??)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S = (C*B) + D</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Sum = (C*A) + G</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+A = S^-1 * Sum</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+B = S^-1 * E</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S*A = Sum &lt;-- 1D matrix</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+S*B = E &lt;-- 2D matrix</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+In Peter's Henyey subroutine, maybe the HA and D matrix values are
+linked? It looks like the D matrix holds the G and E matrix values.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To do today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	Try to get info about the A/B/InverseS matrices out of Peter's
+	code...</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		How are the HA and D matrices in Peter's code linked together?</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		It looks like D[0:4,0:4] == the HE matrix, while D[0:4,5] = -1.0 *
+		G (at least, at the inner mass cell)</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		The D matrix values change after running GIRL on the HA matrix, so
+		that tells me that HA and D are linked, though it's still not 100%
+		clear to me how that was accomplished in Peter's code.
+		Nevertheless, there it is.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			After GIRL runs on HA, D[0:4,0:4] = S^-1 * HE, and D[0:4,5] = S^-1
+			* -G</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			The HX and HW matrices are then filled with the D values. (The D
+			values after GIRL runs are the B and A matrices, respectively.) 
+			</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	To get the (effective) InverseS matrix values out of Peter's code at
+	j=0, I made a 'toy' matrix to send to GIRL, of the form S = [HA:
+	identity matrix]. GIRL then returns inverseS in the section of the
+	input matrix that originally contained the ID matrix.</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	In comparing the outputs of Helena and Peter's code, it looks like
+	they're both calculating (roughly) equivalent values for S at j=0.
+	The InverseS values, however, differ at a few points-- up to 3
+	orders of magnitude...</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	This suggests to me that something's up with one (or both) of the
+	codes' matrix inversion procedures. So, I need to run some tests on
+	that in Helena...</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		I've loaded in the S matrix (values taken DIRECTLY from a run of
+		the cdeg_debug code) into Helena, calculated the S^1 values in
+		Helena, multiplied the two matrices together, and end up getting
+		the following (note: very much NOT an identity matrix):</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+test * testInv:</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+1 0 -3.2092e+06 0 
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+0 1 0 0 
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+0 0 1 0 
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+0 0 0 1 
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	This result comes after &quot;cleaning&quot; the test*testInv matrix
+	(i.e., removing values below the computer's precision threshold). 
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	What happens when I load both S and S^1 values from Peter's code
+	directly into my code and multiply them together? Do I get the same
+	result?</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>test matrix (from
+Peter's code):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1 2.5856e+16
+-6.0341e+18 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-2.824 8.2101e+19 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 -1.1962e+23 6.879e+25
+-0.99987 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>testInv (from Peter's
+code):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1.0005 0.00018722
+5.845e+13 -8.7765e-08 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.4415e-20 1.2187e-20
+2.0105e-06 -3.0189e-27 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-2.4074e-35 -5.8775e-39
+1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>4117.5 -1458 6.8799e+25
+-0.99977 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>test * testInv (matrix
+values from Peter's code):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0.99964 0.00012788
+-6.0342e+18 8.7687e-08 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>5.7732e-15 1 340.06
+2.1176e-22 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-2.4074e-35 -5.8775e-39
+1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1.6871e-09 1.5916e-12 0
+1 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>testInv from my code:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1.0009 0.00031521
+-6.0395e+18 -4.2718e-20 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.4428e-20 1.2191e-20
+-0.20774 -1.4694e-39 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>4118.9 -1458.5
+6.8824e+25 -1.0001 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>test * testInv from my
+code:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1 5.8276e-17 -3.2092e+06
+4.268e-20 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-4.4409e-16 1 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT FACE="Times New Roman, serif"><FONT SIZE=3>What effect does
+	switching the matrix multiplication order have? The results below
+	have both been &quot;cleaned&quot; after multiplication, but prior
+	to printing.</FONT></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>testInv * test (from
+Peter's code):</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1 -34 5120 8.7753e-08 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 1 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-2.1828e-11 -1.8455e+08
+1.718e+10 0.99964 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>testInv * test from my
+code:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1 330.08 2.727e+05 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 1 9.3891e-15 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 -1.6777e+07 0 1 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>&quot;Cleaning&quot;
+the matrices at various points in the inversion and multiplication
+process doesn't get rid of the non-zero off-diagonal values in the
+S*S^-1 result. Neither S*S^-1 nor S^-1*S orderings give better
+results. </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>The next step is to
+look into the matrix inversion algorithm in Helena, to see where the
+computer's precision limits are coming into play and making an
+imperfect inverted matrix.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>I think perhaps the
+Gauss-Jordan algorithm I'm using to invert matrices is too sensitive
+to the types of numerical/precision/round-off errors that crop up in
+calculations where you have a really big dynamic range of values in
+your matrix. So, it might be a better idea to try out a more robust
+matrix-inversion technique, if I can find one.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>From
+http://www.cg.info.hiroshima-cu.ac.jp/~miyazaki/knowledge/teche23.html,
+the following formula for inverting a 4x4 matrix:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>If</FONT></FONT></P>
+<P><IMG SRC="http://www.cg.info.hiroshima-cu.ac.jp/%7Emiyazaki/knowledge/image/eq23-06.gif" NAME="graphics1" ALIGN=BOTTOM WIDTH=432 HEIGHT=302 BORDER=0></P>
+<P>then there exists an inverse matrix of A, and it is</P>
+<P><IMG SRC="http://www.cg.info.hiroshima-cu.ac.jp/%7Emiyazaki/knowledge/image/eq23-07.gif" NAME="graphics2" ALIGN=BOTTOM WIDTH=305 HEIGHT=135 BORDER=0></P>
+<P>where</P>
+<P><IMG SRC="http://www.cg.info.hiroshima-cu.ac.jp/%7Emiyazaki/knowledge/image/eq23-08.gif" NAME="graphics3" ALIGN=BOTTOM WIDTH=633 HEIGHT=551 BORDER=0></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Using this matrix
+inversion method, which I'm calling the FourByFourInversion.cpp/.h, I
+get the following results:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>testInv (regular
+inversion method):</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1.0009 0.00031521
+-6.0395e+18 -4.2718e-20 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.4428e-20 1.2191e-20
+-0.20774 -1.4694e-39 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>4118.9 -1458.5
+6.8824e+25 -1.0001 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>testInv
+(fourByfourInvert method):</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-1.0009 0.00031521
+-6.0395e+18 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>-3.4428e-20 1.2191e-20
+-0.20774 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>4118.9 -1458.5
+6.8824e+25 -1.0001 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>testInv: regular -
+4by4 method:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 -5.8222e-17 3.2113e+06
+-4.2718e-20 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1.1047e-13
+-1.4694e-39 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U>test * testInv
+(fourByfourInvert), cleaned:</U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>1 0 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 1 0 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 1 0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>0 0 8.5899e+09 1 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>The results from
+this 4x4 inversion method, while still imperfect, seem better than
+the results from the Gauss-Jordan elimination inversion method I had
+been using. I think I'll switch all of the 4x4 matrix inversions in
+Helena's modifiedHenyeyMatrixInversion.cpp subroutine over to this
+new method.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Still need to check
+on why the A/B and dX values that Helena's
+modifiedHenyeyMatrixInversion routine generates are so different from
+the ones Peter's code produces... </FONT></FONT>
+</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Change over the
+	matrix inversion method in the modifiedHenyeyMatrixInversion routine
+	to the 4x4 method.</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT FACE="Times New Roman, serif"><FONT SIZE=3>See if that
+		changes/improves Helena's results (as compared to Peter's).</FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=3>If it does, then
+			we're done with this part of the debugging</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+			<FONT FACE="Times New Roman, serif"><FONT SIZE=3>If not, need to
+			check my Sum and S matrix values against his. </FONT></FONT>
+			</P>
+		</OL>
+	</OL>
+</OL>
+</BODY>
+</HTML>

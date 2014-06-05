@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121128;13531800">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Nov. 28, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>A
+sign error is entering thru the A matrices, which themselves depend
+on the S and Sum matrices. I've been trying to figure out where,
+exactly, the sign error is getting into those , w/ limited success.
+Figure 4 shows my scheme for tracking how sign  differences propagate
+thru the code.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 4.29in; height: 5.71in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Nov_28_2012_html_1035312f.gif" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Schematic illustration
+	of how sign differences in the CDEG matrices propagate thru the
+	portion of the code that calculates the dX values.  Pink = opposite
+	signs in Helena and Peter.  Green = same signs in Helena and Peter.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>From
+Figure 1, I see that sign differences propagate consistantly thru
+that &quot;for loop.&quot; The HA values will always be opposite
+signs, and the HB values will always be of the same sign compared b/w
+the two codes' results. Now, let's track how those Sign differences
+effect the dX calculations signs.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><SPAN STYLE="text-decoration: none">For
+all of the values of j:</SPAN></U></FONT></FONT></FONT></P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#ff00ff"><SPAN STYLE="text-decoration: none">    </SPAN></FONT>
+</P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#ff00ff"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">HS[j]
+</SPAN></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#008000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">HSum[j]
+</SPAN></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none"><FONT COLOR="#ff00ff">HA[j]</FONT>
+</SPAN></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#008000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">HB[j]</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<BR>
+</P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none">for
+j in jrange:</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT COLOR="#000000">
+  </FONT><FONT COLOR="#ff00ff"> <FONT FACE="Courier, monospace"><FONT SIZE=2>HdX[j]</FONT><FONT COLOR="#000000">
+= dot(</FONT><FONT COLOR="#008000">HB[j]</FONT><FONT COLOR="#000000">,</FONT><FONT COLOR="#ff00ff">HdX[j+1</FONT><FONT COLOR="#000000">])
++ </FONT><FONT COLOR="#ff00ff">HA[j]</FONT></SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-left: 0.79in; margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<BR>
+</P>
+<P STYLE="margin-bottom: 0in; font-style: normal; font-weight: normal; line-height: 0.14in; text-decoration: none">
+<BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>The
+G values at j=0 (and any errors in them) cascade throughout the
+entire calculation.  I wonder if &quot;fixing&quot; the j=0 G values
+from Helena will get the dX profiles to agree?  Answer: doing that
+quick kludge in the python script didn't get the dX profiles to
+agree, so... </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>After
+more digging:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>**The
+problem MUST be in the Gs, b/c the invS values' signs match
+throughout the interior of the star.**</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>**Or,
+the problem MUST be in the HSum values (which depend on G, C, and A).</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>***For
+all variables BESIDES the luminosity, the bolded values are so much
+larger than the italicized ones that differences b/w the codes HA
+values don't really register in the results:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000">    <FONT FACE="Courier, monospace"><FONT SIZE=2>HdX[j]
+= <B>dot(HB[j],HdX[j+1])</B> + <I>HA[j]***</I></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's
+Work:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Continuing
+on from last time, trying to figure out where those errors/sign
+differences in the HA matrices are coming from, and how to eradicate
+them.  </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

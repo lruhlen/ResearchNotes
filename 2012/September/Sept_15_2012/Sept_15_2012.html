@@ -1,0 +1,332 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120918;2021100">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Sept. 15, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Interestingly, in
+		Peter's values, B32 and B33 !=0, while they do =0 in the Helena
+		value-based calculations</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>This suggests that it
+			must be the InverseS, row 3 that's causing the difference between
+			the 2 codes</FONT></FONT></P>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Check this by
+		comparing the InverseS values in the same way as I just did for the
+		B matrices:</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Use Helena vs.
+		Peter-generated CDEG values, and have Helena run them through its
+		modifiedHenyey... subroutine, then print out the InverseS values
+		generated from each pass and plot/compare the two.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Done. See Figure 1
+			for details. I don't notice any striking differences b/w the
+			InverseS profiles around j=0, so it's still unclear what's causing
+			the B (and A) profiles to start varying so much there.</FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 6.95in; height: 6.45in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; line-height: 150%">
+	<IMG SRC="../Sept_13_2012/Figure2.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	1:</B> </FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal; line-height: 150%">
+	<FONT SIZE=3>A comparison of the InverseS values Helena generates
+	from Peter's CDEG values, vs. from the CDEG values it calculates
+	itself.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>I wonder if the sign
+			differences b/w the Peter and Helena calculations are caused by
+			not multiplying the PeterCDE values by -1.0 when I read them into
+			Helena?</FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 4.85in; height: 3.91in; border: none; padding: 0in; background: #ffffff">
+		<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+		<IMG SRC="../Sept_13_2012/Figure3.png" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+		2</B></FONT></FONT></P>
+	</SPAN><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2>Results
+	in Figure 2. As you can see, the dX profiles STILL do not agree.</FONT></FONT>
+		</P>
+</UL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>For further
+		comparison, Figure 3 shows how the dX profiles differ when I use
+		the Peter CDEG starting values both with (correct sign) and without
+		(WRONG signs) multiplying the CDE matrices by -1.0 before sending
+		them off to the modifiedHenyey... subroutine to calculate the dX
+		values. Notice that the two profiles are NOT exact mirror images of
+		each other. If you plot their ratios, you'll see the results wiggle
+		about -0.75, and NOT -1.0 as you might naively expect.</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame4" DIR="LTR" STYLE="float: left; width: 5.19in; height: 4.37in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Sept_13_2012/Figure4.png" NAME="graphics4" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	3</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To Do Today:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2><B><SPAN STYLE="background: transparent">Start
+	tomorrow by multiplying the CDE matrix values (generated by Helena)
+	by -1.0 before sending them off to the modifiedHenyey... subroutine,
+	and see if maybe THAT will get the dX profiles to agree with each
+	other.</SPAN></B></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">It
+		makes no difference. The results of the dX calculations are the
+		same, except that the dX profiles differ by a factor of -1.0
+		between the two Helena-generated CDEG cases. The overall dX values
+		from the Helena-generated CDEG calculations, however, are still
+		several orders of magnitude smaller than the dX values generated
+		from the Peter-calculated CDEG values.</SPAN></FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">It's
+			odd that in this case, the resulting dX profiles differ by a
+			factor of -1.0, while switching the signs on the Peter-generated
+			CDE values leads to dX profiles that differ by a factor of <I>roughly</I>
+			-0.75 (the ratios 'wiggle' more, there, than they do in this case.
+			For the opposite-sign CDE Helena-made values, the dX ratio is
+			exactly and steadily -1.0 for all four dX values.)</SPAN></FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">The
+	dP and dT profiles differ most markedly at j=0, when comparing
+	results from the Peter-generated- vs. Helena-generated-CDE dX
+	profiles. The dL and dr profiles, on the other hand, vary most
+	markedly at j=jMax.</SPAN></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: transparent">Maybe
+		look into the dP and dT values generated at j=0 from the
+		A/B/S/InverseS/Sum matrices from the different CDE inputs.</SPAN></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 13.13in; height: 9.85in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure4.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	4</B></FONT></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Summary of the effect
+	that changing JUST the outermost A value(s) has on the resulting dX
+	profiles. </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The top graphs in each
+	plot contains just the regular Helena and Peter dX profiles. </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The middle graphs
+	compares the regular Peter dX profile with the Helena profile where
+	ONLY the outermost Helena A matrix values were set equal to the
+	outermost Peter A matrix values. </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The bottom graphs
+	compare the regular Helena dX profile with the Peter profile where
+	ONLY the outermost Peter A matrix values were set equal to the
+	outermost Helena A matrix values.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Figure 4, above, shows
+	the effect that changing JUST the outermost A value(s) has on the
+	resulting dX profiles. The top graphs in each plot contains just the
+	regular Helena and Peter dX profiles. The middle graphs compares the
+	regular Peter dX profile with the Helena profile where ONLY the
+	outermost Helena A matrix values were set equal to the outermost
+	Peter A matrix values. The bottom graphs compare the regular Helena
+	dX profile with the Peter profile where ONLY the outermost Peter A
+	matrix values were set equal to the outermost Helena A matrix
+	values. </FONT></FONT>
+	</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>Except for the dL
+		profiles, changing JUST the outermost A matrix values goes a long
+		way towards getting the remainder of the dX profiles to agree with
+		each other. If you set the outermost Peter A matrix values to the
+		outermost Helena A matrix values, you end up with a more
+		'Helena-ish' set of dX profiles. Likewise, if you set the outermost
+		Helena A matrix values to the outermost Peter A matrix values, you
+		get a more 'Peter-ish' set of dX profiles. Except for the dL case,
+		the value of the outermost A matrix values (Helena or Peter)
+		largely determines whether the resulting dX profile will be more
+		'Peter-ish' or 'Helena-ish.'</FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>The fact that
+		performing this outermost A-values switcheroo does NOT make the dX
+		profiles match perfectly, along with the dL profiles' resistance to
+		correction through this method, makes me think that the A values
+		that depend on the luminosity values (and derivatives thereof) may
+		play an important role in these calculations, too. To test this, I
+		looked at how the A values compare between the two codes, in for
+		ratio values that fall between 0 and 2. (The main place where the
+		ratio diverges from 1 is at the outer boundary, which the step
+		above corrects.) The results are plotted in Figure 5, below.</FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame5" DIR="LTR" STYLE="float: left; width: 6.23in; height: 4.76in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure5.png" NAME="graphics5" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 11pt"><B>Figure
+	5</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>What Figure 5 shows
+		that the A values that depend on luminosity (and derivatives
+		thereof) systematically differ between the Peter- and
+		Helena-generated CDEG inputs. This is (at least partly) why
+		'fixing' the outermost A values, by setting them to their
+		Peter-values, does not fix the dL profile at all, and possibly also
+		why it doesn't entirely fix the other profiles.</FONT></FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>I wonder if row3 and
+			col3 of the B matrix reflect this, and if setting them to their
+			Peter-values would get all the dX profiles to match even better...</FONT></FONT></P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<FONT FACE="Courier, monospace"><FONT SIZE=2>Compare the ratio of
+				row3 of the B matrix values, and the ratio of col3 of the B
+				matrix values b/w the two codes, and see if you get anything
+				interesting (vs. comparing the ratio of the other rows/cols from
+				the B matrices).</FONT></FONT></P>
+				<UL>
+					<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+					<FONT FACE="Courier, monospace"><FONT SIZE=2>A preliminary look
+					at this shows that row/col3 of the B matrices do differ in
+					significant ways (moreso than the other row/cols do). <B><SPAN STYLE="background: #ff950e">Tomorrow,
+					start by examining what happens to the dX profiles when you set
+					the Helena B matrix (row/col3) values to the Peter values, and
+					whether/how much of a difference it makes.</SPAN></B> </FONT></FONT>
+					</P>
+				</UL>
+			</UL>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Update wordpress blog</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Back up fortran and cpp
+	codes to BitBucket </FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>To
+keep in mind for later:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>For
+	the 1 Mjup model: do the Peter and Helena models' dX values (raw)
+	now agree, too? </FONT></FONT></FONT>
+	</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

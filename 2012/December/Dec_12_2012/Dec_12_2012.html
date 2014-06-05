@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121212;23302600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Dec. 12, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+Campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode,
+/Desktop/Research/BodenheimerCode/UnalteredCode/ </B></FONT></FONT></FONT>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><SPAN STYLE="background: #ffffcc">Updated
+checklist:</SPAN></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Turn
+	dTime on (set &gt; 0) and compare the results from the two codes </SPAN></FONT></FONT></FONT>
+	</P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Note
+		on this: there's a whole set of terms that will come into play in
+		the G3J calcs. and associated CDEs once you let dTime &gt; 0</SPAN></FONT></FONT></FONT></P>
+		<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Debug
+		as necessary</SPAN></FONT></FONT></FONT></P>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Run
+	Peter's code on the 10Mj no-fusion model with L/H = 0, dTime &gt; 0,
+	and make sure it converges (for at least on time step)</SPAN></FONT></FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">If
+		not, debug as necessary</SPAN></FONT></FONT></FONT></P>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Check
+	that Helena also converges the 10Mj no fusion model for dTime &gt;
+	0, on a single timestep</SPAN></FONT></FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Re-enable
+		dX correction application in the Helena code</SPAN></FONT></FONT></FONT></P>
+		<OL TYPE=i>
+			<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">This
+			means you'll have to re-enable the dX rescaling part of the
+			while-loop code.</SPAN></FONT></FONT></FONT></P>
+		</OL>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">Compare
+	the converged models</SPAN></FONT></FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.06in"><FONT COLOR="#b80047"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="background: #ffffcc">If
+		they don't agree decently, debug as necessary</SPAN></FONT></FONT></FONT></P>
+	</OL>
+</OL>
+<P STYLE="margin-bottom: 0.06in"><BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.06in"><FONT FACE="Courier, monospace"><FONT SIZE=2>Step
+1a/b:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Peter's code ends up
+using</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>DTIME: 3.4789D+09</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>when I let it do that
+&quot;just-use-the-same-dTime-value-that-the-read-in-model-had&quot;
+thing to determine what dTime value to use.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Set dTime to the same
+value in AboutThisRun.h for Helena.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Figure 2 = dX profiles
+from running both codes with this timestep on the 10Mjup, L/H=0
+model.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 6.67in; height: 6.46in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Dec_10_2012/Figure2.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	1:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Comparison of the dX
+	profiles generated by Peter and Helena when dTime = 3.5e9 seconds,
+	rather than zero. Everything else about the simulations is identical
+	to the ones plotted in Figure 1.</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Today's work:</B></U>
+</FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Figure out why the dX
+profiles agree when dTime = 0, but not when dTime &gt; 0.  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Ways of doing this:</FONT></FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>See which discrepancies
+	arise when I run both codes with dTime \approx 1e7 seconds (rather
+	than 1e9 seconds)</FONT></FONT></P>
+	<OL>
+		<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>See how the
+		discrepancies grow with/depend on dTime.</FONT></FONT></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><I>Result: See Figure 2
+below.</I></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 13.11in; height: 5.39in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.png" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	2:</B> </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>A comparison of how the
+	dX profiles from the 2 codes (fail to) agree based on the dTime
+	value used in the simulation.  dTime values decrease from left to
+	right (1e7 , 1e3, and 1 seconds, respectively).  </FONT></FONT>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>The dL profiles are the
+	only ones that really change much (at all?) with dTime.  Notice the
+	dP, dr, and dT plots all have the same scaling, while the dL ones
+	change by 7 orders of magnitude over the 3 cases.  Note: that's the
+	same number of orders of magnitude that dTime covers in these
+	simulations, too.  Coincidence?  Not entirely!</FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<OL>
+	<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Compare how Helena and
+	Peter's code are handling the P_old and T_old values (I suspect this
+	is the main thing that's causing the differences) </FONT></FONT>
+	</P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><I>Result: I added a set
+vars.old = vars.now in Helena for that initial time-step pass, and it
+didn't improve or change the resulting dX profiles at all.</I></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><I>Also looked into how
+Peter's code handles the CDE calculations for non-zero dTime values,
+and am still not entirely clear on how his approach (analytic calcs
+of the derivatives) should carry over to Helena's (numerical
+calculation of the derivs).</I></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<OL START=3>
+	<LI><P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Check that Helena is
+	handling the 1/dTime calculation stuff correctly in the G3J
+	subroutine.</FONT></FONT></P>
+</OL>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2><I>Result: it looks like
+that's working fine.  Also, the dL amplitude increases w/ decreasing
+dTime provide evidence in favor of that working right.  (I think.)</I></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Based on the 3 results
+above, I think the issue lies in calculating the CDE derivs involving
+G3J with respect to P and T.  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier, monospace"><FONT SIZE=2>Switched over to pen &amp;
+paper at this point.  See scans of the notes below.</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Handwritten_Notes/notes1.png" NAME="graphics3" ALIGN=LEFT WIDTH=793 HEIGHT=1050 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Handwritten_Notes/notes2.png" NAME="graphics4" ALIGN=LEFT WIDTH=793 HEIGHT=1044 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Handwritten_Notes/notes3.png" NAME="graphics5" ALIGN=LEFT WIDTH=796 HEIGHT=1058 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-top: 0.02in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Handwritten_Notes/notes4.png" NAME="graphics6" ALIGN=LEFT WIDTH=794 HEIGHT=1055 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+</BODY>
+</HTML>

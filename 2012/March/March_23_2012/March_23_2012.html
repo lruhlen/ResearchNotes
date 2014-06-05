@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;16413400">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120324;4203100">
+	<STYLE TYPE="text/css">
+	<!--
+		P.list-3 { margin-left: 0.75in; text-indent: -0.25in; margin-bottom: 0.08in }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; font-style: normal"><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Date
+&amp; Time: <SDFIELD TYPE=DATETIME SDVAL="40991.0606481482" SDNUM="1033;1033;MM/DD/YY">03/23/12</SDFIELD></B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Location:
+ </B><SPAN STYLE="font-weight: normal">From home</SPAN></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Computing
+context: </B><SPAN STYLE="font-weight: normal">Macho Mac</SPAN></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; page-break-before: auto; page-break-after: auto">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>Useful
+computer stuff figured out today:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">From
+	last time: </SPAN></SPAN></SPAN>if you want to add a constant
+	numerical value to the names of all the (numbered) files in a
+	directory, enter the following command at the unix prompt, when
+	you're within that directory:</FONT></FONT></FONT></P>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>ls
+		*_model.txt | awk -F'[_]' '{old=$0; n=$1+100; sub($1,n,$0); print
+		&quot;mv &quot; old &quot; &quot;$0}'|sh</I></FONT></FONT></FONT></P>
+	</UL>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">If
+	you want a simulation to 'pick up' where the results of a previous
+	one left off, make sure to note and do the following!!</FONT></FONT></FONT></P>
+	<P CLASS="list-3" STYLE="text-indent: 0in; font-style: normal; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>&quot;*
+	MODA designates the starting model number. For MODA=0 </B></FONT></FONT></FONT>
+	</P>
+	<LI><P CLASS="list-3" STYLE="text-indent: 0in; font-style: normal; line-height: 100%">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>*
+	ascii data is assumed (unit number of input data = 1).</B></FONT></FONT></FONT></P>
+	<LI><P CLASS="list-3" ALIGN=LEFT STYLE="text-indent: 0in; background: #ffffff; border: none; padding: 0in; font-style: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>*
+	For MODA &lt; 0 the last model on the file is read it.&quot;</B></FONT></FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="text-decoration: none"><SPAN STYLE="font-style: normal"><U><B>Scripts/Software
+created today:</B></U></SPAN></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">pythonParser.py
+	(in /Research/BodenheimerCode)</SPAN></SPAN></FONT></SPAN></FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Language:
+		python</SPAN></SPAN></FONT></SPAN></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">What
+		it does: parses the output of the fortran simulations.  </SPAN></SPAN></FONT></SPAN></FONT></FONT>
+		</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Creates
+			(if it doesn't already exist) a directory within the
+			debugging_results folder to store the output (location name within
+			debugging_results is specified by the user at run-time via GUI).  </SPAN></SPAN></FONT></SPAN></FONT></FONT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">It
+			divides that output (file specified by the user, via GUI) into
+			individual converged models, individual iterations, or corrections
+			records (again, which one it does is specified by the user at
+			runtime, via a GUI).  </SPAN></SPAN></FONT></SPAN></FONT></FONT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">When
+			finding models or iterations, it collects and stores info about
+			the system's location on the HR diagram at every given time.  It
+			does this by parsing the atmospheric parts of the fortran output,
+			finding the tau=2/3 surface (i.e., the top of the photosphere),
+			and recording the temperature, luminosity (calculated from T and
+			R), radius, mass, and pressure at that point.  </SPAN></SPAN></FONT></SPAN></FONT></FONT>
+			</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2 STYLE="font-size: 10pt"><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><SPAN STYLE="font-weight: normal">Regardless
+			of whether it's finding models, iterations, or corrections, it
+			always writes an AboutThisRun file with info on the initial and
+			final mass and luminosity of the system, in addition to a copy of
+			the .start file that was input to the fortran simulation</SPAN></SPAN></FONT></SPAN></FONT></FONT></P>
+		</UL>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><SPAN STYLE="font-style: normal"><U><B>Continuing
+from last time:</B></U></SPAN></FONT></FONT></FONT></P>
+<OL>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	</P>
+	<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+	<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Need
+	to be searching through the atm. part of the model, looking for the
+	place where tau = 2/3, and get the temperature *there*. <B>This
+	'cell' seems to be marked in the code by '***', instead of a cell
+	number.</B></FONT></FONT></STRIKE></FONT></P>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><B>Next
+		time: </B>update my model-output parsing scripts to search for this
+		elusive piece of information!</FONT></FONT></STRIKE></FONT></P>
+	</OL>
+</OL>
+<UL>
+	<UL>
+		<LI><P CLASS="list-3" STYLE="font-style: normal; font-weight: normal; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		(See (3b) in To Do list below)</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<OL START=2>
+	<LI><P CLASS="list-3" STYLE="font-weight: normal"><FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Run
+	a full-fusion, time-evolving 1.0Msun model forward, as well.</FONT></FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">and
+		compare it with the 1.0Msun no-fusion model I've previously evolved
+		forwards.</FONT></FONT></FONT></P>
+	</OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Add
+	the 'AboutThisRun' parsing code stuff into parse_evolved_models.pl</FONT></FONT></STRIKE></FONT></P>
+</OL>
+<UL>
+	<UL>
+		<LI><P CLASS="list-3" ALIGN=LEFT STYLE="background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		(See (3b) in To Do list below)</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<OL START=4>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+	<FONT COLOR="#000000"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Backup/upload
+	all of my research code/results/graphs from this machine (Macho Mac)
+	to my ucolick account.</FONT></FONT></STRIKE></FONT></P>
+</OL>
+<UL>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; font-weight: normal; line-height: 100%; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		Started last night, finished by the time I checked this morning. 
+		Saved in my ucolick account as BodenheimerBackup.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><U><B>To
+Do:</B></U></FONT></FONT></FONT></P>
+<OL>
+	<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Figure
+	out how to 'prepend' a single line of text to given files, from the
+	command line</FONT></FONT></STRIKE></P>
+	<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Or,
+	alternately, modify either of the following to include that header
+	line in my model files:</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">thecode
+		or</FONT></FONT></STRIKE></P>
+		<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">my
+		parsing scripts</FONT></FONT></STRIKE></P>
+	</OL>
+	<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">It
+	might be good to write a python script to parse my code outputs,
+	instead of relying on these perl scripts, because</FONT></FONT></STRIKE></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Python
+		has the GUI stuff built in, so I can make a more flexible parsing
+		script (not have to write scores of very slightly different perl
+		scripts to parse things in slightly different ways)</FONT></FONT></STRIKE></P>
+		<LI><P STYLE="margin-bottom: 0.08in"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">I
+		could then do the parsing and plotting of my results in the same
+		coding environment, and possibly even within the same script if I'm
+		so inclined.</FONT></FONT></STRIKE></P>
+	</OL>
+</OL>
+<UL>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Making
+	myself a sample output file with atmospheric, model, and iteration
+	info all getting printed to it.  Use this file as the test case for
+	designing my python data parser.</I></FONT></FONT></STRIKE></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>File
+		is in workingdir/test.output</I></FONT></FONT></STRIKE></FONT></P>
+		<LI><P STYLE="margin-bottom: 0.08in; font-style: normal; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		 The script that does all of parsing is now stored in
+		/Research/BodenheimerCode/pythonParsing.py</FONT></FONT></FONT></P>
+		<UL>
+			<LI><P STYLE="margin-bottom: 0.08in; font-style: normal; text-decoration: none">
+			<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">It's
+			interactive, prompting the user for input on which file to parse,
+			where to store the results, and which type of info to look for
+			(model, iteration, or corrections)</FONT></FONT></FONT></P>
+		</UL>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Still
+	need to add the 'AboutThisRun' info creation into that script,
+	though.</I></FONT></FONT></STRIKE></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in; font-style: normal; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		 (And thoroughly tested... I think!)</FONT></FONT></FONT></P>
+	</UL>
+	<LI><P STYLE="margin-bottom: 0.08in"><FONT COLOR="#008080"><STRIKE><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt"><I>Also
+	still need to add in the atmospheric/photospheric boundary finding
+	stuff into that script, as well.</I></FONT></FONT></STRIKE></FONT></P>
+	<UL>
+		<LI><P STYLE="margin-bottom: 0.08in; font-style: normal; text-decoration: none">
+		<FONT COLOR="#000080"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Done.
+		 It produces separate HR_info files for the iterations and
+		(converged) models.</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<OL START=4>
+	<LI><P STYLE="margin-bottom: 0.08in; text-decoration: none"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Redo
+	my 0.3Msun with and without fusion HR/evolution long-time runs with
+	this spiffy new output parsing stuff.</FONT></FONT></P>
+	<OL TYPE=a>
+		<LI><P STYLE="margin-bottom: 0.08in; text-decoration: none"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2 STYLE="font-size: 10pt">Which
+		runs do I need to entirely re-run, and which do I still have the
+		output from and can just re-parse?</FONT></FONT></P>
+	</OL>
+</OL>
+<UL>
+	<P STYLE="margin-bottom: 0.08in; font-style: normal"></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<BR><BR>
+</P>
+<P STYLE="margin-bottom: 0.08in"><BR><BR>
+</P>
+</BODY>
+</HTML>

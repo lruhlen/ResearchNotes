@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120804;190600">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 3, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2>[Helena] does run off the rails, or at least it doesn't
+converge before it encounters something that makes it segfault (it
+did this several times when I let it go through up to 1e3 convergence
+loops). So, I think I need to really dig in to the lookup tables
+stuff.</FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>I've already run and compared the corrections that
+	Helena and Peter's code calculate for the 10Mjup model, and they
+	don't agree. This is either because:</FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>The two codes are producing very different CDEG
+		values...</FONT></P>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2>...get very different G values at j=0/1 from the two
+programs. It looks like those differing G values are what lead to the
+differences in the B and A matrices (oddly, it has very little effect
+on the CDE matrix values), so I need to look into what's causing the
+differences. </FONT>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>The lookup tables in the two codes are returning
+	different rho/delta/cP results, which means something about the
+	structure of Helena's look-up tables needs to be tweaked</FONT></P>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The secondary vars (rho/kappa/etc) are very slightly
+			different between the two codes, but I don't *think* that's enough
+			to drive the several-orders-of-magnitude G value differences
+			between the two codes.</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>Actually, it turns out that it is. If the values
+			differ at the fourth or fifth significant figure (which they do),
+			you end up getting G1 = 1e22 instead of 1e19, for example.</FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>To do today:</B></U></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Storing today's debugging record in
+/BodenheimerCode/UnalteredCode/temp3.txt</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Looks like my CDE matrices may still have their indices flipped
+around, somehow...</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Comparing the outputs from the two codes, with important differences
+highlighted:</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3>Peter's code, at
+j=0/1:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2 STYLE="font-size: 11pt">HD
+matrix values</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>1.00E+00 ,  
+5.59E+14 ,  -2.57E+16 ,   <SPAN STYLE="background: #ffff00">4.07E-08</SPAN></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>3.10E+00 ,  
+1.79E+18 ,   0.00E+00 ,  <SPAN STYLE="background: #ffff00">-6.76E-15</SPAN></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>0.00E+00 ,  
+0.00E+00 ,   1.00E+00 ,   1.08E-33</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>0.00E+00 , 
+-6.21E+21 ,   6.32E+23 ,  -1.00E+00</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Helena, at j=0/1:</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>HD matrix at j=0:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>1 ,  -5.5643e+14,  
+-2.5726e+16,    <SPAN STYLE="background: #ffff00">1.3808e-11 </SPAN></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>3.105,   -1.7885e+18
+,   0  ,  <SPAN STYLE="background: #ffff00">1.2645e-07 </SPAN></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>0   , 0 ,  -1  ,  0 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>0   , 6.2126e+21 , 
+-6.3184e+23 ,  0.99986 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Try loading in the HD matrix from Peter's code, have Helena invert
+it, and see if it produces the same &quot;inverse S&quot; matrix that
+Peter's code does.  Results below, with significant value differences
+highlighted in yellow, and sign differences highlighted in magenta:</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Result (from Helena):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff00ff">1</SPAN>.0005
+     <SPAN STYLE="background: #ff00ff">-0</SPAN>.00017118    
+<SPAN STYLE="background: #ff00ff">-</SPAN><SPAN STYLE="background: #ffff00">2.2412e+13</SPAN>
+   <SPAN STYLE="background: #ff00ff"> </SPAN>4.0722e-08  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>-1.7328e-18    <SPAN STYLE="background: transparent">
+5.</SPAN>5896e-19      <SPAN STYLE="background: #ffff00">3.8816e-05</SPAN>
+     -7.0523e-26 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>-1.1621e-29    
+3.7488e-30      1           1.0795e-33  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>10760          
+-3471.1         6.32e+23        -0.99956</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ Result (from Peter's code):</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2><SPAN STYLE="background: #ff00ff">-1</SPAN>.00053265940009
+      <SPAN STYLE="background: #ff00ff"> 1</SPAN>.716072323361069E-004
+       <SPAN STYLE="background: #ff00ff"> </SPAN><SPAN STYLE="background: #ffff00">31806926408.0000</SPAN>
+             <SPAN STYLE="background: #ff00ff">-</SPAN>4.074276110279765E-008
+</FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier New, monospace"><FONT SIZE=2>-1.736472490143942E-018
+ ,<SPAN STYLE="background: transparent"> 5.</SPAN>594404942658965E-019
+,   <SPAN STYLE="background: #ffff00">5.759237312052967E-008 </SPAN> 
+,    -7.071102272103888E-026 </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>-1.165547747440332E-029
+  ,       3.755054415747626E-030   ,  0.999999999316561    , 
+1.081180413764051E-033  </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier New, monospace"><FONT SIZE=2>10777.1571357162  ,
+      -3472.08386485129  ,      6.319369133787994E+023     ,    
+-0.999706038365483   </FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+After computing HD * InvPeter and HD* InvHelena (in python), I've
+discovered:</P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Neither gives a perfect identity matrix</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	The whole sign errors/differences thing between these two
+	matrices...</P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		When you calculate HDpeter * InvPeter, AND when you do HDHelena *
+		InvHelena, you end up with id matrices that have the wrong
+		(negative) sign on some but not all the rows.</P>
+		<OL TYPE=i>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			I'm pretty baffled about why and how this is happening.</P>
+		</OL>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+  
+</P>
+</BODY>
+</HTML>

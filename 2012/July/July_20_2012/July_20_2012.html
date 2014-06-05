@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120721;3555900">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: July 20, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: /Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2><FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Helvetica, sans-serif"><SPAN STYLE="font-style: normal"><U><B>To
+Do Today:</B></U></SPAN></FONT></SPAN></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>Figure out how to read the CDEG info into my C++ code.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>First (easier) step: read in the corrections to a 2D
+		array</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>Next step: read in the G values to a 2D array</FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>Final step(s): read in the CDE values into a 3D array</FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>Get Peter's code to output the initial P/r/L/T var
+	values it's using in this cdeg.start run case.</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>Read those into the code as well.</FONT></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>Get the data into the same format as the input files
+			I've been reading into the bundle structure in Helena</FONT></P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>Pass Peter's CDEG inputs to my Henyey matrix solution
+	subroutine</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>Compare the results (i.e., the unscaled corrections for
+	all j at the first iteration) to Peter's results</FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>They differ markedly.  </FONT>
+		</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>However, the outermost dP and dT values are the same
+		in both codes.  This suggests to me that the first place to look
+		for errors in Helena is in the back-solving section of the matrix
+		solution algorithm.</FONT></P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Modifying Peter's code to output info on the (what in Helena are
+	referred to as A, B, S, Sum, InverseS) matrices in the midst of the
+	'fancy' solution method.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Mostly commenting his code to help me figure out which cryptically
+		named variables correspond to my A/B/etc. matrices so that I can
+		try to compare their values b/w the two codes.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			This is no trivial task.</P>
+		</UL>
+	</UL>
+</UL>
+<TABLE WIDTH=100% BORDER=1 CELLPADDING=3 CELLSPACING=3 STYLE="page-break-inside: avoid">
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<COL WIDTH=85*>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT>Grey text = values agree, more or less</P>
+			<P ALIGN=LEFT>Red text = significant disagreement</P>
+			<P ALIGN=LEFT>Blue text = not sure how to interpret the
+			differences</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT>A[0]</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT>B[0]</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT>Peter's code</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT><FONT COLOR="#ff0000"> </FONT><FONT COLOR="#ff0000">
+			<B>145487131.983641</B></FONT><B>     </B>
+			</P>
+			<P ALIGN=LEFT> <B><FONT COLOR="#ff0000">-34643800.3879135</FONT></B></P>
+			<P ALIGN=LEFT><FONT COLOR="#808080"> <B>-8.943355716612648E+029   </B></FONT>
+			</P>
+			<P ALIGN=LEFT><B><FONT COLOR="#ff0000">32.6276310400037    </FONT>
+			</B>
+			</P>
+			<P ALIGN=LEFT>  
+			</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in"><FONT COLOR="#808080">
+			</FONT><FONT COLOR="#808080"><B>1.00089008445474 </B></FONT><B>   
+			 </B><FONT COLOR="#ff0000"><B>-3.151817548196328E-004 
+			6.038199187566332E+018</B></FONT><B>  </B><FONT COLOR="#0000ff"><B>1.895277952239133E-011</B></FONT></P>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0in"><BR>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#808080">   <B>0.00000000000000       
+			0.00000000000000        0.00000000000000        0.00000000000000  
+			  </B></FONT>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#808080">   <B>0.00000000000000       
+			0.00000000000000        0.00000000000000        0.00000000000000  
+			  </B></FONT>
+			</P>
+			<P ALIGN=LEFT><BR><BR>
+			</P>
+			<P ALIGN=LEFT> <FONT COLOR="#808080"> <B>-4118.01015666611</FONT> 
+			      <FONT COLOR="#ff0000">1458.20057931593     
+			-6.880865457308409E+025</FONT>  <FONT COLOR="#808080">0.999907511304324
+			</FONT></B>
+			</P>
+		</TD>
+	</TR>
+	<TR VALIGN=TOP>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT>Helena</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT><FONT COLOR="#ff0000"><B>-3.3595e+45 </B></FONT>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#ff0000"><B>-1.1539e+26 </B></FONT>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#808080"><B>-8.93e+29   </B></FONT>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#ff0000"><B>-6.1438e+55 </B></FONT>
+			</P>
+			<P ALIGN=LEFT>   
+			</P>
+		</TD>
+		<TD WIDTH=33%>
+			<P ALIGN=LEFT><B><FONT COLOR="#808080">1.0005</FONT>     <FONT COLOR="#ff0000">
+			0           0 </FONT>         <FONT COLOR="#0000ff"> -1.0005e-10 </FONT></B>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#808080"><B>3.4367e-20  0           0  
+			        -3.4367e-30 </B></FONT>
+			</P>
+			<P ALIGN=LEFT><B><FONT COLOR="#808080">0           0           0  
+			        0 </FONT>          </B>
+			</P>
+			<P ALIGN=LEFT><FONT COLOR="#808080"><B>-4124</B></FONT><B>      </B><FONT COLOR="#ff0000"><B>
+			0           0  </B></FONT><B>        </B><FONT COLOR="#808080"><B>
+			1     </B></FONT><B> </B>  
+			</P>
+		</TD>
+	</TR>
+</TABLE>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Next on the debugging list:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Check the j=jMax --&gt; 0 back-solving part of the algorithm</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Check the j=0--&gt;jMax forward-solving part of the algorithm</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

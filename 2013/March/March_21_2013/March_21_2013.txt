@@ -1,0 +1,15 @@
+Peter's code can't Converge a model when it starts Out w/ using the D outer = ID Matrix.
+Also, Can NOT Converge the altered up 1e3 eos table runs unless you Let it apply dL values that are as Large as it wants. Even then, it converges to a kind of strange, very luminous result. 
+If you limit the size of the d Ls that can be applied in that case, the model (probably?) never converges.
+So, the requirements for proper model conveyance are: 
+1) you HAVE to start out / always use the full numerical calculations for the outer CD EG values.
+2) you HAVE to get the density lookups right.
+
+Note that Peter's code + full D outer Calcs + 1e3 altered UP eostable
+produces results that come the closest to reproducing what Helena currently does. (At least, after 1 iteration.) (Helena has not yet successfully converged ANY models.) 
+
+I believe that the key to getting Helena to work will be figuring out how to fix its density Over-estimation issue. 
+EVEN THOUGH the density over-estimation causes much Less difference b/w the iter #1 dX profiles the two codes calculate WHEN Peter's code alwayS uses the D outer = ID matrix Condition, BOTH ARE WRONG and unworkable for producing a converged result . 
+In other words, they are agreeing in their misbehavior in this case. It looked like a promising step towards agreement b/w the two codes, but all it actually proves is that I can get Peter's code to go off the rails in the same way that Helena currently is. 
+
+The good news here is that the SAME mechanism that hobbles Peter's code (as just described above) is also the culprit in Helena . So, I *think* that if I get the right densities going in Helena, it will behave (read: succeed) more like Peter's code does when it's trying to move a model towards convergence.

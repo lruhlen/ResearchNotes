@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120806;2304900">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 5, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><SPAN STYLE="text-decoration: none"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><SPAN STYLE="font-style: normal"><U><B>From
+last time:</B></U></SPAN></FONT></FONT></SPAN></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2>...get very different G values at j=0/1 from the two
+programs. It looks like those differing G values are what lead to the
+differences in the B and A matrices ... so I need to look into what's
+causing the differences. </FONT>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>The lookup tables in the two codes are returning
+	different rho/delta/cP results, which means something about the
+	structure of Helena's look-up tables needs to be tweaked</FONT></P>
+	<UL>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>The secondary vars (rho/kappa/etc) are very slightly
+			different between the two codes, but I don't *think* that's enough
+			to drive the several-orders-of-magnitude G value differences
+			between the two codes.</FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>Actually, it turns out that it is. If the values
+			differ at the fourth or fifth significant figure (which they do),
+			you end up getting G1 = 1e22 instead of 1e19, for example.</FONT></P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2>Looks like my CDE matrices may still have their indices
+flipped around, somehow...</FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT SIZE=2>After computing HD * InvPeter and HD* InvHelena (in
+python), I've discovered:</FONT></P>
+<OL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>Neither gives a perfect identity matrix</FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<FONT SIZE=2>The whole sign errors/differences thing between these
+	two matrices...</FONT></P>
+	<OL TYPE=a>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		<FONT SIZE=2>When you calculate HDpeter * InvPeter, AND when you do
+		HDHelena * InvHelena, you end up with id matrices that have the
+		wrong (negative) sign on some but not all the rows.</FONT></P>
+		<OL TYPE=i>
+			<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			<FONT SIZE=2>I'm pretty baffled about why and how this is
+			happening.</FONT></P>
+		</OL>
+	</OL>
+</OL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>To do today:</B></U></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE>Update the wordpress blog with the last few days' notes.</STRIKE></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Continue with the debugging</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		make sure to undo the matrix multiplication order change and the
+		CDE indices flips from last time (get Helena back to 'normal').</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		After making that change, I get the following outputs (from
+		Helena):</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Corrections at j=0:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>5.135e+10	  
+-1.08124e+07	1.60686e+26	1478.01</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Values at j=0:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>8.75585e+11	7.72108e+08	2.41561e+27	99063.3</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Done running the
+Henyey Matrix inversion subroutine!</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>P ratio: 0.109117	R
+ratio: -0.022107	L ratio: 0.0665196	 T ratio: 0.019538</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<FONT FACE="Courier New, monospace"><FONT SIZE=2>Largest dX/X value:
+0.109117</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Comparing that with the output from Peter's code:</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ <FONT FACE="Courier New, monospace"><FONT SIZE=2>CA (&lt;--
+corrections to the variables) at j=1:</FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 1.58in; margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+   <FONT FACE="Courier New, monospace"><FONT SIZE=2>1.565e+9     
+-3.332e+5      -2.40E+027   4.5e+1</FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Looks like the corrections values are now in better agreement with
+	each other between the two codes, although still not exactly the
+	same.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		This must be due to correcting the way I index the CDE matrix
+		values in NewCalcCDEG.cpp</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Why wasn't it 'fixed' when I changed the indexing up before,
+			though?  Maybe something to do with the matrix multiplication
+			order in modifiedHenyeyMatrixInversion.cpp.</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Or it might be due to the correction-rescaling size error that I
+			fixed (had been dividing X/dX, rather than dX/X, to determine the
+			rescaling value).</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Will need to figure out exactly why and how this fix happened
+			before letting anyone else depend on this code.  Maybe it's just
+			because I'm not sleep deprived while debugging today, but that's
+			not a very reproducible solution.</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Let's see what happens when I let Helena run for a few consecutive
+	convergence runs now:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Still doesn't converge, but doesn't crash.</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		max(dX/X) values swing around wildly.  I'd like to plot those as a
+		function of convergence loop number.  See if any pattern emerges
+		there</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		These swings indicate that the Henyey convergence process itself is
+		unstable</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Check if Peter's code is rescaling the variable corrections in the
+		same way Helena is.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			It looks like my correction rescaling approach differs from his in
+			an important way, as illustrated below.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 13.35in; height: 5.16in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure1.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	1:</B> </FONT>
+	</P>
+	<P STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>Methods of rescaling corrections.  Helena's method is
+	on the left.  Peter's code's method is on the right.  Helena
+	multiplies all the corrections by the same rescaling factor, such
+	that the maximum dX/X value is reduced below the threshold.  In
+	other words, all the corrections are scaled homologously, and the
+	same rescaling factor is applied to all four variables' corrections.
+	 Peter's code, on the other hand, doesn't rescale the corrections
+	homologously.  Rather, his code applies a 'ceiling' to the
+	corrections. Different variables can have different dX/X ceilings in
+	his code.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	To make sure that Peter's code is rescaling the corrections this
+	way, I need to:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Uncomment the parts of cdeg_debug.f that rescale the corrections</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Run cdeg_debug with inputs/cdeg_debug.start,  and capture all of
+		the correction and original values for all 4 dependent variables</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		In python, plot all dX/X values</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		On the same plot(s), overlay the SMAX value for each variable as a
+		line.  (The SMAX values are specified in the .start file, and are
+		what set the 'upper threshold' for dX/X and correction values in
+		Peter's code.)</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		If I see 'ceiling'-like behavior in the plots of Peter's code's
+		corrections, then I'll know I've understood his rescaling process
+		correctly.</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		If that's what he's doing, change Helena to rescale corrections in
+		the same way.</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			And they see if that gets it to converge.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

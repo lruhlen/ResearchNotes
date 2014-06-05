@@ -1,0 +1,21 @@
+
+Atmos values: before any inputs get changed:
+Lout = 1.40224e+32
+Rout = 8.75421e+10
+Patm = 1.46546e+08
+Tatm = 7533.33
+Ratm = 1.11869e+10
+
+Atmos values with R varied
+Lout = 1.40224e+32
+Rout = 8.75859e+10
+Patm = 1.46605e+08
+Tatm = 7531.27
+Ratm = 1.11951e+10
+
+Atmos values with R varied
+Lout = 1.40294e+32
+Rout = 8.75421e+10
+Patm = 1.46475e+08
+Tatm = 7534.33
+Ratm = 1.11881e+10

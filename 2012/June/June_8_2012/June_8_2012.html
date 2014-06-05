@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120608;18030500">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Date
+&amp; Time: June 8, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Location:
+From campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><B>Computing
+context: Mendeley, /Desktop/Research/CppHenyeyCode/CodingSandbox/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal">
+<FONT COLOR="#000000"><FONT FACE="Helvetica, sans-serif"><FONT SIZE=2><U><B>Next
+time, start with:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Successfully generated the higher resolution density/eos table from
+	Peter's code, and used it in my own code.  Now both codes produce
+	reasonably similar density values for T=2500K and P=250.  Peter's
+	code's density ~ 2.15...e-9, while my code's density ~2.16...e-9,
+	but the difference is ~1 part in a 100, and it shouldn't cause any
+	noticeable difference in the corresponding opacity values, so I'm
+	going to call this particular problem fixed.</P>
+</UL>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Create another 'kludgy' cP (eos) lookup table from Peter's code,
+	using the same T &amp;P values I used for density table I created
+	using that same kludgy technique</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Create a 'kludgy' opacity lookup table from Peter's code.  See what
+	happens when I make the indices T &amp; P, rather than T &amp; rho.</P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // xvals (across): log10(Pressure)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+   2.00000000000000        5.00000000000000        8.00000000000000  
+     11.0000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // yvals (down): log10(Temperature)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+   3.00000000000000        3.66666666666667        4.33333333333333  
+     5.00000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // grid values: log10(kappa) (opacity)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+  0.451000000000000       0.451000000000000       0.451000000000000  
+    0.451000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+  -2.85535871695766      -0.721050560567065       0.900032591690682  
+     1.02899944686837     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ -0.261014301040911        1.83173360706686        4.49835917841214  
+     4.61291688141698     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+                     NaN                     NaN                    
+NaN                     NaN</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // xvals (across): log10(Pressure)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+   2.00000000000000        5.00000000000000        8.00000000000000  
+     11.0000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // yvals (down): log10(Temperature)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+   3.00000000000000        3.66666666666667        4.33333333333333  
+     5.00000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ // grid values: log10(kappa) (opacity)</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+  0.451000000000000       0.451000000000000       0.451000000000000  
+    0.451000000000000     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+  -3.35900162601626       -3.35900162601626       -3.35900162601626  
+    -3.35900162601626     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+ -0.470509484808502      -0.470509484808502      -0.470509484808502  
+   -0.470509484808502     
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+                     NaN                     NaN                    
+NaN                     NaN</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Why isn't the opacity table look-up in Peter's code not working (in
+my for-loop thing) for temperatures above 1e5K?  The low-temperature
+opacity table he's using goes up to T=1e5, and then transitions into
+using the OPAL opacity tables, which can handle much higher
+temperatures.  The OPAL tables are access through the opaltabs
+subroutine, which is called from within the opacity subroutine.  Both
+subroutines need to know the &quot;hydrogen(j)&quot; values at that
+specific grid-cell in order to perform their calculations.  The first
+question I have is: what is this &quot;hydrogen(j)&quot; value?  Is
+it different from the XX hydrogen metallicity value declared in the
+.start file?</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Okay, yes: the hydrogen(j) values are the same as the XX value.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Figure out how/what the calculations in Peter's 'nabla' subroutine
+	are doing</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Specifically, figure out what physical quantity the variable TPNAB
+		is representing.</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Finish programming the runga-kutta integration parts of the
+	atmos-type calculations, and</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Move the sandboxing code for that which is currently in 'main.cpp'
+		into its own subroutine (and make a header file for that code, too)</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Look up papers about the FU Orionis outbursts (spiral density waves,
+	accretion disks, boosting accretion rate and therefore accretion
+	luminosity onto/from those young stars).</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		People haven't considered the effects of accretion boosting (i.e.
+		disk draining timescale shrinking ) by spiral density waves in
+		planetary systems, as far as Greg knows off the top of his head, so</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Check if that's true, and</P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Think about how I might want to investigate that, myself.</P>
+		</UL>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

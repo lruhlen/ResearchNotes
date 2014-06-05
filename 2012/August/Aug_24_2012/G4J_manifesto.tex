@@ -1,0 +1,173 @@
+\documentclass[fleqn]{article}
+
+\usepackage{graphics}      % standard graphics specifications
+\usepackage{graphicx}      % alternative graphics specifications
+\usepackage{longtable}     % helps with long table options
+\usepackage{url}           % for on-line citations
+\usepackage{bm}            % special 'bold-math' package
+\usepackage[OT2,T1]{fontenc}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{color}
+\usepackage{marvosym}   % astrological symbols
+\usepackage{wasysym}    % astrological symbols
+% \usepackage{mathabx}    % astronomical symbols
+\usepackage{ccaption}
+\usepackage{float}
+
+\include{commands}
+
+\pagestyle{fancy}
+\headheight 35pt
+
+\rhead{G4J Manifesto}
+\lhead{Last updated: \today}
+\cfoot{\thepage}
+
+\title{G4J Manifesto}
+\begin{document}
+\maketitle
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+In the process of debugging my code, I've discovered that many (though
+possibly not all) of the differences between my code's results and
+Peter's stem from the way that the G4J values are calculated.
+
+Equation (5.42) from Peter's cookbook [CITE] formulates the
+discretized version of the radiative transfer equation as:
+\begin{equation}
+  T_{j+1} - T_{j} + \frac{(M_{j+1/2} - M_{j-1/2}) G M_j}{4\pi r_j^4}
+  0.5(B_{j+1} + B_j) = 0
+  \label{eq:eq1}
+\end{equation}
+where 
+\begin{equation}
+  B_j \equiv \frac{T_j}{P_j} \nabla
+  \label{eq:eq2}
+\end{equation}
+Here, $\nabla$ represents the radiative/convective gradient value, and
+is defined as
+\begin{equation}
+  \nabla = \pfrac{\ln P}{\ln T} = \frac{P}{T} \pfrac{T}{P}
+  \label{eq:eq4}
+\end{equation}
+
+Equation (\ref{eq:eq1}) in its pre-discretized form reads as
+\begin{equation}
+  \frac{dT}{dM} = -\frac{GMT}{4\pi r^4 P}\nabla 
+  \label{eq:eq3}
+\end{equation}
+
+This is, however, not the original form of the radiative transfer
+equation.  Several assumptions and substitutions have transformed the
+original expression
+\begin{equation}
+  \pfrac{T}{M} = -\frac{3}{64 \pi^2 ac} \frac{\kappa L}{r^4 T^3}
+  \label{eq:eq4}
+\end{equation}
+to the form adopted by equation (\ref{eq:eq3}).  I will go through
+those steps in detail, here.  
+First,
+\begin{equation}
+  \pfrac{T}{M} = \pfrac{T}{P} \pfrac{P}{M} = \frac{T}{P} \pfrac{\ln
+    P}{\ln T} \pfrac{P}{M} 
+  \label{eq:eq5}
+\end{equation}
+
+Substituting (\ref{eq:eq4}) into (\ref{eq:eq5}) produces
+\begin{equation}
+  \pfrac{T}{M} = \frac{T}{P} \nabla \pfrac{P}{M}
+  \label{eq:eq6}
+\end{equation}
+
+If (and only if!) the system is in hydrostatic equilibrium, the
+following is true:
+\begin{equation}
+  \pfrac{P}{M} = -\frac{GM}{4\pi r^4}
+  \label{eq:eq7}
+\end{equation}
+
+If the assumption of HSE holds, we could then combine
+(\ref{eq:eq7}) and (\ref{eq:eq6}) to get
+\begin{equation}
+  \pfrac{T}{M} = - \frac{T}{P} \frac{GM}{4\pi r^4} \nabla
+  \label{eq:eq8}
+\end{equation}
+which Peter's cookbook uses as the basis for his equation (5.42).
+
+The misleading thing about (5.42), however, is that it assumes your
+system is already in HSE.  If you're cold-starting a Henyey code
+(e.g. from an n=3/2 polytropic model), that assumption is invalid.
+Your initial model will not, necessarily, be anywhere near HSE.  The
+Henyey code cannot assume initial HSE; that is what it's trying to
+find, rather than what it's starting from.
+
+This is reflected in Peter's Fortran code, if not in his equation
+(5.42).  His code uses (\ref{eq:eq6}), rather than (\ref{eq:eq8}) to
+calculate the G4J values (i.e., a quantitative measure how far out of radiative transport
+equilibrium the model currently is).  
+Because
+\begin{equation}
+  \pfrac{P}{M} \neq -\frac{GM}{4\pi r^4}
+  \label{eq:eq9}
+\end{equation}
+when you're cold-starting a model, using (\ref{eq:eq8}) leads to
+wildly wrong G4J values.  These incorrect G4J values, in turn, get
+carried into the CDE calculations, and end up wreaking havoc with the
+model's march towards convergence.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
+
+
+
+
+%==================================================
+% Reminders on how to use my OCW-style short-cuts
+%==================================================
+
+%\lectitle{Lecture/Paper title goes here}
+
+%-----------------------------
+% Example of how to insert a boxed figure
+
+%\fig{diagram1}{}{0.4}
+%-----------------------------
+
+%-----------------------------
+% Example of how to insert a ``lecture-style'' equation:
+% i.e., left-justified, and NOT numbered
+
+%\math{
+%30^2 + x^2 = D^2
+%}
+%-----------------------------
+
+
+%--------------------------------
+% Example of how to do a table.
+
+%\vspace{4mm}
+
+%\begin{tabular}{l|l|l}
+%x & y & accuracy\\
+%\hline
+%$x_o$ &$ 1$ & \\
+%\hline
+%$x_1$ &$ 2$ & \\
+%\hline
+%$x_2$ &$ \frac{7}{4}$ & \\
+%\hline
+%$x_3$ &$\frac{7}{4} +\frac{6}{7}$ & 1 part in $2\times 10^{-4}$\\
+%\hline
+%$x_4$ &$\frac{18,817}{10,864}$& 1 part in $2\times 10^{-9}$ 
+%\end{tabular}
+
+%\vspace{4mm}
+
+%--------------------------------
+
+
+
+
+

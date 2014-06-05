@@ -1,0 +1,100 @@
+To import to Mendeley and read/follow up on:
+*Kokubo & Ida 2002 ApJ, 581, 666
+
+[Look up the earliest paper on oligarchic growth of planetesmals.
+Bondi (1952) , MNRAS, 112, 195  <-- the bondi accretion rate/limit
+
+Question: how could we try to detect Kuiper belt/Oort clouds around 
+other stars?  And, what could that tell us about planet formation in those
+systems?  And, what dynamical effects do the Kuiper belt/ Oort cloud
+objects have (if any) on the closer-in planets in those systems?
+Could we make predictions using the Henyey + Nbody code
+about what we might see?  Think about this more, it could be interesting
+and useful...
+
+*Goldreich & Tremaine 1980, ApJ, 241, 425
+Ward 1986, Icarus, 67, 164
+(Type II migration:
+*Lin & Papaloizou 1985, in Protostars and Planets II, ed. D. C. Black & M. S. Matthew (Tuscon: Univ. Arizona Press), 981
+
+Udry 2003, A&A, 407, 369
+Boss 2001 , ApJ, 551, L167
+
+
+Off the subject question for myself: 
+truly random number generation through 
+observations of atomic nuclear decay?  Or
+through cosmic ray detections or something?
+
+Sandquist et al. 198
+Murray & Chaboyer 2002
+
+What's the difference b/w oligarchic and runaway 
+planetesimal growth?
+
+*Kokubo & Ida 1998, Icarus, 131, 171
+Hayashi 1981, Prog. Theor. Phys. Suppl., 70, 35
+Ida et al. 2000, ApJ, 534, 428
+Nelson & Papaloizou 2004, 2004, MNRAS, 350, 849
+Lubow et al. 1999, ApJ, 526, 1001
+
+The Extrasolar Planets Encyclopaedia, http:// cfa-www.harvard.edu/planets.
+
+Type 1 migration of cores:
+Ward 1986, Icarus, 67, 164
+Ward 1997a, Icarus, 126, 261
+Laughlin et al. 2004a, ApJ, 612, L73
+
+How the location of the ice line gets modified
+by either viscous dissipation or stellar irradiation
+Lecar et al. 2006, ApJ, 640, 1115
+Chiang & Goldreich 1997, ApJ, 490, 368
+Garaud & Lin 2007, ApJ, 654, 606
+
+
+Note to self:
+viscousity = \alpha * sound speed * disk height
+
+Lin & Bodenheimer 1982, ApJ, 262, 768
+
+timescale of Type I migration:
+Tanaka et al. 2002, ApJ, 565, 1257
+
+Dobbs-Dixson et al. 2008
+
+What, precisely, is a corotation resonance?
+
+Planet finding microlensing surveys?
+How does this technique work, and what
+have been its results thus far?  And what are 
+the names, if any, of said surveys?
+
+"modern paradigm of star (and disk) formation"
+Shu et al. 1987, ARA&A, 25, 23
+
+Type I and Type II migration:
+Ward 1997
+
+
+"Derives a widely quoted estimate for type-I migration rates for low-mass planets:"
+Tanaka H, Takeuchi T, Ward WR. 2002. Three-dimensional interaction between a planet and an isothermal gaseous disk. I. Corotation and Lindblad torques and planet migration. Astrophys. J. 565:1257Ð74
+
+"The outer Lindblad resonances lie closer to the planet than do the inner ones, especially when pressure gradients in the disk are taken into account:"
+Papaloizou et al. 2007 "Disk-planet interactions during planet formation." See Reipurth et al. 2007, pp. 655Ð68
+
+*Laughlin et al. 2004, Type I planetary migration with MHD turbulence. Astrophys. J. 608:489Ð96
+
+Ida & Lin 2008b, Toward a deterministic model of planetary formation. V. Accumulation near the ice line. Astrophys. J. 685:584Ð95
+
+Kretke & Lin 2007, Grain retention and formation of planetesimals near the snow line in MRI driven turbulent protoplanetary disks. Astrophys. J. 664:L55Ð58
+
+*Armitage 2007b ("planetary desert") Massive planet migration: theoretical predictions and comparison with observations. Astrophys. J. 665:1381Ð90
+
+Bouvier et al. 2007 (truncation of disk due to interactions with the star's magnetic field) Magnetospheric accretion in classical T Tauri stars. See Reipurth et al. 2007, pp. 479Ð94
+
+"The predicted planet desert isn't actually deserted!"
+*Howard et al. 2010
+*Mayor et al. 2009
+
+Summary of Kepler findings:
+Borucki et al. 2011

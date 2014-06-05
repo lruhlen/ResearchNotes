@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20120808;18504500">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Date
+&amp; Time: Aug. 8, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Location:
+home</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Times New Roman, serif"><FONT SIZE=3><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Change Helena to rescale corrections in the same way.</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		See if that change lets Helena converge the 10Mjup model.</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Not quite yet. Something is off in the way the corrections seem to
+		be applied... Comparison between Peter's code and Helena:</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<SPAN ID="Frame3" DIR="LTR" STYLE="float: left; width: 12.21in; height: 4.58in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Aug_6_2012/Figure3.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT SIZE=3><B>Figure
+	3:</B></FONT></P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT SIZE=3>Comparison of the dX/X values calculated in Helena vs.
+	Peter's code in the first convergence loop for the same 10Mjup
+	no-fusion input model.</FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+The starting dX/X profiles are different between the models, even
+before rescaling the corrections, so the differences aren't due to
+the different rescaling thresholds specified in the two codes. Need
+to compare the dX values between Peter's code and Helena for this
+10Mjup model. 
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+Need to write myself a python script to directly compare the X and dX
+and rescaling values between the two cases.</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<U><B>To Do Today:</B></U></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Write the python script/command set to compare the X, dX, and dX/X
+	values (both raw and rescaled) between Peter's results and Helena's:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Name of the python code:
+		/BodenheimerCode/plot_parse_utils/compare_codes_corrections.py</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			For the 10Mjup case (first convergence loop)</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				The X values are the same, but Helena's dX values are ~1e2 to 1e3
+				larger than Peter's dX values</P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			For the n=3/2 polytrope 1Msun case:</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Need to create read-in values for Helena for this case.</STRIKE>
+				Done.</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Capture the dX_raw, dX_scaled, and X values from that
+				Helena Run.</STRIKE> Done. Stored in
+				CppHenyeyCode/misc_debugging_records/n32_1Msun_init_corrections.txt</P>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				<STRIKE>Plot the corrections info against Peter's values for the
+				same input model
+				(BodenheimerCode/UnalteredCode/outputs/n32_all_corrections.txt).</STRIKE>
+				 Done</P>
+			</UL>
+		</UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		For the <STRIKE>first</STRIKE> (done), second, etc. convergence
+		loop results from each code.</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Note: Helena can't converge the n=3/2 1Msun input model, either
+	(though to be fair, neither can the no-fusion version of Peter's
+	code, either)</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Helena starts getting dX/X values of order -1e79 after ~50 loops,
+		though, so that's clearly off the rails</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Did I *really* fix that CDE indexing mix-up?? Or did I just change
+		something that seemed to fix it? 
+		</P>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	<STRIKE>Test Helena by reading in the CDEG values generated by
+	Peter's code for an n=3/2 1Msun model, feeding those values through
+	Helena's Henyey/corrections solver, and comparing the corrections to
+	the ones that Peter's code generates for the same model</STRIKE>. 
+	Done, but:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		 <STRIKE>need to generate hardcopies of those plots and include
+		them in this document.  Also, need to format subplotting etc. so
+		that they're legible to future-me.</STRIKE>  Done.  <B>See figures
+		included below.</B></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		The corrections calculated in the figures below are based on the
+		exact same CDEG and M/P/r/L/T values, which were generated by
+		Peter's code for an n=3/2 1Msun input model with NO fusion.  The
+		fact that the two programs calculate such wildly different
+		correction values indicates that:</P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Either my Henyey matrix inversion/solution method isn't working as
+			well as I'd thought</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				in which case, switch Helena back to using the old gauss-jordan
+				matrix inversion method for the 4x4 matrix inversions, and see if
+				the two codes still disagree this much</P>
+			</UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+			Or, the slight discrepancies in lookup table values/process
+			between Helena and Peter's code really are significant, and I need
+			to dig into that hardcore.</P>
+			<UL>
+				<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+				Note: the Helena run that produced these results used lookup
+				tables generated from Peter's code to calculate the secondary
+				variable values (though I'm not sure table lookups ever get
+				called during the modifiedHenyeyMatrixInversion subroutine. 
+				Check on that first thing tomorrow).  If this is the issue, it's
+				that same old problem of something about the precision of these
+				kludged-together lookup tables not being high enough for Helena
+				to interpolate accurately within them.</P>
+			</UL>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+	Other debugging avenues to keep in mind tomorrow:</P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Maybe I should try comparing input models that both codes (should)
+		converge without fusion. Find one of the 1Msun, no-fusion,
+		converged models?</P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+		Or, maybe I should try feeding both of them a really simple toy
+		model (linear M/r/T/L/P relations, for example), and see how they
+		differ in calculating the corrections to said model</P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/X_val_comparison.jpg" NAME="graphics8" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/dX_raw_comparison.jpg" NAME="graphics1" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/dX_scaled_comparison.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/raw_dX_over_X_comparison.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/scaled_dX_over_X_comparison.jpg" NAME="graphics6" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/raw_dX_ratios.jpg" NAME="graphics5" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="../../../../Research/CppHenyeyCode/misc_debugging_records/comparing_corrections/Aug-08-2012/scaled_dX_ratios.jpg" NAME="graphics7" ALIGN=LEFT WIDTH=800 HEIGHT=600 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><STRIKE><FONT SIZE=3>Make sure to add, commit,
+and push all updates to:</FONT></STRIKE></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>cdeg_debug.f</STRIKE>,
+	<STRIKE>main.cpp</STRIKE>, </FONT></FONT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3>/<STRIKE>BodenheimerCode/UnalteredCode/outputs/*.txt</STRIKE>
+	</FONT></FONT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>and /inputs/*.txt,</STRIKE>
+	</FONT></FONT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>/CppHenyeyCode/InitialConds/*.txt,</STRIKE>
+	</FONT></FONT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>/CppHenyeyCode/misc_debugging_records/*.txt,
+	and</STRIKE> </FONT></FONT>
+	</P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><FONT SIZE=3><STRIKE>/BodenheimerCode/plot_parse_utils/*.py</STRIKE>
+	</FONT></FONT>
+	</P>
+	<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><STRIKE><FONT SIZE=3>to BitBucket tonight
+	before quitting!!</FONT></STRIKE><SPAN STYLE="text-decoration: none"><FONT SIZE=3>
+	 DONE.</FONT></SPAN></FONT></P>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.08in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>

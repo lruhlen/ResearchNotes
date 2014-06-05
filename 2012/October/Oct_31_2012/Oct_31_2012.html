@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+	<META NAME="GENERATOR" CONTENT="OpenOffice.org 3.3  (Unix)">
+	<META NAME="AUTHOR" CONTENT="Laurel Ruhlen">
+	<META NAME="CREATED" CONTENT="20120323;1231700">
+	<META NAME="CHANGEDBY" CONTENT="Laurel Ruhlen">
+	<META NAME="CHANGED" CONTENT="20121031;18443500">
+	<STYLE TYPE="text/css">
+	<!--
+		@page { size: landscape }
+	-->
+	</STYLE>
+</HEAD>
+<BODY LANG="en-US" DIR="LTR">
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Date
+&amp; Time: Oct. 29, 2012</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Location:
+campus</B></FONT></FONT></FONT></P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Computing
+context: MachoMac </B></FONT></FONT></FONT>
+</P>
+<P STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>(/Desktop/Research/CppHenyeyCode/src,
+/Desktop/Research/BodenheimerCode/UnalteredCode)</B></FONT></FONT></FONT></P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-style: normal; text-decoration: none">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>From
+last time:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; text-decoration: none">
+<SPAN ID="Frame2" DIR="LTR" STYLE="float: left; width: 6.81in; height: 5.11in; border: 1.00pt solid #000000; padding: 0.02in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="../Oct_29_2012/whiteboard_snapshot.jpg" NAME="graphics2" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><BR><BR>
+	</P>
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2 STYLE="font-size: 10pt"><B>A
+	snapshot of the cartoon I drew on the whiteboard to help me figure
+	out precisely what the effective mass is at different depths in the
+	atmosphere according to the RK4 proceedure (which is personified as
+	the stick figure falling through the various parts of the
+	atmosphere).</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>The
+snapshot of my whiteboard (above) isn't the clearest, but the
+take-home point from all that board work is: </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>the
+effective mass (Mtemp) being &quot;felt&quot; by the RK4 difference
+equations is that M-twiddle quantity.  </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>M-twiddle
+= [total mass enclosed from the top of the atmosphere to wherever
+depth you're at now] - [amount of mass enclosed b/w the top of the
+atmosphere and the tau=2/3 surface].  In cleaner notation, that looks
+like:</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Oct_31_2012_html_m10779cfd.jpg" NAME="graphics3" ALIGN=LEFT WIDTH=530 HEIGHT=230 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Looking
+at Eqn (4), it's clear that the M-twiddle variable signifies the
+amount of mass contained between the photosphere and whatever depth
+you're at below it.  If you're still above the photosphere, you
+'pretend' M-twiddle = 0, even though it doesn't.  (I really need to
+clarify to myself once and for all why that's a reasonable
+approximation to make.  And then commit it to writing, here, so that
+I don't have to keep re-proving it to myself.)</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<IMG SRC="Oct_31_2012_html_m4471859c.jpg" NAME="graphics4" ALIGN=LEFT WIDTH=369 HEIGHT=112 BORDER=0><BR CLEAR=LEFT><BR><BR>
+</P>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><SPAN STYLE="text-decoration: none"><U><B>To
+Do Today:</B></U></SPAN></FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+	<FONT COLOR="#000000"><STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Update
+	my atmos code with the addition of an M-twiddle variable (and an
+	R-twiddle variable too, I guess), and use if-then statements to
+	incorporate those new variables in the Mtemp and Rtemp calculations
+	in a more straightforward way, rather than (failing at) following
+	the trick Peter used in his code.</FONT></FONT></STRIKE></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+		<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Done.
+		 But it didn't fix anything (see Figure 2 for the results that most
+		clearly show this).</FONT></FONT></FONT></P>
+	</UL>
+</UL>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<SPAN ID="Frame1" DIR="LTR" STYLE="float: left; width: 13.13in; height: 4.92in; border: none; padding: 0in; background: #ffffff">
+	<P ALIGN=CENTER STYLE="margin-top: 0.08in; margin-bottom: 0.08in; font-style: normal">
+	<IMG SRC="Figure2.png" NAME="graphics1" ALIGN=LEFT WIDTH=100% BORDER=0><BR CLEAR=LEFT><FONT FACE="Courier, monospace"><FONT SIZE=2><B>Figure
+	2</B></FONT></FONT></P>
+</SPAN><BR CLEAR=LEFT><BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>The
+mass and pressure values from Helena get too large too soon, while
+the radius and temperature values from Helena remain too small.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in; font-weight: normal">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>Talked
+to Greg about this.  Based on what he said, the debugging plan is:</FONT></FONT></FONT></P>
+<UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>Have Helena take in the
+	(M,R,P,T,kappa,rho,nab) values from Peter's code at each step, and
+	have Helena calculate the RHSs of the 4 ODEs and compare them to
+	what Peter's code gets from those same inputs.  This step is to
+	verify that the RHSs of the ODEs in Helena are correct.</FONT></FONT></P>
+	<UL>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<FONT FACE="Courier, monospace"><FONT SIZE=2>R<STRIKE>ead in the
+		atmos profile produced by Peter's code to python.</STRIKE></FONT></FONT></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Have python
+		print out each of the (tau,M,R,P,T) values at each step to its own
+		individual file.</FONT></FONT></STRIKE></P>
+		<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+		<STRIKE><FONT FACE="Courier, monospace"><FONT SIZE=2>Read each of
+		those files into Helena's atmos subroutine, and have it calculate
+		the atmos profile from those.</FONT></FONT></STRIKE></P>
+		<UL>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2>Record the difference
+			b/w what Helena calculates and what Peter gets at each step, and
+			plot/compare that.</FONT></FONT></P>
+			<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+			<FONT FACE="Courier, monospace"><FONT SIZE=2><FONT COLOR="#ff0000"><FONT SIZE=3><B>Got
+			to all but the step above.  I forgot to have python put newlines
+			b/w entries when writing the arrays to file.  So, will need to
+			start tomorrow redoing that step (and all the ones that follow
+			it). </B></FONT></FONT> </FONT></FONT>
+			</P>
+		</UL>
+	</UL>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>If that works, then
+	have Helena do an adaptive tau-step size algorithm (step size
+	halving --&gt; results after 2 steps should be the same as result
+	after 1 step with the larger dTau value)</FONT></FONT></P>
+	<LI><P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+	<FONT FACE="Courier, monospace"><FONT SIZE=2>&quot;Something subtly
+	wrong with my RK4 method... maybe not using an updated value in one
+	of the steps...&quot;</FONT></FONT></P>
+</UL>
+<HR>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U><B>Notes
+on progress/ideas/to-do for the Amazon Web Service elastic computing
+thing:</B></U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><U>The
+issues I'm currently trying to sort out w/ Hadoop are as follows:</U></FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>1)</B>
+Hadoop, by itself, Only takes map and reduce functions written in
+Java. However, Java is Hard. Also, more importantly, most scientific
+codes are *not* written in Java, or in *any* scripting language for
+that matter. So, how to get Hadoop to use one of those codes as its
+'map' function?</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>2)</B>
+you can start to get around that problem by using Hadoop streaming,
+which takes *any* executable programs in the &quot;map&quot; and
+&quot;reduce&quot; Slots . So, if you have program.cpp that Compiles
+to the executable myProgram, you could specify myProgram as your
+&quot;map&quot; function.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2>However,
+this still requires that ALL the inputs to myProgram come from the
+command line. In the case of Helena, and many other Scientific
+computing codes, the program needs to read in MUCH more than just a
+few parameter values in order to do its task. For instance, Helena
+needs to read in an entire file of data to start its initial model .
+In addition, it needs to read in several files containing the E0S
+look-up table values. So, the question is: --&gt; How do you pass
+along the input files that your executable needs w/ the function call
+to myProgram? (I've Seen some mention of zipping up the external
+files &amp; passing that single .gz file along w/ the Hadoop map -
+reduce call, but I'm not entirely sure how that works, Or whether
+passing copies of all those extra files, zipped or not, will end up
+making the process too Computationally or memoy-usage-ly intensive.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>2.5)</B>
+scientific programs usually create entire files of output (sometimes
+several per individual Simulation run). Is it possible to pass those
+*files* as inputs to the &quot;reduce&quot; function? Does a single
+processor handle all of the outputs from a Single map shard process?
+Or is there no way of knowing which Set of input data generated any
+of the items reduce is acting on? This is important to figure Out,
+b/c your simulation results mean NOTHING if you don't know what
+inputs to use to reproduce them.</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>3)</B>
+For right how, I don't think We need to worry about supplying a &quot;
+reduce &quot; function that does anything. In the future, you might
+see whether the reduce fuction is the appropriate place to do basic
+data parsing and analysis. Grouping results by keyword value pairs -
+which is how the reduce function basically works, may make figuring
+out how to translate my analysis Scripts to &quot;reduce&quot; -
+functional form kind of tricky. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>4)</B>
+In order to start testing any of this stuff out, I need to be able to
+RUN Hadoop on some machine. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>A)</B>
+First, need to be able to run Hadoop Locally, as a single - node
+cluster on my own machine. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>B)</B>
+If there is some way of getting my single, local machine to
+impersonate a cluster of multiple nodes, have it do that (BUT HOW?!)
+and run the Hadoop map - reduce process locally. </FONT></FONT></FONT>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<FONT COLOR="#000000"><FONT FACE="Courier, monospace"><FONT SIZE=2><B>C)</B>
+Once I can get this working and debugged on my local machine, where
+computing time is free, try getting it to work on the Amazon cloud
+servers. ( It sucks that their EMR framework doesn't let you use the
+free micro - instances to form your virtual cluster, b/c I just know
+I'm going to end up burning thru a lot of non - free computing hours
+on there, which are coming out of my own rather shallow grad student
+pockets for the time being )</FONT></FONT></FONT></P>
+<P ALIGN=LEFT STYLE="margin-left: 0.79in; margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+<P ALIGN=LEFT STYLE="margin-bottom: 0.02in; background: #ffffff; border: none; padding: 0in">
+<BR><BR>
+</P>
+</BODY>
+</HTML>
